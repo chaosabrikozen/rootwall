@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rootwall — a rulebook for agent-to-API access</title>
+<meta name="description" content="A published admission standard, a record signed by both sides, and a consequence when a rule is broken. Rootwall administers accountability for agent-to-API access between companies.">
+<style>
+  :root {
+    --ink:        #17171a;
+    --ink-soft:   #4a4a52;
+    --ink-faint:  #74747e;
+    --paper:      #fbfaf8;
+    --panel:      #f2f0ec;
+    --rule:       #dcd9d2;
+    --accent:     #7a2f1e;
+    --measure:    34rem;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink:       #e8e6e1;
+      --ink-soft:  #b2afa8;
+      --ink-faint: #86837c;
+      --paper:     #16161a;
+      --panel:     #1e1e23;
+      --rule:      #33333a;
+      --accent:    #d98b72;
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    font-size: 18px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: var(--measure);
+    margin: 0 auto;
+    padding: 4.5rem 1.5rem 6rem;
+  }
+
+  /* ---------- masthead ---------- */
+
+  .masthead { margin-bottom: 3.25rem; }
+
+  .wordmark {
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin: 0 0 1.5rem;
+    color: var(--ink);
+  }
+
+  h1 {
+    font-size: 1.65rem;
+    line-height: 1.32;
+    font-weight: 600;
+    margin: 0 0 1rem;
+    letter-spacing: -0.008em;
+  }
+
+  .standfirst {
+    font-size: 1.06rem;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  /* ---------- sections ---------- */
+
+  section { margin-top: 3.25rem; }
+
+  h2 {
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 0.74rem;
+    font-weight: 650;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 0 0 1.1rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  p { margin: 0 0 1.05rem; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 650; color: var(--ink); }
+
+  /* ---------- lists ---------- */
+
+  ol.numbered {
+    list-style: none;
+    counter-reset: n;
+    padding: 0;
+    margin: 0;
+  }
+  ol.numbered > li {
+    counter-increment: n;
+    position: relative;
+    padding-left: 2.2rem;
+    margin-bottom: 1.15rem;
+  }
+  ol.numbered > li:last-child { margin-bottom: 0; }
+  ol.numbered > li::before {
+    content: counter(n);
+    position: absolute;
+    left: 0;
+    top: 0.16em;
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 0.76rem;
+    font-weight: 650;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+
+  ul.plain {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  ul.plain > li {
+    position: relative;
+    padding-left: 2.2rem;
+    margin-bottom: 1.05rem;
+  }
+  ul.plain > li:last-child { margin-bottom: 0; }
+  ul.plain > li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--ink-faint);
+  }
+
+  .lede-term {
+    font-weight: 650;
+  }
+
+  /* ---------- pull statement ---------- */
+
+  .statement {
+    border-left: 2px solid var(--accent);
+    padding: 0.1rem 0 0.1rem 1.35rem;
+    margin: 1.6rem 0;
+    font-size: 1.08rem;
+    line-height: 1.5;
+  }
+
+  /* ---------- panel ---------- */
+
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    padding: 1.5rem 1.6rem;
+    margin-top: 1.4rem;
+  }
+  .panel p:last-child { margin-bottom: 0; }
+
+  /* ---------- call to action ---------- */
+
+  .cta { margin-top: 3.5rem; padding-top: 2.25rem; border-top: 1px solid var(--rule); }
+
+  .cta a.primary {
+    display: inline-block;
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 0.92rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    color: var(--paper);
+    background: var(--accent);
+    padding: 0.72rem 1.35rem;
+    border: 1px solid var(--accent);
+  }
+  .cta a.primary:hover,
+  .cta a.primary:focus { opacity: 0.88; }
+
+  .cta .note {
+    font-size: 0.9rem;
+    color: var(--ink-faint);
+    margin-top: 1.1rem;
+    line-height: 1.55;
+  }
+
+  /* ---------- colophon ---------- */
+
+  footer {
+    margin-top: 4rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid var(--rule);
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 0.78rem;
+    line-height: 1.7;
+    color: var(--ink-faint);
+  }
+  footer p { margin: 0 0 0.35rem; }
+
+  a { color: var(--accent); }
+
+  @media (max-width: 34rem) {
+    body { font-size: 17px; }
+    .wrap { padding: 3rem 1.25rem 4rem; }
+    h1 { font-size: 1.42rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="wordmark">Rootwall</p>
+    <h1>A published rulebook for the agents that call your API.</h1>
+    <p class="standfirst">An admission standard anyone can read. A record of each session signed independently by both parties. A consequence, fixed in advance, when a rule is broken.</p>
+  </header>
+
+  <section>
+    <h2>The gap</h2>
+    <p><strong>Every partner programme we have read has a gate. None of them has a record.</strong></p>
+    <p>Platforms approve an integration before it goes live and reassess it on a cycle of one to three years. That was a defensible control when an integration's behaviour was fixed at the moment it was built.</p>
+    <p>An agent's behaviour is fixed at the moment of the call, by whoever is instructing it.</p>
+    <div class="statement">A reassessment cycle measured in years assesses nothing that is still true about a delegation.</div>
+    <p>An approval says the software was acceptable once. It does not say what the software did on Tuesday, under whose authority, or whether that was inside the scope it was approved for. Today, in most integrations, nobody holds a record that answers those questions and that both sides would accept.</p>
+  </section>
+
+  <section>
+    <h2>What Rootwall is</h2>
+    <ol class="numbered">
+      <li><span class="lede-term">A members' club with published rules.</span> An agent operator is checked once, against a standard anyone can read, rather than separately by every organisation it deals with.</li>
+      <li><span class="lede-term">A record signed by both sides.</span> Each time two members' systems talk, both parties independently send a short signed record of what happened — who, under whose delegation, against which declared scope, with what outcome. A few hundred bytes. Never the contents of the message.</li>
+      <li><span class="lede-term">Reconciliation, not detection.</span> The two records are put side by side. Where they agree, that agreement is itself the record: a positive statement that nothing went wrong, which is most of what a member is actually buying. Where they diverge, both parties are put on notice.</li>
+      <li><span class="lede-term">A consequence that does not need a court.</span> Scope is declared in advance, so a breach is arithmetic rather than an argument. Where a sum is payable it is fixed before any breach occurs and it is paid to the affected member — <strong>never to Rootwall.</strong></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Who it is for</h2>
+    <p>The organisation exposing the API — the one that carries the loss today, because when an agent misbehaves against it there is no accountable counterparty to send the loss to.</p>
+    <p>The rules bite where two things are true at once: you cannot switch off this <em>class</em> of traffic, because it is your revenue or your integration ecosystem is your moat; and you can drop any <em>individual</em> operator without losing the class. That is the structure card schemes have with acquirers and merchants. Compulsion is what makes governance worth buying. Fragmentation is what gives the consequence teeth.</p>
+  </section>
+
+  <section>
+    <h2>What it supplies</h2>
+    <ul class="plain">
+      <li><span class="lede-term">The rulebook.</span> Admission criteria; delegation constraints, including the rule that an agent may do only what it is authorised to do <em>and</em> what the delegating person is authorised to do, never the union; the evidence standard; disclosure and cooperation duties; published scope classes; liquidated sums; expulsion, and revocation that propagates to everyone relying on it.</li>
+      <li><span class="lede-term">The admission assessment.</span> Performed once against the published standard, producing an admission to a class rather than a bespoke arrangement with each counterparty.</li>
+      <li><span class="lede-term">The two-sided record.</span> A schema and reference implementation for the signed assertions, joined by a shared session identifier so that the two accounts of one session can be reconciled against each other.</li>
+      <li><span class="lede-term">Evidence.</span> On request, the signed records held for the sessions in question are released — to both parties at once, with no position taken on who owes whom anything.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>What is never seen</h2>
+    <p>Rootwall is not in the path of any call and receives no logs. It receives structured, signed statements of declared facts. It never sees call arguments, never sees payloads, never sees a member's gateway, and holds no opinion about how a member manages its own records.</p>
+    <p>A member declares which scope classes it accepts, once, to the scheme. It may then apply any restriction stricter than the class permits, at its own interface, privately, without telling anyone. <strong>Stricter is always available. Looser never is.</strong></p>
+  </section>
+
+  <section>
+    <h2>What it is not</h2>
+    <ul class="plain">
+      <li><span class="lede-term">Not identity.</span> Agent and workload identity is a crowded field and a fast-commoditising one — Web Bot Auth, MCP-I, SPIFFE and the rest. Rootwall consumes those and builds none of them. The gap is one layer up: accreditation and enforcement.</li>
+      <li><span class="lede-term">Not a gateway, WAF or API security product.</span> You already have those, and they are controls you operate against traffic you can see. The argument here is not that you cannot block a bad agent. It is that nothing currently happens to the party that sent it.</li>
+      <li><span class="lede-term">Not anomaly detection, and there are no false positives.</span> Scope is declared in advance, so a deviation is a matter of comparing a call against a declaration — never a judgement about whether behaviour looks unusual. Nothing is scored, nothing is inferred, there is no baseline to learn and no model in the enforcement path. What that removes is the alert nobody trusts.</li>
+      <li><span class="lede-term">Not an arbitration or claims forum.</span> Rootwall rules on whether a rule was broken. It takes no position whatever on loss. Recovery stays bilateral, in the ordinary courts, with the signed records available to both sides.</li>
+      <li><span class="lede-term">Not insurance.</span> Nothing is underwritten, pooled or paid out.</li>
+      <li><span class="lede-term">Not a directory or reputation service.</span> Those are worth something at scale and nothing at the beginning, so they are not being built at the beginning.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Why a rulebook and not a standard</h2>
+    <p>Route origin validation is technically sound, free, and endorsed by everybody. Two decades on, much of the internet still does not enforce it — because nothing happens to you if you don't.</p>
+    <div class="statement">Voluntary standards plateau. Contractual membership with a consequence attached does not.</div>
+    <p>That difference is the whole design. It is also the reason the rules are a contract between named parties rather than a specification anyone may adopt at their convenience.</p>
+  </section>
+
+  <section>
+    <h2>The limit, stated first</h2>
+    <p>Rootwall does not detect all misuse, and it does not make an operator accountable where no rule was broken. A well-defended organisation can stop a misbehaving agent below the published ceiling, in which case no violation is recorded and the next organisation gets no warning.</p>
+    <p><strong>What the scheme does is allocate loss and cap blast radius.</strong> Stated first, that is ordinary scheme design. Discovered later, it would be overselling.</p>
+  </section>
+
+  <section>
+    <h2>The rulebook is published in full</h2>
+    <p>Not behind a form, not behind a meeting. A body that sells accreditation and will not show you its standard is not one — and the rules themselves oblige publication.</p>
+    <div class="panel">
+      <p><strong>The rulebook is generic by design.</strong> Every clause is written to be read by any member in any sector, which is what makes an admission portable rather than bilateral. Two things cannot be generic and are marked as such: the content of the scope classes, and the liquidated sums. A scope class describes operations against a specific interface — permitted method kinds, ceilings, what must be asserted — so a generic one would describe nothing. A sum is set with the class it belongs to, because a sum that is not proportionate to what the class permits is not a deterrent, it is a number.</p>
+      <p>The structure both must take is fully specified in the schedules. <strong>What is absent is content that would be wrong if invented.</strong></p>
+      <p>Every clause is numbered stably and every version stays readable, because a clause that cannot be linked to cannot be cited in a contract.</p>
+    </div>
+  </section>
+
+  <div class="cta">
+    <a class="primary" href="/rulebook">Read the rulebook</a>
+    <p class="note">The full text, with a plain-English summary at the top that is not part of the rules.</p>
+  </div>
+
+  <footer>
+    <p>Rootwall is a governed overlay on the ordinary public internet. No new cable, no new transport, no new protocol layer.</p>
+    <p>Contact: <a href="mailto:info@rootwall.ai">info@rootwall.ai</a></p>
+  </footer>
+
+</div>
+</body>
+</html>
