@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rootwall — version history</title>
+<meta name="description" content="Every published version of the Rootwall rulebook and schedule of fees, with its date and what changed. Superseded versions stay readable, because a clause that cannot be cited is not a rule.">
+<style>
+  :root {
+    --ink:        #17171a;
+    --ink-soft:   #4a4a52;
+    --ink-faint:  #74747e;
+    --paper:      #fbfaf8;
+    --panel:      #f2f0ec;
+    --rule:       #dcd9d2;
+    --accent:     #7a2f1e;
+    --measure:    34rem;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink:       #e8e6e1;
+      --ink-soft:  #b2afa8;
+      --ink-faint: #86837c;
+      --paper:     #16161a;
+      --panel:     #1e1e23;
+      --rule:      #33333a;
+      --accent:    #d98b72;
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    font-size: 18px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: var(--measure);
+    margin: 0 auto;
+    padding: 4.5rem 1.5rem 6rem;
+  }
+
+  .masthead { margin-bottom: 3.25rem; }
+
+  .wordmark {
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin: 0 0 1.5rem;
+    color: var(--ink);
+  }
+  .wordmark a { color: inherit; text-decoration: none; }
+
+  h1 {
+    font-size: 1.65rem;
+    line-height: 1.32;
+    font-weight: 600;
+    margin: 0 0 1rem;
+    letter-spacing: -0.008em;
+  }
+
+  .standfirst {
+    font-size: 1.06rem;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  .docmeta {
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+    color: var(--ink-faint);
+    margin: 1.4rem 0 0;
+  }
+
+  section { margin-top: 3.25rem; }
+
+  h2 {
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 0.74rem;
+    font-weight: 650;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 0 0 1.1rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  p { margin: 0 0 1.05rem; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 650; color: var(--ink); }
+
+  ul.plain { list-style: none; padding: 0; margin: 0; }
+  ul.plain > li {
+    position: relative;
+    padding-left: 2.2rem;
+    margin-bottom: 1.05rem;
+  }
+  ul.plain > li:last-child { margin-bottom: 0; }
+  ul.plain > li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--ink-faint);
+  }
+
+  .lede-term { font-weight: 650; }
+
+  .statement {
+    border-left: 2px solid var(--accent);
+    padding: 0.1rem 0 0.1rem 1.35rem;
+    margin: 1.6rem 0;
+    font-size: 1.08rem;
+    line-height: 1.5;
+  }
+
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    padding: 1.5rem 1.6rem;
+    margin-top: 1.4rem;
+  }
+  .panel p:last-child { margin-bottom: 0; }
+
+  /* ---------- version entries ---------- */
+
+  .entry {
+    padding: 1.15rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .entry:first-of-type { border-top: 1px solid var(--ink-faint); }
+
+  .entry-head {
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 0.82rem;
+    font-weight: 650;
+    letter-spacing: 0.02em;
+    margin: 0 0 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    align-items: baseline;
+  }
+
+  .ver { color: var(--accent); font-variant-numeric: tabular-nums; }
+
+  .date {
+    font-weight: 400;
+    color: var(--ink-faint);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .tag {
+    font-size: 0.66rem;
+    font-weight: 650;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 1px solid var(--rule);
+    padding: 0.08rem 0.42rem;
+    color: var(--ink-faint);
+  }
+  .tag.current { border-color: var(--accent); color: var(--accent); }
+
+  .entry p { font-size: 0.95rem; margin-bottom: 0.7rem; }
+  .entry p:last-child { margin-bottom: 0; }
+
+  footer {
+    margin-top: 4rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid var(--rule);
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 0.78rem;
+    line-height: 1.7;
+    color: var(--ink-faint);
+  }
+  footer p { margin: 0 0 0.35rem; }
+
+  a { color: var(--accent); }
+
+  @media (max-width: 34rem) {
+    body { font-size: 17px; }
+    .wrap { padding: 3rem 1.25rem 4rem; }
+    h1 { font-size: 1.42rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="wordmark"><a href="/">Rootwall</a></p>
+    <h1>Version history</h1>
+    <p class="standfirst">Every published version of the rulebook and the schedule of fees, with the date it took effect and what changed in it.</p>
+    <p class="docmeta">Last updated 27 August 2026</p>
+  </header>
+
+  <section>
+    <h2>Why this page exists</h2>
+    <div class="statement">A clause that cannot be cited to a fixed version is not a rule. It is an opinion that may have moved since you read it.</div>
+    <p>The intended end state for these rules is that they get named in contracts between members. That is only possible if a party can point at a numbered clause, in a numbered version, on a fixed date, and be sure the text it read then is the text that will be there later.</p>
+    <p>So three commitments are made here and are meant to be relied on.</p>
+    <ul class="plain">
+      <li><span class="lede-term">Superseded versions stay published.</span> A version that has been replaced remains readable at its own address. Nothing is quietly withdrawn.</li>
+      <li><span class="lede-term">Clause numbering is stable.</span> Numbers are never reused. A clause removed in a later version is marked <em>[Reserved]</em> and its number is retired, so a citation to it never silently comes to mean something else.</li>
+      <li><span class="lede-term">Every change is dated and described.</span> Not a changelog written afterwards. The entry is made in the same edit as the change.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>The rulebook</h2>
+
+    <div class="entry">
+      <p class="entry-head"><span class="ver">Version 0.7</span> <span class="date">24 August 2026</span> <span class="tag current">Current</span> <span class="tag">Draft</span></p>
+      <p>The first version published on this site. Complete text of parts 1 to 9, clauses 1 to 37, and schedules 1 to 5, with the known limitations stated in the document rather than discovered by the reader.</p>
+      <p>Two schedules are deliberately incomplete and are marked as such in the text. <strong>Schedule 3, the scope classes,</strong> is empty because a scope class describes operations against a specific interface, and a generic one would describe nothing. <strong>Schedule 2, the liquidated sums,</strong> carries illustrative figures only, because a sum that is not proportionate to what its class permits is not a deterrent. Both are written with the first members of a sector, not invented at a desk. The structure each must take is fully specified.</p>
+      <p>Clauses 6 and 27.7 are marked <em>[Reserved]</em>. They were removed at version 0.4 and their numbers are retired.</p>
+    </div>
+
+    <div class="panel">
+      <p><strong>Versions 0.1 to 0.6 were drafted before the rules were published and were never available at a public address.</strong> They are not listed here, because listing a version that nobody could have read or cited would be a version history in appearance only. Publication starts at 0.7, and every version from 0.7 onward is recorded on this page.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Schedule of fees</h2>
+
+    <div class="entry">
+      <p class="entry-head"><span class="ver">Version 0.1</span> <span class="date">27 August 2026</span> <span class="tag current">Current</span></p>
+      <p>First publication. Membership priced by role at $6,000 a year in the Receiving Role and $1,000 in the Emitting Role, admission at $350 on both sides covering entry and exit, assessment at $1,200 per scope class in the Emitting Role with renewal at $600, and the conduct and retention extension heads declared at nil.</p>
+      <p>Effective for memberships commencing on or after 1 April 2027. Existing members keep their joining price for as long as membership continues without a break.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>How a change gets made</h2>
+    <p>The rulebook's own amendment provisions govern, and this page does not add to them or soften them. In outline, and without replacing the text of the rules themselves:</p>
+    <ul class="plain">
+      <li><span class="lede-term">An amendment requires notice to members.</span> A member that does not accept an amendment may withdraw rather than be bound by it.</li>
+      <li><span class="lede-term">Some clauses cannot be amended at all.</span> The prohibition on any sum reaching the scheme on breach is one of them, and it is unamendable by design rather than by policy.</li>
+      <li><span class="lede-term">A rule cannot be varied, waived or disapplied for an individual member.</span> There is no private version of these rules and no member has one.</li>
+      <li><span class="lede-term">Fees are not rules.</span> They can change on this schedule without amending the rulebook, subject to the commitment above that an existing member's price does not move.</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p><a href="/">Front page</a> &middot; <a href="/rulebook">The rulebook</a> &middot; <a href="/fees">Schedule of fees</a></p>
+    <p>Rootwall is a governed overlay on the ordinary public internet. No new cable, no new transport, no new protocol layer.</p>
+    <p>Contact: <a href="mailto:info@rootwall.ai">info@rootwall.ai</a></p>
+  </footer>
+
+</div>
+</body>
+</html>
