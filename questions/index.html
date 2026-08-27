@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rootwall — common questions</title>
+<meta name="description" content="What Rootwall is, who enforces a consequence, what happens if a member simply leaves, what the scheme can and cannot see, what it costs, and when it starts. Answered plainly, including the limits.">
+<style>
+  :root {
+    --ink:        #17171a;
+    --ink-soft:   #4a4a52;
+    --ink-faint:  #74747e;
+    --paper:      #fbfaf8;
+    --panel:      #f2f0ec;
+    --rule:       #dcd9d2;
+    --accent:     #7a2f1e;
+    --measure:    36rem;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink:       #e8e6e1;
+      --ink-soft:  #b2afa8;
+      --ink-faint: #86837c;
+      --paper:     #16161a;
+      --panel:     #1e1e23;
+      --rule:      #33333a;
+      --accent:    #d98b72;
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    font-size: 18px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: var(--measure); margin: 0 auto; padding: 4.5rem 1.5rem 6rem; }
+
+  .masthead { margin-bottom: 3rem; }
+
+  .wordmark {
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 1.05rem; font-weight: 600; letter-spacing: 0.16em;
+    text-transform: uppercase; margin: 0 0 1.5rem; color: var(--ink);
+  }
+  .wordmark a { color: inherit; text-decoration: none; }
+
+  h1 { font-size: 1.65rem; line-height: 1.32; font-weight: 600; margin: 0 0 1rem; letter-spacing: -0.008em; }
+
+  .standfirst { font-size: 1.06rem; color: var(--ink-soft); margin: 0; }
+
+  .docmeta {
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 0.78rem; letter-spacing: 0.02em; color: var(--ink-faint); margin: 1.4rem 0 0;
+  }
+
+  .qa { margin-top: 2.75rem; padding-top: 1.6rem; border-top: 1px solid var(--rule); }
+  .qa:first-of-type { border-top: 1px solid var(--ink-faint); }
+
+  h2 {
+    font-size: 1.1rem; line-height: 1.4; font-weight: 650;
+    margin: 0 0 0.9rem; letter-spacing: -0.004em;
+  }
+
+  p { margin: 0 0 1.05rem; }
+  p:last-child { margin-bottom: 0; }
+  strong { font-weight: 650; color: var(--ink); }
+  a { color: var(--accent); }
+
+  ol.steps { list-style: none; counter-reset: n; padding: 0; margin: 0 0 1.05rem; }
+  ol.steps > li {
+    counter-increment: n; position: relative; padding-left: 2.2rem; margin-bottom: 0.9rem;
+  }
+  ol.steps > li:last-child { margin-bottom: 0; }
+  ol.steps > li::before {
+    content: counter(n); position: absolute; left: 0; top: 0.16em;
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 0.76rem; font-weight: 650; color: var(--accent); font-variant-numeric: tabular-nums;
+  }
+
+  .statement {
+    border-left: 2px solid var(--accent);
+    padding: 0.1rem 0 0.1rem 1.35rem;
+    margin: 1.4rem 0;
+    font-size: 1.06rem; line-height: 1.5;
+  }
+
+  .cite {
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 0.8rem; color: var(--ink-faint); margin-top: 0.9rem;
+  }
+  .cite a { color: var(--ink-faint); }
+
+  .toc {
+    background: var(--panel); border: 1px solid var(--rule);
+    padding: 1.2rem 1.4rem; margin-top: 2.5rem;
+  }
+  .toc ol {
+    list-style: none; padding: 0; margin: 0;
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 0.86rem;
+  }
+  .toc li { margin-bottom: 0.45rem; }
+  .toc li:last-child { margin-bottom: 0; }
+  .toc a { text-decoration: none; color: var(--ink-soft); }
+  .toc a:hover { color: var(--accent); }
+
+  footer {
+    margin-top: 4rem; padding-top: 1.4rem; border-top: 1px solid var(--rule);
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 0.78rem; line-height: 1.7; color: var(--ink-faint);
+  }
+  footer p { margin: 0 0 0.35rem; }
+
+  @media (max-width: 34rem) {
+    body { font-size: 17px; }
+    .wrap { padding: 3rem 1.25rem 4rem; }
+    h1 { font-size: 1.42rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="wordmark"><a href="/">Rootwall</a></p>
+    <h1>Common questions</h1>
+    <p class="standfirst">Answered plainly, and including the answers that are unflattering. Every one of these is settled somewhere in the rulebook; this page says where.</p>
+    <p class="docmeta">Last updated 27 August 2026 &middot; The rulebook governs. Where this page and a clause disagree, the clause wins.</p>
+  </header>
+
+  <nav class="toc">
+    <ol>
+      <li><a href="#what">What is Rootwall, in one paragraph?</a></li>
+      <li><a href="#enforces">If a member breaks a rule and owes money, who enforces payment?</a></li>
+      <li><a href="#walks">What if they just leave rather than pay?</a></li>
+      <li><a href="#sees">What does Rootwall see?</a></li>
+      <li><a href="#block">Does it block anything?</a></li>
+      <li><a href="#identity">How is this different from agent identity products?</a></li>
+      <li><a href="#disagree">What happens when the two records disagree?</a></li>
+      <li><a href="#already">We already have a partner programme with rules. Why would we need this?</a></li>
+      <li><a href="#negotiable">Is the rulebook negotiable?</a></li>
+      <li><a href="#cost">What does it cost, and when does it start?</a></li>
+      <li><a href="#who">Who is it for?</a></li>
+      <li><a href="#now">What exists today, and what does not?</a></li>
+    </ol>
+  </nav>
+
+  <section class="qa" id="what">
+    <h2>What is Rootwall, in one paragraph?</h2>
+    <p>A membership scheme for the API traffic between two named companies. An organisation whose agents call somebody else's API is assessed once against a published standard rather than separately by every counterparty. From then on, each time the two systems talk, <strong>both sides independently send Rootwall a short signed record of what happened</strong> — who, under whose authority, against which declared scope, with what outcome. Rootwall puts the two records side by side. Where they agree, that agreement is itself the record. Where a rule was broken, a consequence published in advance attaches.</p>
+    <p>It is a scheme, in the sense that Visa is a scheme. It is not a network, a gateway or a piece of infrastructure, and no traffic passes through it.</p>
+  </section>
+
+  <section class="qa" id="enforces">
+    <h2>If a member breaks a rule and owes money, who enforces payment?</h2>
+    <div class="statement">Nobody can compel it. Rootwall can expel; the affected member can sue; neither can make the money move.</div>
+    <p>The chain is worth stating in full, because it is spread across four clauses:</p>
+    <ol class="steps">
+      <li><strong>The money moves between the two companies, never through Rootwall.</strong> A sum is payable by the member in breach to the affected member. Rootwall does not collect it, hold it, route it, or take a share of it. It records that the sum is due and records whether the affected member says it arrived.</li>
+      <li><strong>Rootwall's enforcement is standing, not money.</strong> Not paying is itself a breach, and it puts the member into Suspended. That invalidates its membership attestation, and revocation propagates within one business day to <em>every</em> member that accepted that scope class — not only to the company it owes.</li>
+      <li><strong>The affected member's enforcement is an ordinary lawsuit.</strong> If the member refuses to pay, recovery is a contract claim in the ordinary courts, using the two independently signed records Rootwall holds and releases to both sides at once.</li>
+    </ol>
+    <p>So Rootwall's real instrument is loss of access across the whole membership, and the money is a matter between the two companies with better evidence than they would otherwise have.</p>
+    <p class="cite">Rulebook <a href="/rulebook#31.1">31.1</a>, <a href="/rulebook#31.3">31.3</a>, <a href="/rulebook#31.4">31.4</a>, <a href="/rulebook#27.8">27.8</a>, <a href="/rulebook#8.2">8.2</a>, <a href="/rulebook#33.1">33.1</a>, Schedule 1.</p>
+  </section>
+
+  <section class="qa" id="walks">
+    <h2>What if they just leave rather than pay?</h2>
+    <p><strong>Then they leave, and the scheme's consequences stop mattering to them.</strong> This is the honest limit and the rulebook states it in its own Known limitations rather than leaving it to be discovered: <em>exit is the floor of enforceability.</em></p>
+    <p>Every consequence rests on a member wanting to remain a member. A member facing a sum larger than the value of its membership can withdraw, or accept expulsion, and Rootwall has no mechanism to compel payment. Threatening suspension is meaningless to a party already leaving.</p>
+    <p>What survives is worth having, and is what a scheme actually offers: the departure is recorded, revocation propagates to everyone relying on that admission, readmission is a fresh admission rather than a restoration, and the affected member still holds two signed accounts of what happened for its claim. <strong>This is the single largest gap between a scheme with statutory backing and a contractual one, and it is not concealed.</strong></p>
+    <p class="cite">Rulebook Known limitations; <a href="/rulebook#8.1">8.1</a>, <a href="/rulebook#8.2">8.2</a>, Schedule 1.</p>
+  </section>
+
+  <section class="qa" id="sees">
+    <h2>What does Rootwall see?</h2>
+    <p><strong>Structured statements about sessions. Never the contents of anything.</strong> No request or response bodies, no argument values, no member's logs. Assertions carry the <em>names</em> of arguments and a cryptographic digest of their values, never the values themselves.</p>
+    <p>This is a limit on Rootwall and not merely a permission for members: the emission interface is required to be <em>incapable</em> of accepting that material — to reject it rather than receive and discard it. It follows that Rootwall cannot determine anything that would require reading an argument value, and no clause claims otherwise.</p>
+    <p class="cite">Rulebook <a href="/rulebook#2.3">2.3</a>, <a href="/rulebook#24.1">24.1</a>, <a href="/rulebook#24.2">24.2</a>, <a href="/rulebook#36.4">36.4</a>.</p>
+  </section>
+
+  <section class="qa" id="block">
+    <h2>Does it block anything?</h2>
+    <p><strong>No. Rootwall is never in the path of any call.</strong> If Rootwall is entirely unavailable, members carry on transacting and the only consequence is that records are sent later.</p>
+    <p>You already have gateways and API security products, and those are controls you operate against traffic you can see. The argument here is not that you cannot block a misbehaving agent. It is that today, when you do, <strong>nothing happens to the party that sent it</strong>, and the next company it calls gets no warning.</p>
+    <p class="cite">Rulebook <a href="/rulebook#2.2">2.2</a>, <a href="/rulebook#20.6">20.6</a>, <a href="/rulebook#20.7">20.7</a>.</p>
+  </section>
+
+  <section class="qa" id="identity">
+    <h2>How is this different from agent identity products?</h2>
+    <p>Agent and workload identity is a crowded and fast-commoditising field — Web Bot Auth, MCP-I, SPIFFE and others. <strong>Rootwall consumes those and builds none of them.</strong></p>
+    <p>Identity answers <em>this agent is who it claims to be</em>. It does not answer <em>was that within what it was allowed to do, and who says so besides the party claiming it</em>. The gap Rootwall occupies is one layer up: accreditation against a published standard, and a consequence when the standard is broken.</p>
+    <p>Rootwall issues one thing, a membership attestation, which states that a named party was admitted to a named scope class on a named date. It asserts nothing about who that party is and is worthless without an identity mechanism Rootwall does not operate.</p>
+    <p class="cite">Rulebook <a href="/rulebook#2.7">2.7</a>, Schedule 5.</p>
+  </section>
+
+  <section class="qa" id="disagree">
+    <h2>What happens when the two records disagree?</h2>
+    <p><strong>A divergence is a question, not a finding.</strong> Both parties are placed Under Review and asked to explain within a published period. Under Review is not an adverse finding, participation continues, and it expires automatically after thirty business days unless Rootwall has determined something — so nobody can be left in limbo indefinitely.</p>
+    <p>If it turns out one side simply failed to send records, that is an evidence failure. If it turns out work was done outside the instrumented path, that is a false assertion. Which one it is comes from the explanation, not from a guess.</p>
+    <p><strong>Nothing is scored, inferred or compared against a baseline.</strong> Determination is the comparison of a record against a published rule; Rootwall is expressly forbidden to derive any consequence from a model, an anomaly score or a member's history. There are no false positives because there is no detection.</p>
+    <p class="cite">Rulebook <a href="/rulebook#23.5">23.5</a>, <a href="/rulebook#23.6">23.6</a>, <a href="/rulebook#29.1">29.1</a>, <a href="/rulebook#29.4">29.4</a>, Schedule 1, Schedule 4.</p>
+  </section>
+
+  <section class="qa" id="already">
+    <h2>We already have a partner programme with rules. Why would we need this?</h2>
+    <p>Because a partner programme is a gate, and a gate assesses a build.</p>
+    <p>Every published partner programme we have read approves an integration before it goes live and reassesses it on a cycle of one to three years. Some carry real conduct rules and the power to remove a partner. <strong>The furthest any of them goes is a right to inspect on demand, and a right invoked at will is not a record kept by default.</strong></p>
+    <div class="statement">A reassessment cycle measured in years assesses nothing that is still true about a delegation. An integration's behaviour was fixed when it was built. An agent's behaviour is fixed at the moment of the call, by whoever is instructing it.</div>
+    <p>The second difference is portability. Your programme binds your marketplace, is enforceable by you alone, and travels nowhere. An integrator working with five platforms carries five separate regimes and is observed by none of them.</p>
+  </section>
+
+  <section class="qa" id="negotiable">
+    <h2>Is the rulebook negotiable?</h2>
+    <p><strong>No, and that is the product rather than a stance.</strong> Rootwall applies the rules identically to every member and may not vary, waive or disapply a rule for anyone. A scope class is identical for every member admitted into it. The consequence for the same breach in the same role is identical across the membership. An admission is worth something to the next company precisely because it was not negotiated with the last one.</p>
+    <p>Two things are written with you rather than handed to you: <strong>the scope class for your own interface, and the sums attached to it.</strong> Those describe operations against a specific API, so a generic version would describe nothing. Everything else is the same document for everybody.</p>
+    <p>You may always be stricter at your own interface, privately, without telling anyone. You may never be looser.</p>
+    <p class="cite">Rulebook <a href="/rulebook#9.1">9.1</a>, <a href="/rulebook#12.1">12.1</a>, <a href="/rulebook#12.2">12.2</a>, <a href="/rulebook#30.3">30.3</a>, <a href="/rulebook#35.2">35.2</a>.</p>
+  </section>
+
+  <section class="qa" id="cost">
+    <h2>What does it cost, and when does it start?</h2>
+    <p><strong>$6,000 a year if you own the API, $1,000 a year if your agents call one</strong>, plus $350 to join either side and $1,200 for each scope class assessment on the calling side. The full schedule is <a href="/fees">published</a>, for the same reason the rulebook is.</p>
+    <p><strong>Nothing is ever paid to Rootwall for breaking a rule.</strong> Where a sum is payable for a breach it goes to the member that was harmed. The rulebook forbids any such sum reaching Rootwall, and forbids that clause being amended.</p>
+    <p>Membership commences <strong>1 April 2027 at the earliest</strong>. What is being signed is membership that commences on a date, not software that must arrive on one.</p>
+  </section>
+
+  <section class="qa" id="who">
+    <h2>Who is it for?</h2>
+    <p>The organisation exposing the API — the one carrying the loss today, because when an agent misbehaves against it there is no accountable counterparty to send the loss to.</p>
+    <p>The rules bite where two things are true at once: <strong>you cannot switch off this class of traffic</strong>, because it is your revenue or your integration ecosystem is your moat; and <strong>you can drop any individual operator</strong> without losing the class. Compulsion is what makes governance worth buying. Fragmentation is what gives the consequence teeth.</p>
+    <p>If you can simply block a misbehaving counterparty at no cost to yourself, you will, and you should — and this is not for you.</p>
+  </section>
+
+  <section class="qa" id="now">
+    <h2>What exists today, and what does not?</h2>
+    <p>Stated plainly, because the difference matters when you are being asked to sign something.</p>
+    <p><strong>What exists:</strong> the rulebook, in force and published in full at a citable address, with every clause separately linkable and its numbering stable. The schedule of fees. The version history. The record schema and the reconciliation mechanism.</p>
+    <p><strong>What does not exist:</strong> members. No session has been conducted under these rules and no determination has been made. There is no register to look anyone up in yet, because there is nobody in it.</p>
+    <p><strong>What that means for a first member:</strong> you are being asked to join a scheme rather than to buy a running service, your scope class and its sums get written with you, and commencement is April 2027 at the earliest. Anyone telling you otherwise about a scheme with no members is selling you something else.</p>
+  </section>
+
+  <footer>
+    <p><a href="/">Front page</a> &middot; <a href="/rulebook">The rulebook</a> &middot; <a href="/fees">Schedule of fees</a> &middot; <a href="/history">Version history</a></p>
+    <p>Rootwall is a governed overlay on the ordinary public internet. No new cable, no new transport, no new protocol layer.</p>
+    <p>Contact: <a href="mailto:info@rootwall.ai">info@rootwall.ai</a></p>
+  </footer>
+
+</div>
+</body>
+</html>
