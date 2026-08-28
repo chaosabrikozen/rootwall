@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rootwall — a rulebook for agent-to-API access</title>
-<meta name="description" content="A published admission standard, a record signed by both sides, and a consequence when a rule is broken. Rootwall administers accountability for agent-to-API access between companies.">
+<meta name="description" content="A published admission standard, a record of each session signed independently by both sides, and a consequence when a rule is broken. Rootwall administers accountability for agent-to-API access between companies. Prices published.">
 <style>
   :root {
     --ink:        #17171a;
@@ -51,7 +51,7 @@
 
   /* ---------- masthead ---------- */
 
-  .masthead { margin-bottom: 3.25rem; }
+  .masthead { margin-bottom: 2.5rem; }
 
   .wordmark {
     font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -168,6 +168,34 @@
   }
   .panel p:last-child { margin-bottom: 0; }
 
+  /* ---------- the one-minute summary ---------- */
+
+  .summary {
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    padding: 1.5rem 1.6rem 1.6rem;
+    margin-bottom: 1rem;
+  }
+  .summary h2 { margin-bottom: 1rem; }
+  .summary ol.numbered > li { margin-bottom: 0.9rem; font-size: 0.98rem; }
+  .summary p.tail {
+    margin: 1.15rem 0 0;
+    padding-top: 1rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.88rem;
+    color: var(--ink-faint);
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+  }
+
+  /* ---------- price line ---------- */
+
+  .price {
+    font-size: 1.08rem;
+    line-height: 1.5;
+    margin: 0 0 1.05rem;
+  }
+
   /* ---------- call to action ---------- */
 
   .cta { margin-top: 3.5rem; padding-top: 2.25rem; border-top: 1px solid var(--rule); }
@@ -213,6 +241,7 @@
     body { font-size: 17px; }
     .wrap { padding: 3rem 1.25rem 4rem; }
     h1 { font-size: 1.42rem; }
+    .summary { padding: 1.25rem 1.15rem 1.35rem; }
   }
 </style>
 </head>
@@ -225,6 +254,18 @@
     <p class="standfirst">An admission standard anyone can read. A record of each session signed independently by both parties. A consequence, fixed in advance, when a rule is broken.</p>
   </header>
 
+  <div class="summary">
+    <h2>In one minute</h2>
+    <ol class="numbered">
+      <li><span class="lede-term">The problem.</span> Two companies let software talk to each other's systems. Something goes wrong. Neither can prove what happened, because each side holds only its own logs and there is no reason for anyone to believe them.</li>
+      <li><span class="lede-term">What you get, on an ordinary day when nothing goes wrong.</span> Two independently signed accounts of the same session that agree — a <strong>matched pair</strong>. That is a positive record that the call happened, under a named delegation, inside a declared scope, and that both sides said so at the time. It is the thing you cannot produce today at any price.</li>
+      <li><span class="lede-term">What you get on the day something does go wrong.</span> The two accounts disagree, both parties are put on notice, and a consequence published in advance attaches to whoever broke a rule — paid to the company that was harmed, never to Rootwall.</li>
+      <li><span class="lede-term">What it is.</span> A membership scheme, in the sense that Visa is a scheme. Admission once against a published standard, rather than a separate negotiation with every counterparty. Not a network, not a gateway, and no traffic passes through it.</li>
+      <li><span class="lede-term">What it costs.</span> $6,000 a year if you own the API, $1,000 a year if your agents call one. <a href="/fees">The whole schedule is published.</a></li>
+    </ol>
+    <p class="tail">There are no members yet, and nothing here pretends otherwise — <a href="/questions#now">what exists today and what does not</a> is written down. Commencement is 1 April 2027 at the earliest.</p>
+  </div>
+
   <section>
     <h2>The gap</h2>
     <p><strong>Every partner programme we have read has a gate. None of them has a record.</strong></p>
@@ -232,6 +273,16 @@
     <p>An agent's behaviour is fixed at the moment of the call, by whoever is instructing it.</p>
     <div class="statement">A reassessment cycle measured in years assesses nothing that is still true about a delegation.</div>
     <p>An approval says the software was acceptable once. It does not say what the software did on Tuesday, under whose authority, or whether that was inside the scope it was approved for. Today, in most integrations, nobody holds a record that answers those questions and that both sides would accept.</p>
+  </section>
+
+  <section>
+    <h2>The matched pair — what a member is actually buying</h2>
+    <p>Most sessions are uneventful. <strong>The scheme's ordinary output is not an alarm. It is a pair of records that agree.</strong></p>
+    <p>Each time two members' systems talk, both sides independently send a short signed statement of what happened — who called, under whose delegation, against which declared scope, with what outcome. A few hundred bytes. Never the contents of the message. Rootwall puts the two side by side.</p>
+    <div class="statement">Where they agree, the agreement is itself the record: a positive statement, signed by the other party at the time, that this happened and it was inside what was allowed.</div>
+    <p><strong>That is the thing you cannot produce today.</strong> Your logs are yours. Their logs are theirs. Neither is evidence against the other, and both were written by a party with an interest in what they say. A matched pair was written by both parties, independently, before anybody knew it would be needed.</p>
+    <p>It is what you hand a customer, a regulator, an insurer or a counterparty's lawyer when they ask what your integration did — and it is available for the ninety-nine sessions in a hundred where the answer is <em>exactly what it was supposed to</em>. Today you find out something went wrong only when it goes wrong. A matched pair is a record produced by everything going right.</p>
+    <p>Divergence is the exception and is treated as a question rather than a finding: both parties are asked to explain, within a published period, and <a href="/questions#disagree">nothing is scored, inferred or compared against a baseline</a>.</p>
   </section>
 
   <section>
@@ -301,9 +352,18 @@
     </div>
   </section>
 
+  <section>
+    <h2>What it costs</h2>
+    <p class="price"><strong>$6,000 a year if you own the API. $1,000 a year if your agents call one.</strong> Plus $350 to join, either side, covering both entry and exit, and $1,200 for each scope class assessment on the calling side.</p>
+    <p>The price is published for the same reason the rulebook is. A body that sells accreditation and will not show you its price list is asking you to negotiate in the dark.</p>
+    <p><strong>Nothing is ever paid to Rootwall for breaking a rule.</strong> Where a sum is payable for a breach it goes to the member that was harmed, and the rulebook forbids any such sum reaching the scheme — and forbids that clause being amended.</p>
+    <p><a href="/fees">The full schedule of fees</a>, including the two heads declared at nil and why they appear at all.</p>
+  </section>
+
   <div class="cta">
     <a class="primary" href="/rulebook">Read the rulebook</a>
-    <p class="note">The full text, with a plain-English summary at the top that is not part of the rules.</p>
+    <p class="note">The full text, with a plain-English summary at the top that is not part of the rules. Or start with the <a href="/questions">common questions</a>, which include the unflattering answers.</p>
+    <p class="note"><strong>If this is your problem:</strong> reply to <a href="mailto:info@rootwall.ai">info@rootwall.ai</a> with the interface you are thinking of. The first conversation is about what a scope class for it would say — what a caller may do, the ceilings, and what has to be asserted. There is nothing to install and nothing to sign to have it.</p>
   </div>
   <footer>
     <p><a href="/rulebook">The rulebook</a> &middot; <a href="/questions">Common questions</a> &middot; <a href="/fees">Schedule of fees</a> &middot; <a href="/history">Version history</a></p>
