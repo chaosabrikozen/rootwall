@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rootwall — a rulebook for agent-to-API access</title>
-<meta name="description" content="A published admission standard, a record of each session signed independently by both sides, and a consequence when a rule is broken. Rootwall administers accountability for agent-to-API access between companies. Prices published.">
+<title>Rootwall — the rulebook for the agents calling your API</title>
+<meta name="description" content="A membership scheme for API traffic between two named companies. Admission once against a published standard, a record of every session signed by both sides, and a consequence fixed in advance. The first member in a sector writes the standard. Prices published.">
 <style>
   :root {
     --ink:        #17171a;
@@ -250,121 +250,70 @@
 
   <header class="masthead">
     <p class="wordmark">Rootwall</p>
-    <h1>A published rulebook for the agents that call your API.</h1>
-    <p class="standfirst">An admission standard anyone can read. A record of each session signed independently by both parties. A consequence, fixed in advance, when a rule is broken.</p>
+    <h1>Someone&rsquo;s agent just called your API. Can you prove what it did?</h1>
+    <p class="standfirst">Rootwall is a membership scheme for the traffic between two named companies. Admission once, against a standard anyone can read. A record of every session, signed independently by both sides. A consequence fixed before anything goes wrong.</p>
   </header>
 
   <div class="summary">
     <h2>In one minute</h2>
     <ol class="numbered">
-      <li><span class="lede-term">The problem.</span> Two companies let software talk to each other's systems. Something goes wrong. Neither can prove what happened, because each side holds only its own logs and there is no reason for anyone to believe them.</li>
-      <li><span class="lede-term">What you get, on an ordinary day when nothing goes wrong.</span> Two independently signed accounts of the same session that agree — a <strong>matched pair</strong>. That is a positive record that the call happened, under a named delegation, inside a declared scope, and that both sides said so at the time. It is the thing you cannot produce today at any price.</li>
-      <li><span class="lede-term">What you get on the day something does go wrong.</span> The two accounts disagree, both parties are put on notice, and a consequence published in advance attaches to whoever broke a rule — paid to the company that was harmed, never to Rootwall.</li>
-      <li><span class="lede-term">What it is.</span> A membership scheme, in the sense that Visa is a scheme. Admission once against a published standard, rather than a separate negotiation with every counterparty. Not a network, not a gateway, and no traffic passes through it.</li>
-      <li><span class="lede-term">What it costs.</span> $6,000 a year if you own the API, $1,000 a year if your agents call one. <a href="/fees">The whole schedule is published.</a></li>
+      <li><span class="lede-term">The problem.</span> Two companies let software talk to each other&rsquo;s systems. Something goes wrong. Neither can prove what happened, because each side holds only its own logs and neither has reason to believe the other&rsquo;s.</li>
+      <li><span class="lede-term">What you get on an ordinary day.</span> Two independently signed accounts of the same session that agree &mdash; a <strong>matched pair</strong>. Proof the call happened, under a named delegation, inside a declared scope, and that both sides said so at the time.</li>
+      <li><span class="lede-term">What you get on the day it goes wrong.</span> The two accounts disagree, both parties are put on notice, and a consequence published in advance attaches to whoever broke a rule &mdash; paid to the company that was harmed, never to Rootwall.</li>
+      <li><span class="lede-term">What it costs.</span> $6,000 a year if you own the API. $1,000 if your agents call one. <a href="/fees">The whole schedule is published.</a></li>
     </ol>
   </div>
 
   <section>
-    <h2>The gap</h2>
+    <h2>The first member in a sector writes the standard</h2>
+    <p>The rulebook is generic by design. Every clause reads the same for any member in any industry &mdash; that is what makes an admission portable instead of bilateral.</p>
+    <p><strong>Two things cannot be generic.</strong> The scope class for your interface: which method kinds a caller may use, the ceilings on them, what has to be asserted about every session. And the sums that attach to it.</p>
+    <p>Those are written with the first member in a sector. Once written they are published &mdash; and every company admitted after you is held to them.</p>
+    <div class="statement">The first company through does not get a discount. It gets to decide what the rules say.</div>
+    <p>Founding members are named on the register and credited on the standard they helped write, if they want to be. <strong>It is available once per sector, and it is not available again.</strong></p>
+  </section>
+
+  <section>
+    <h2>The matched pair</h2>
+    <p>Most sessions are uneventful. The scheme&rsquo;s ordinary output is not an alarm &mdash; it is a pair of records that agree.</p>
+    <p>Each time two members&rsquo; systems talk, both sides independently send a short signed statement: who called, under whose delegation, against which scope, with what outcome. A few hundred bytes. Never the contents of the message.</p>
+    <div class="statement">Where the two agree, the agreement <em>is</em> the record &mdash; signed by the other party, at the time, before anyone knew it would be needed.</div>
+    <p>Your logs are yours. Theirs are theirs. Neither is evidence against the other, and both were written by a party with an interest in what they say.</p>
+    <p><strong>A matched pair is what you hand a customer, a regulator, an insurer or a counterparty&rsquo;s lawyer</strong> &mdash; and it exists for the ninety-nine sessions in a hundred where the answer is <em>exactly what it was supposed to be.</em></p>
+  </section>
+
+  <section>
+    <h2>Why nobody has this</h2>
     <p><strong>Every partner programme we have read has a gate. None of them has a record.</strong></p>
-    <p>That is a count rather than an impression. We opened the developer documentation, partner directories and published partner terms of roughly one hundred UK and EU software platforms and wrote down what each one requires of a third party calling its API. Almost all decide who gets in. Seven have published a partner rulebook, and they are good documents written by lawyers. <strong>None of the hundred holds a record of what a third party actually did.</strong> The furthest anyone goes is a right to inspect, exercised at the platform's discretion once there is already a reason to look. <a href="/hundred-platforms">The survey is published in full</a> &mdash; every document quoted, linked, and archived on the day it was read.</p>
-    <p>Platforms approve an integration before it goes live and reassess it on a cycle of one to three years. That was a defensible control when an integration's behaviour was fixed at the moment it was built.</p>
-    <p>An agent's behaviour is fixed at the moment of the call, by whoever is instructing it.</p>
-    <div class="statement">A reassessment cycle measured in years assesses nothing that is still true about a delegation.</div>
-    <p>An approval says the software was acceptable once. It does not say what the software did on Tuesday, under whose authority, or whether that was inside the scope it was approved for. Today, in most integrations, nobody holds a record that answers those questions and that both sides would accept.</p>
-  </section>
-
-  <section>
-    <h2>The matched pair — what a member is actually buying</h2>
-    <p>Most sessions are uneventful. <strong>The scheme's ordinary output is not an alarm. It is a pair of records that agree.</strong></p>
-    <p>Each time two members' systems talk, both sides independently send a short signed statement of what happened — who called, under whose delegation, against which declared scope, with what outcome. A few hundred bytes. Never the contents of the message. Rootwall puts the two side by side.</p>
-    <div class="statement">Where they agree, the agreement is itself the record: a positive statement, signed by the other party at the time, that this happened and it was inside what was allowed.</div>
-    <p><strong>That is the thing you cannot produce today.</strong> Your logs are yours. Their logs are theirs. Neither is evidence against the other, and both were written by a party with an interest in what they say. A matched pair was written by both parties, independently, before anybody knew it would be needed.</p>
-    <p>It is what you hand a customer, a regulator, an insurer or a counterparty's lawyer when they ask what your integration did — and it is available for the ninety-nine sessions in a hundred where the answer is <em>exactly what it was supposed to</em>. Today you find out something went wrong only when it goes wrong. A matched pair is a record produced by everything going right.</p>
-    <p>Divergence is the exception and is treated as a question rather than a finding: both parties are asked to explain, within a published period, and <a href="/questions#disagree">nothing is scored, inferred or compared against a baseline</a>.</p>
-  </section>
-
-  <section>
-    <h2>What Rootwall is</h2>
-    <ol class="numbered">
-      <li><span class="lede-term">A members' club with published rules.</span> An agent operator is checked once, against a standard anyone can read, rather than separately by every organisation it deals with.</li>
-      <li><span class="lede-term">A record signed by both sides.</span> Each time two members' systems talk, both parties independently send a short signed record of what happened — who, under whose delegation, against which declared scope, with what outcome. A few hundred bytes. Never the contents of the message.</li>
-      <li><span class="lede-term">Reconciliation, not detection.</span> The two records are put side by side. Where they agree, that agreement is itself the record: a positive statement that nothing went wrong, which is most of what a member is actually buying. Where they diverge, both parties are put on notice.</li>
-      <li><span class="lede-term">A consequence that does not need a court.</span> Scope is declared in advance, so a breach is arithmetic rather than an argument. Where a sum is payable it is fixed before any breach occurs and it is paid to the affected member — <strong>never to Rootwall.</strong></li>
-    </ol>
-  </section>
-
-  <section>
-    <h2>Who it is for</h2>
-    <p>The organisation exposing the API — the one that carries the loss today, because when an agent misbehaves against it there is no accountable counterparty to send the loss to.</p>
-    <p>The rules bite where two things are true at once: you cannot switch off this <em>class</em> of traffic, because it is your revenue or your integration ecosystem is your moat; and you can drop any <em>individual</em> operator without losing the class. That is the structure card schemes have with acquirers and merchants. Compulsion is what makes governance worth buying. Fragmentation is what gives the consequence teeth.</p>
-  </section>
-
-  <section>
-    <h2>What it supplies</h2>
-    <ul class="plain">
-      <li><span class="lede-term">The rulebook.</span> Admission criteria; delegation constraints, including the rule that an agent may do only what it is authorised to do <em>and</em> what the delegating person is authorised to do, never the union; the evidence standard; disclosure and cooperation duties; published scope classes; liquidated sums; expulsion, and revocation that propagates to everyone relying on it.</li>
-      <li><span class="lede-term">The admission assessment.</span> Performed once against the published standard, producing an admission to a class rather than a bespoke arrangement with each counterparty.</li>
-      <li><span class="lede-term">The two-sided record.</span> A schema and reference implementation for the signed assertions, joined by a shared session identifier so that the two accounts of one session can be reconciled against each other.</li>
-      <li><span class="lede-term">Evidence.</span> On request, the signed records held for the sessions in question are released — to both parties at once, with no position taken on who owes whom anything.</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>What is never seen</h2>
-    <p>Rootwall is not in the path of any call and receives no logs. It receives structured, signed statements of declared facts. It never sees call arguments, never sees payloads, never sees a member's gateway, and holds no opinion about how a member manages its own records.</p>
-    <p>A member declares which scope classes it accepts, once, to the scheme. It may then apply any restriction stricter than the class permits, at its own interface, privately, without telling anyone. <strong>Stricter is always available. Looser never is.</strong></p>
+    <p>That is a count, not an impression. We opened the developer documentation, partner directories and published terms of roughly a hundred UK and EU platforms. Almost all decide who gets in. Seven publish a partner rulebook, and they are good documents written by lawyers. <strong>Not one holds a record of what a third party actually did.</strong> The furthest anyone goes is a right to inspect, exercised once there is already a reason to look.</p>
+    <p><a href="/hundred-platforms">The survey is published in full</a> &mdash; every document quoted, linked, and archived on the day it was read.</p>
+    <p>An approval says the software was acceptable once. It does not say what it did on Tuesday, under whose authority, or whether that was inside what it was approved for.</p>
   </section>
 
   <section>
     <h2>What it is not</h2>
-    <ul class="plain">
-      <li><span class="lede-term">Not identity.</span> Agent and workload identity is a crowded field and a fast-commoditising one — Web Bot Auth, MCP-I, SPIFFE and the rest. Rootwall consumes those and builds none of them. The gap is one layer up: accreditation and enforcement.</li>
-      <li><span class="lede-term">Not a gateway, WAF or API security product.</span> You already have those, and they are controls you operate against traffic you can see. The argument here is not that you cannot block a bad agent. It is that nothing currently happens to the party that sent it.</li>
-      <li><span class="lede-term">Not anomaly detection, and there are no false positives.</span> Scope is declared in advance, so a deviation is a matter of comparing a call against a declaration — never a judgement about whether behaviour looks unusual. Nothing is scored, nothing is inferred, there is no baseline to learn and no model in the enforcement path. What that removes is the alert nobody trusts.</li>
-      <li><span class="lede-term">Not an arbitration or claims forum.</span> Rootwall rules on whether a rule was broken. It takes no position whatever on loss. Recovery stays bilateral, in the ordinary courts, with the signed records available to both sides.</li>
-      <li><span class="lede-term">Not insurance.</span> Nothing is underwritten, pooled or paid out.</li>
-      <li><span class="lede-term">Not a directory or reputation service.</span> Those are worth something at scale and nothing at the beginning, so they are not being built at the beginning.</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Why a rulebook and not a standard</h2>
-    <p>Route origin validation is technically sound, free, and endorsed by everybody. Two decades on, much of the internet still does not enforce it — because nothing happens to you if you don't.</p>
-    <div class="statement">Voluntary standards plateau. Contractual membership with a consequence attached does not.</div>
-    <p>That difference is the whole design. It is also the reason the rules are a contract between named parties rather than a specification anyone may adopt at their convenience.</p>
-  </section>
-
-  <section>
-    <h2>The limit, stated first</h2>
-    <p>Rootwall does not detect all misuse, and it does not make an operator accountable where no rule was broken. A well-defended organisation can stop a misbehaving agent below the published ceiling, in which case no violation is recorded and the next organisation gets no warning.</p>
-    <p><strong>What the scheme does is allocate loss and cap blast radius.</strong> Stated first, that is ordinary scheme design. Discovered later, it would be overselling.</p>
-  </section>
-
-  <section>
-    <h2>The rulebook is published in full</h2>
-    <p>Not behind a form, not behind a meeting. A body that sells accreditation and will not show you its standard is not one — and the rules themselves oblige publication.</p>
-    <div class="panel">
-      <p><strong>The rulebook is generic by design.</strong> Every clause is written to be read by any member in any sector, which is what makes an admission portable rather than bilateral. Two things cannot be generic and are marked as such: the content of the scope classes, and the liquidated sums. A scope class describes operations against a specific interface — permitted method kinds, ceilings, what must be asserted — so a generic one would describe nothing. A sum is set with the class it belongs to, because a sum that is not proportionate to what the class permits is not a deterrent, it is a number.</p>
-      <p>The structure both must take is fully specified in the schedules. <strong>What is absent is content that would be wrong if invented.</strong></p>
-      <p>Every clause is numbered stably and every version stays readable, because a clause that cannot be linked to cannot be cited in a contract.</p>
-    </div>
+    <ol class="numbered">
+      <li><span class="lede-term">Not identity.</span> Web Bot Auth, MCP-I, SPIFFE and the rest are a crowded field. Rootwall consumes them and builds none of them. The gap is one layer up: accreditation and enforcement.</li>
+      <li><span class="lede-term">Not a gateway or an API security product.</span> You have those. The argument is not that you cannot block a bad agent &mdash; it is that nothing happens to the party that sent it.</li>
+      <li><span class="lede-term">Not anomaly detection.</span> Scope is declared in advance, so a deviation is arithmetic, not a judgement about whether behaviour looks unusual. No model, no baseline, no alert nobody trusts.</li>
+      <li><span class="lede-term">Not arbitration or insurance.</span> Rootwall rules on whether a rule was broken and takes no position on loss. Recovery stays between the two companies, with the signed records available to both.</li>
+    </ol>
+    <p>Rootwall allocates loss and caps blast radius. It does not detect all misuse, and it does not make an operator accountable where no rule was broken.</p>
   </section>
 
   <section>
     <h2>What it costs</h2>
-    <p class="price"><strong>$6,000 a year if you own the API. $1,000 a year if your agents call one.</strong> Plus $350 to join, either side, covering both entry and exit, and $1,200 for each scope class assessment on the calling side.</p>
-    <p>The price is published for the same reason the rulebook is. A body that sells accreditation and will not show you its price list is asking you to negotiate in the dark.</p>
-    <p><strong>Nothing is ever paid to Rootwall for breaking a rule.</strong> Where a sum is payable for a breach it goes to the member that was harmed, and the rulebook forbids any such sum reaching the scheme — and forbids that clause being amended.</p>
-    <p><a href="/fees">The full schedule of fees</a>, including the two heads declared at nil and why they appear at all.</p>
+    <p class="price"><strong>$6,000 a year if you own the API. $1,000 a year if your agents call one.</strong> Plus $350 to join, either side, covering entry and exit, and $1,200 for each scope class assessment on the calling side.</p>
+    <p><strong>Nothing is ever paid to Rootwall for breaking a rule.</strong> Where a sum is payable it goes to the member that was harmed &mdash; and the rulebook forbids any such sum reaching the scheme, and forbids that clause being amended.</p>
+    <p><a href="/fees">The full schedule of fees.</a></p>
   </section>
 
   <div class="cta">
     <a class="primary" href="/rulebook">Read the rulebook</a>
-    <p class="note">The full text, with a plain-English summary at the top that is not part of the rules. Or start with the <a href="/questions">common questions</a>, which include the unflattering answers.</p>
-    <p class="note"><strong>If this is your problem, say so.</strong> One line to <a href="mailto:info@rootwall.ai">info@rootwall.ai</a> is enough &mdash; no form, nothing to prepare, nothing to install, and nothing to sign. We will work out what it would apply to on the call.</p>
+    <p class="note">Published in full. Not behind a form, not behind a meeting. Or start with the <a href="/questions">common questions</a>.</p>
+    <p class="note"><strong>If this is your problem, say so.</strong> One line to <a href="mailto:info@rootwall.ai">info@rootwall.ai</a> &mdash; no form, nothing to prepare, nothing to install, nothing to sign.</p>
   </div>
+
   <footer>
     <p><a href="/rulebook">The rulebook</a> &middot; <a href="/questions">Common questions</a> &middot; <a href="/fees">Schedule of fees</a> &middot; <a href="/hundred-platforms">The survey</a> &middot; <a href="/history">Version history</a></p>
     <p>Rootwall is a governed overlay on the ordinary public internet. No new cable, no new transport, no new protocol layer.</p>

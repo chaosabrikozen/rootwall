@@ -7,8 +7,13 @@
 > no traffic passes through it.
 
 Rootwall is operated from the United Kingdom. The rulebook is published in full and is governed by
-the law of England and Wales. Membership commences 1 April 2027 at the earliest. As of August 2026
-the scheme has no members and no session has been conducted under its rules.
+the law of England and Wales. Start dates are agreed with each member. The scheme is new and is
+taking its first members; no session has yet been conducted under its rules.
+
+What a founding member gets, and it is not available afterwards: the scope class for its own
+interface is written with it rather than handed to it, and that document becomes the published
+standard every company admitted after it in that sector is held to. Founding members are named on
+the register and credited on the standard they helped write, if they wish to be.
 
 Note on the name: rootwall.ai is a governance scheme for B2B API and agent traffic. It is not a
 ratings, scoring or reputation product, and it publishes no rating, ranking or reputation index of
