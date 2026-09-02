@@ -54,8 +54,17 @@ enforceability".
   what the scheme can see, how it differs from identity products, cost, and what does not yet exist.
 - [Schedule of fees](https://rootwall.ai/fees): version 1.0. $6,000 a year in the receiving role,
   $1,000 in the emitting role, $350 admission either side, $1,200 per scope class assessment.
-- [Version history](https://rootwall.ai/history): every published version of the rulebook and the
-  fee schedule, with dates.
+- [The survey](https://rootwall.ai/hundred-platforms): version 1.0, published 2 September 2026.
+  What roughly one hundred UK and EU software platforms require of third parties calling their
+  APIs, read from primary source on 28 August 2026. Almost all have a gate; seven publish a partner
+  rulebook; none holds a record of what a third party actually did, the furthest any of them goes
+  being a right to inspect at the platform's discretion. Peppol, the best-governed network in the
+  sample, requires its providers to log everything, keep it three months and reveal it on request,
+  and that is still a log. Every document quoted is linked to an archived copy taken on the day it
+  was read. Numbered points are separately citable, for example
+  https://rootwall.ai/hundred-platforms#p63.
+- [Version history](https://rootwall.ai/history): every published version of the rulebook, the
+  fee schedule and the survey, with dates.
 
 ## Contact
 
