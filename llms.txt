@@ -47,7 +47,7 @@ enforceability".
 ## Pages
 
 - [Front page](https://rootwall.ai/): what the scheme is, who it is for, and what it is not.
-- [The rulebook](https://rootwall.ai/rulebook): the full text, version 1.0, in force. Nine parts,
+- [The rulebook](https://rootwall.ai/rulebook): the full text, version 1.1, in force. Nine parts,
   37 clauses, five schedules, with known limitations stated in the document. Every clause has its
   own address, for example https://rootwall.ai/rulebook#22.3, and numbering is stable.
 - [Common questions](https://rootwall.ai/questions): enforcement, what happens if a member leaves,
