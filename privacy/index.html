@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rootwall — privacy notice</title>
+<meta name="description" content="What Rootwall does with personal data on rootwall.ai. No cookies, no accounts, no individual tracking. Published in full, like everything else here.">
+<style>
+  :root {
+    --ink:        #17171a;
+    --ink-soft:   #4a4a52;
+    --ink-faint:  #74747e;
+    --paper:      #fbfaf8;
+    --panel:      #f2f0ec;
+    --rule:       #dcd9d2;
+    --accent:     #7a2f1e;
+    --measure:    34rem;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink:       #e8e6e1;
+      --ink-soft:  #b2afa8;
+      --ink-faint: #86837c;
+      --paper:     #16161a;
+      --panel:     #1e1e23;
+      --rule:      #33333a;
+      --accent:    #d98b72;
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    font-size: 18px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: var(--measure);
+    margin: 0 auto;
+    padding: 4.5rem 1.5rem 6rem;
+  }
+
+  .masthead { margin-bottom: 3.25rem; }
+
+  .wordmark {
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin: 0 0 1.5rem;
+    color: var(--ink);
+  }
+  .wordmark a { color: inherit; text-decoration: none; }
+
+  h1 {
+    font-size: 1.65rem;
+    line-height: 1.32;
+    font-weight: 600;
+    margin: 0 0 1rem;
+    letter-spacing: -0.008em;
+  }
+
+  .standfirst {
+    font-size: 1.06rem;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  .docmeta {
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+    color: var(--ink-faint);
+    margin: 1.4rem 0 0;
+  }
+
+  section { margin-top: 3.25rem; }
+
+  h2 {
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 0.74rem;
+    font-weight: 650;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 0 0 1.1rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  p { margin: 0 0 1.05rem; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 650; color: var(--ink); }
+
+  ol.numbered {
+    list-style: none;
+    counter-reset: n;
+    padding: 0;
+    margin: 0;
+  }
+  ol.numbered > li {
+    counter-increment: n;
+    position: relative;
+    padding-left: 2.2rem;
+    margin-bottom: 1.15rem;
+  }
+  ol.numbered > li:last-child { margin-bottom: 0; }
+  ol.numbered > li::before {
+    content: counter(n);
+    position: absolute;
+    left: 0;
+    top: 0.16em;
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 0.76rem;
+    font-weight: 650;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+
+  ul.plain { list-style: none; padding: 0; margin: 0; }
+  ul.plain > li {
+    position: relative;
+    padding-left: 2.2rem;
+    margin-bottom: 1.05rem;
+  }
+  ul.plain > li:last-child { margin-bottom: 0; }
+  ul.plain > li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--ink-faint);
+  }
+
+  .lede-term { font-weight: 650; }
+
+  .statement {
+    border-left: 2px solid var(--accent);
+    padding: 0.1rem 0 0.1rem 1.35rem;
+    margin: 1.6rem 0;
+    font-size: 1.08rem;
+    line-height: 1.5;
+  }
+
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    padding: 1.5rem 1.6rem;
+    margin-top: 1.4rem;
+  }
+  .panel p:last-child { margin-bottom: 0; }
+
+  /* ---------- fee table ---------- */
+
+  .tablewrap { overflow-x: auto; margin-top: 1.4rem; }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 0.88rem;
+    line-height: 1.45;
+  }
+
+  th, td {
+    text-align: left;
+    padding: 0.72rem 0.7rem 0.72rem 0;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+
+  thead th {
+    font-size: 0.7rem;
+    font-weight: 650;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    border-bottom: 1px solid var(--ink-faint);
+  }
+
+  td.amount, th.amount {
+    text-align: right;
+    padding-right: 0;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  td.amount { font-weight: 650; }
+
+  .basis {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--ink-faint);
+    font-weight: 400;
+    margin-top: 0.18rem;
+  }
+
+  .nil { color: var(--ink-faint); font-weight: 400; }
+
+  footer {
+    margin-top: 4rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid var(--rule);
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 0.78rem;
+    line-height: 1.7;
+    color: var(--ink-faint);
+  }
+  footer p { margin: 0 0 0.35rem; }
+
+  a { color: var(--accent); }
+
+  @media (max-width: 34rem) {
+    body { font-size: 17px; }
+    .wrap { padding: 3rem 1.25rem 4rem; }
+    h1 { font-size: 1.42rem; }
+    table { font-size: 0.84rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="wordmark"><a href="/">Rootwall</a></p>
+    <h1>Privacy notice</h1>
+    <p class="standfirst">What this website does with personal data. It is short because the site does very little: there is no account, no form, no cookie and no tracking of individuals.</p>
+    <p class="docmeta">Version 1.0 &middot; 3 September 2026</p>
+  </header>
+
+  <section>
+    <h2>In plain English</h2>
+    <p>This summary is not part of the notice. Where the two differ, the sections below govern.</p>
+    <ol class="numbered">
+      <li><span class="lede-term">Reading this site tells us almost nothing about you.</span> No cookies are set, no account exists, and the page-view statistics we keep cannot identify anybody.</li>
+      <li><span class="lede-term">If you email us, we hold your email.</span> That is the only personal data we deliberately collect.</li>
+      <li><span class="lede-term">We do not sell anything, profile anyone, or run advertising.</span> There is nothing to sell: we do not have it.</li>
+      <li><span class="lede-term">The scheme is not operating yet.</span> What Rootwall will hold once it does is set out in the rulebook, and it is deliberately narrow. See below.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Who we are</h2>
+    <p>The controller is <strong>ROOTWALL.AI LTD</strong>, a private limited company registered in England and Wales.</p>
+    <ul class="plain">
+      <li><span class="lede-term">Company number</span> 12578817</li>
+      <li><span class="lede-term">Registered office</span> 200 Seymour Avenue, Morden, England, SM4 4QZ</li>
+      <li><span class="lede-term">Registered with the Information Commissioner&rsquo;s Office</span> as a data controller</li>
+      <li><span class="lede-term">Contact</span> <a href="mailto:info@rootwall.ai">info@rootwall.ai</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>What this notice covers</h2>
+    <p><strong>This notice covers the website at rootwall.ai and correspondence sent to us.</strong> It does not cover the Rootwall scheme, which is not yet operating and which has no members. What the scheme will hold, and for how long, is governed by the rulebook rather than by this page &mdash; see the last section.</p>
+  </section>
+
+  <section>
+    <h2>What we collect, and it is very little</h2>
+    <div class="statement">No cookies are set by this site. There is no account to create, no form to complete, and no tracking of individual visitors.</div>
+    <ul class="plain">
+      <li><span class="lede-term">Page statistics.</span> We use Cloudflare Web Analytics, which counts page views without cookies and <strong>without identifying individual visitors</strong>. We can see that a page was read. We cannot see who read it.</li>
+      <li><span class="lede-term">Server records.</span> The site is served by GitHub Pages. Like any web host, the provider may record IP addresses in its own logs for security and operational purposes. We do not receive those logs and cannot query them.</li>
+      <li><span class="lede-term">Correspondence.</span> If you write to <a href="mailto:info@rootwall.ai">info@rootwall.ai</a>, we hold your message, your email address and anything you choose to put in it. Mail is hosted on Microsoft 365.</li>
+    </ul>
+    <p><strong>That is the complete list.</strong> We do not use advertising networks, social media pixels, session recording, heat mapping or any product that identifies visitors.</p>
+  </section>
+
+  <section>
+    <h2>Why, and on what legal basis</h2>
+    <ul class="plain">
+      <li><span class="lede-term">Page statistics &mdash; legitimate interests.</span> Knowing which pages are read tells us which parts of the rulebook and the survey are useful. Because the data identifies nobody, the interference with anyone&rsquo;s privacy is minimal, and no consent banner is required.</li>
+      <li><span class="lede-term">Correspondence &mdash; legitimate interests.</span> If you write to us, we need your message and address in order to reply. Where an exchange leads to a contract, the basis becomes performance of that contract.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Who else is involved</h2>
+    <p>Three service providers process data on our behalf, and each is named here rather than described generically.</p>
+    <ul class="plain">
+      <li><span class="lede-term">Cloudflare</span> &mdash; page statistics</li>
+      <li><span class="lede-term">GitHub</span> &mdash; hosting of this site</li>
+      <li><span class="lede-term">Microsoft</span> &mdash; email</li>
+    </ul>
+    <p>Each may process data outside the United Kingdom, under the transfer safeguards those providers publish. <strong>We disclose personal data to nobody else</strong>, except where the law requires it.</p>
+  </section>
+
+  <section>
+    <h2>How long we keep it</h2>
+    <ul class="plain">
+      <li><span class="lede-term">Page statistics</span> are aggregate and contain no personal data. Cloudflare&rsquo;s own retention applies.</li>
+      <li><span class="lede-term">Correspondence</span> is kept while it is relevant to a live or reasonably anticipated matter, and deleted when it is not. If you ask us to delete an exchange and we are not required to keep it, we will.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Your rights</h2>
+    <p>Under UK data protection law you may ask us for a copy of the personal data we hold about you, ask us to correct it, ask us to delete it, ask us to restrict what we do with it, object to our processing it, or ask for it in a portable form.</p>
+    <p><strong>Write to <a href="mailto:info@rootwall.ai">info@rootwall.ai</a> and we will answer within one month.</strong> Given how little we hold, the answer is usually short.</p>
+  </section>
+
+  <section>
+    <h2>Complaints</h2>
+    <p>If you think we have handled your personal data badly, please tell us first &mdash; it is the fastest way to fix it. <strong>You also have the right to complain to the Information Commissioner&rsquo;s Office at <a href="https://ico.org.uk">ico.org.uk</a> without contacting us at all</strong>, and nothing here asks you to give that up.</p>
+  </section>
+
+  <section>
+    <h2>What the scheme will hold, when it operates</h2>
+    <p><strong>The Rootwall scheme is not operating and has no members.</strong> When it does, what it may receive and hold is fixed by the rulebook rather than by this notice, and it is deliberately narrow.</p>
+    <ul class="plain">
+      <li><span class="lede-term">The scheme does not receive request or response bodies, argument values, or any member&rsquo;s log estate.</span> Records carry the <em>names</em> of arguments and a digest of their values, never the values themselves.</li>
+      <li><span class="lede-term">Personal data is limited to the identifiers the rules require</span>, and no clause may be read as permitting more.</li>
+      <li><span class="lede-term">Records are destroyed at the end of a published retention period</span>, and the scheme records that it has destroyed them.</li>
+    </ul>
+    <p>The <a href="/rulebook">rulebook</a> states all of this in full, with clause numbers, and it is published before anybody signs anything. <strong>This notice will be extended before the scheme admits its first member.</strong></p>
+  </section>
+
+  <section>
+    <h2>Changes to this notice</h2>
+    <ul class="plain">
+      <li><span class="lede-term">Every version carries a number and a date</span>, like every other published document here.</li>
+      <li><span class="lede-term">Superseded versions stay readable</span> on the <a href="/history">version history</a>. Nothing is quietly withdrawn.</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p><a href="/">Front page</a> &middot; <a href="/rulebook">The rulebook</a> &middot; <a href="/questions">Common questions</a> &middot; <a href="/fees">Schedule of fees</a> &middot; <a href="/hundred-platforms">The survey</a> &middot; <a href="/history">Version history</a></p>
+    <p>Rootwall is a governed overlay on the ordinary public internet. No new cable, no new transport, no new protocol layer.</p>
+    <p>Contact: <a href="mailto:info@rootwall.ai">info@rootwall.ai</a></p>
+  </footer>
+
+</div>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "df6516715bb74e70ab48c22f8c1de1ec"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

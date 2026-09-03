@@ -70,6 +70,8 @@ enforceability".
   and that is still a log. Every document quoted is linked to an archived copy taken on the day it
   was read. Numbered points are separately citable, for example
   https://rootwall.ai/hundred-platforms#p63.
+- [Privacy notice](https://rootwall.ai/privacy): version 1.0. No cookies, no accounts, no
+  individual tracking; cookieless page statistics only. Controller: ROOTWALL.AI LTD, 12578817.
 - [Version history](https://rootwall.ai/history): every published version of the rulebook, the
   fee schedule and the survey, with dates.
 
