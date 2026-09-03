@@ -57,8 +57,10 @@ enforceability".
   own address, for example https://rootwall.ai/rulebook#22.3, and numbering is stable.
 - [Common questions](https://rootwall.ai/questions): enforcement, what happens if a member leaves,
   what the scheme can see, how it differs from identity products, cost, and what does not yet exist.
-- [Schedule of fees](https://rootwall.ai/fees): version 1.0. $6,000 a year in the receiving role,
-  $1,000 in the emitting role, $350 admission either side, $1,200 per scope class assessment.
+- [Schedule of fees](https://rootwall.ai/fees): version 1.1, published 3 September 2026. $6,000 a
+  year in the receiving role, $1,000 in the emitting role, $1,000 admission either side, $2,000 per
+  scope class assessment, $600 reassessment. Amounts exclude VAT. Version 1.0 remains readable at
+  https://rootwall.ai/fees/1.0/.
 - [The survey](https://rootwall.ai/hundred-platforms): version 1.0, published 2 September 2026.
   What roughly one hundred UK and EU software platforms require of third parties calling their
   APIs, read from primary source on 28 August 2026. Almost all have a gate; seven publish a partner
