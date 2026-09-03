@@ -71,6 +71,7 @@ PAGE = """<!DOCTYPE html>
   <p>Corrections, and anything else in this note: <a href="mailto:info@rootwall.ai">info@rootwall.ai</a></p>
 </footer>
 </div>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "df6516715bb74e70ab48c22f8c1de1ec"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
 """
