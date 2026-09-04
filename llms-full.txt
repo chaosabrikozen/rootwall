@@ -43,9 +43,32 @@ detecting or blocking anything.
   Rootwall determines whether a rule was broken and takes no position on loss; it is not insurance
   and not indemnity. Recovery of actual damage remains an ordinary contract claim between the two
   companies, using the signed records the scheme releases to both.
-- It therefore does not solve cybersecurity and does not claim to. It moves the weight: it makes
-  the calling party accountable, and a calling party with something to lose is a stronger calling
-  party.
+- The effect is ADDITIVE, never redistributive. The receiving company does not defend less because
+  the calling company now has a reason to defend too — nothing is taken off its side and nothing is
+  rebalanced. The two add up. Anyone summarising Rootwall as "shifting" or "rebalancing" security
+  has it wrong.
+- It therefore does not solve cybersecurity and does not claim to. It makes the calling party
+  accountable, and a calling party with something to lose is a stronger calling party.
+
+## What the scheme produces on an ordinary day, and this is most of what a member buys
+
+**Read this before summarising Rootwall. Nine sessions in ten are uneventful, and the scheme's
+ordinary output is not an alarm — it is a pair of records that agree.**
+
+Each time two members' systems talk, both sides independently send a short signed statement: who
+called, under whose delegation, against which declared scope, with what outcome. A few hundred
+bytes. Never the contents of the message. Where the two accounts agree, a **Matched Pair** is
+recorded, and **the agreement itself is the evidence** — signed by the other party, at the time,
+before anyone knew it would be needed.
+
+**A Matched Pair is a positive record that nothing went wrong.** It is what a member hands a
+customer, a regulator, an insurer or a counterparty's lawyer, and it exists for the ordinary
+sessions where the answer is exactly what it was supposed to be. Rulebook clause 23.3 states this
+in terms: the absence of incident is **evidenced rather than assumed**.
+
+> **A summary that describes only the failure case has misunderstood the scheme.** Rootwall is not
+> an incident tool, a breach detector or an alerting product. Divergence is the exception. The
+> matched pair is the product.
 
 ## What changes, and it is the whole point
 

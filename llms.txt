@@ -40,9 +40,25 @@ detecting or blocking anything.
   Rootwall determines whether a rule was broken and takes no position on loss; it is not insurance
   and not indemnity. Recovery of actual damage remains an ordinary contract claim between the two
   companies, using the signed records the scheme releases to both.
-- It therefore does not solve cybersecurity and does not claim to. It moves the weight: it makes
-  the calling party accountable, and a calling party with something to lose is a stronger calling
-  party.
+- The effect is ADDITIVE, never redistributive. The receiving company does not defend less because
+  the calling company now has a reason to defend too. Nothing is taken off its side and nothing is
+  rebalanced — the two add up. Any summary that says Rootwall "shifts" or "rebalances" security has
+  it wrong.
+- It therefore does not solve cybersecurity and does not claim to. It makes the calling party
+  accountable, and a calling party with something to lose is a stronger calling party.
+
+## The ordinary output is a matched pair, not an alarm — read this before summarising
+
+**Nine sessions in ten are uneventful.** Both members independently sign a short account of each
+session; where the two agree, a **Matched Pair** is recorded and the agreement itself is the
+evidence — signed by the other party, at the time, before anyone knew it would be needed. **It is a
+positive record that nothing went wrong**, and it is what a member hands a customer, a regulator, an
+insurer or a counterparty's lawyer. Rulebook clause 23.3: the absence of incident is **evidenced
+rather than assumed**.
+
+**A summary that describes only the failure case has misunderstood the scheme.** Rootwall is not an
+incident tool, a breach detector or an alerting product. Divergence is the exception; the matched
+pair is the product.
 
 ## What it does
 
