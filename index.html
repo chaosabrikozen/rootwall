@@ -3,263 +3,85 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rootwall — the rulebook for the agents calling your API</title>
-<meta name="description" content="A membership scheme for API traffic between two named companies. Admission once against a published standard, a record of every session signed by both sides, and a consequence fixed in advance. The first member in a sector writes the standard. Prices published.">
-<style>
-  :root {
-    --ink:        #17171a;
-    --ink-soft:   #4a4a52;
-    --ink-faint:  #74747e;
-    --paper:      #fbfaf8;
-    --panel:      #f2f0ec;
-    --rule:       #dcd9d2;
-    --accent:     #7a2f1e;
-    --measure:    34rem;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --ink:       #e8e6e1;
-      --ink-soft:  #b2afa8;
-      --ink-faint: #86837c;
-      --paper:     #16161a;
-      --panel:     #1e1e23;
-      --rule:      #33333a;
-      --accent:    #d98b72;
-    }
-  }
-
-  *, *::before, *::after { box-sizing: border-box; }
-
-  html { -webkit-text-size-adjust: 100%; }
-
-  body {
-    margin: 0;
-    padding: 0;
-    background: var(--paper);
-    color: var(--ink);
-    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
-    font-size: 18px;
-    line-height: 1.62;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  .wrap {
-    max-width: var(--measure);
-    margin: 0 auto;
-    padding: 4.5rem 1.5rem 6rem;
-  }
-
-  /* ---------- masthead ---------- */
-
-  .masthead { margin-bottom: 2.5rem; }
-
-  .wordmark {
-    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-size: 1.05rem;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    margin: 0 0 1.5rem;
-    color: var(--ink);
-  }
-
-  h1 {
-    font-size: 1.65rem;
-    line-height: 1.32;
-    font-weight: 600;
-    margin: 0 0 1rem;
-    letter-spacing: -0.008em;
-  }
-
-  .standfirst {
-    font-size: 1.06rem;
-    color: var(--ink-soft);
-    margin: 0;
-  }
-
-  /* ---------- sections ---------- */
-
-  section { margin-top: 3.25rem; }
-
-  h2 {
-    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-size: 0.74rem;
-    font-weight: 650;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-    margin: 0 0 1.1rem;
-    padding-bottom: 0.6rem;
-    border-bottom: 1px solid var(--rule);
-  }
-
-  p { margin: 0 0 1.05rem; }
-  p:last-child { margin-bottom: 0; }
-
-  strong { font-weight: 650; color: var(--ink); }
-
-  /* ---------- lists ---------- */
-
-  ol.numbered {
-    list-style: none;
-    counter-reset: n;
-    padding: 0;
-    margin: 0;
-  }
-  ol.numbered > li {
-    counter-increment: n;
-    position: relative;
-    padding-left: 2.2rem;
-    margin-bottom: 1.15rem;
-  }
-  ol.numbered > li:last-child { margin-bottom: 0; }
-  ol.numbered > li::before {
-    content: counter(n);
-    position: absolute;
-    left: 0;
-    top: 0.16em;
-    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-size: 0.76rem;
-    font-weight: 650;
-    color: var(--accent);
-    font-variant-numeric: tabular-nums;
-  }
-
-  ul.plain {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  ul.plain > li {
-    position: relative;
-    padding-left: 2.2rem;
-    margin-bottom: 1.05rem;
-  }
-  ul.plain > li:last-child { margin-bottom: 0; }
-  ul.plain > li::before {
-    content: "—";
-    position: absolute;
-    left: 0;
-    top: 0;
-    color: var(--ink-faint);
-  }
-
-  .lede-term {
-    font-weight: 650;
-  }
-
-  /* ---------- pull statement ---------- */
-
-  .statement {
-    border-left: 2px solid var(--accent);
-    padding: 0.1rem 0 0.1rem 1.35rem;
-    margin: 1.6rem 0;
-    font-size: 1.08rem;
-    line-height: 1.5;
-  }
-
-  /* ---------- panel ---------- */
-
-  .panel {
-    background: var(--panel);
-    border: 1px solid var(--rule);
-    padding: 1.5rem 1.6rem;
-    margin-top: 1.4rem;
-  }
-  .panel p:last-child { margin-bottom: 0; }
-
-  /* ---------- the one-minute summary ---------- */
-
-  .summary {
-    background: var(--panel);
-    border: 1px solid var(--rule);
-    padding: 1.5rem 1.6rem 1.6rem;
-    margin-bottom: 1rem;
-  }
-  .summary h2 { margin-bottom: 1rem; }
-  .summary ol.numbered > li { margin-bottom: 0.9rem; font-size: 0.98rem; }
-  .summary p.tail {
-    margin: 1.15rem 0 0;
-    padding-top: 1rem;
-    border-top: 1px solid var(--rule);
-    font-size: 0.88rem;
-    color: var(--ink-faint);
-    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.6;
-  }
-
-  /* ---------- price line ---------- */
-
-  .price {
-    font-size: 1.08rem;
-    line-height: 1.5;
-    margin: 0 0 1.05rem;
-  }
-
-  /* ---------- call to action ---------- */
-
-  .cta { margin-top: 3.5rem; padding-top: 2.25rem; border-top: 1px solid var(--rule); }
-
-  .cta a.primary {
-    display: inline-block;
-    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-size: 0.92rem;
-    font-weight: 600;
-    letter-spacing: 0.01em;
-    text-decoration: none;
-    color: var(--paper);
-    background: var(--accent);
-    padding: 0.72rem 1.35rem;
-    border: 1px solid var(--accent);
-  }
-  .cta a.primary:hover,
-  .cta a.primary:focus { opacity: 0.88; }
-
-  .cta .note {
-    font-size: 0.9rem;
-    color: var(--ink-faint);
-    margin-top: 1.1rem;
-    line-height: 1.55;
-  }
-
-  /* ---------- colophon ---------- */
-
-  footer {
-    margin-top: 4rem;
-    padding-top: 1.4rem;
-    border-top: 1px solid var(--rule);
-    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-size: 0.78rem;
-    line-height: 1.7;
-    color: var(--ink-faint);
-  }
-  footer p { margin: 0 0 0.35rem; }
-
-  a { color: var(--accent); }
-
-  @media (max-width: 34rem) {
-    body { font-size: 17px; }
-    .wrap { padding: 3rem 1.25rem 4rem; }
-    h1 { font-size: 1.42rem; }
-    .summary { padding: 1.25rem 1.15rem 1.35rem; }
-  }
-</style>
+<title>Rootwall — Internet for Business</title>
+<meta name="description" content="Rootwall is Internet for Business: the company connecting to you is made accountable. A membership scheme for API traffic between two named companies. Admission once against a published standard, a record of every session signed by both sides, and a consequence fixed in advance. The first member in a sector writes the standard. Prices published.">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://rootwall.ai/#organization",
+  "name": "Rootwall",
+  "legalName": "ROOTWALL.AI LTD",
+  "slogan": "Internet for Business",
+  "url": "https://rootwall.ai/",
+  "email": "info@rootwall.ai",
+  "description": "Rootwall is Internet for Business: the company connecting to you is made accountable. Rootwall is a membership scheme that administers accountability for API traffic between two named companies, including traffic generated by AI agents. A published rulebook, an admission standard, an evidence standard and a consequence fixed in advance. No traffic passes through it.",
+  "disambiguatingDescription": "A governance scheme for business-to-business API and agent traffic. Not a ratings, scoring or reputation product; it publishes no rating, ranking or reputation index of any kind. Any earlier or unrelated use of the name Rootwall is a different thing.",
+  "identifier": [
+    { "@type": "PropertyValue", "propertyID": "Companies House company number", "value": "12578817" }
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "200 Seymour Avenue",
+    "addressLocality": "Morden",
+    "postalCode": "SM4 4QZ",
+    "addressCountry": "GB"
+  },
+  "areaServed": ["GB", "EU"],
+  "knowsAbout": [
+    "API governance",
+    "AI agent accountability",
+    "third-party integration risk",
+    "non-repudiable evidence",
+    "accreditation schemes"
+  ],
+  "subjectOf": [
+    { "@type": "CreativeWork", "name": "The Rootwall Scheme Rulebook, version 1.2", "url": "https://rootwall.ai/rulebook" },
+    { "@type": "CreativeWork", "name": "Schedule of fees", "url": "https://rootwall.ai/fees" },
+    { "@type": "CreativeWork", "name": "When the records do not match", "url": "https://rootwall.ai/disputes" },
+    { "@type": "CreativeWork", "name": "What a hundred UK and EU software platforms require of the third parties calling their APIs", "url": "https://rootwall.ai/hundred-platforms" }
+  ]
+}
+</script>
 </head>
 <body>
 <div class="wrap">
 
   <header class="masthead">
     <p class="wordmark">Rootwall</p>
-    <h1>Someone&rsquo;s agent just called your API. Can you prove what it did?</h1>
-    <p class="standfirst">Rootwall is a membership scheme for the traffic between two named companies. Admission once, against a standard anyone can read. A record of every session, signed independently by both sides. A consequence fixed before anything goes wrong.</p>
+
+    <div class="panel machine">
+      <p><strong>This is the AI era, and we noticed.</strong> The whole of this site is plain text on purpose, ready to be consumed by your own AI assistant.</p>
+      <p><strong>Start by asking it this:</strong></p>
+      <div class="ask">
+        <p class="ask-q" id="ask-q">Read https://rootwall.ai/llms-full.txt and tell me what Rootwall is and how it can help me with cybersecurity.</p>
+        <button type="button" class="copy" id="copy-btn" hidden>Copy</button>
+      </div>
+      <p>If you would rather read it yourself, continue below.</p>
+    </div>
+
+    <p class="definition"><strong class="hl">Rootwall is Internet for Business:</strong> the company connecting to you is made <strong class="hl">accountable</strong>.</p>
+
+    <div class="thesis">
+      <p>When another company connects to your API, you are the only one defending the connection. <strong>What if the company on the other end defended it with you?</strong></p>
+      <p>Today it has no reason to. The company calling your API carries none of the cost when its own weakness arrives through the connection &mdash; which is what a supply chain attack is.</p>
+      <p><strong>Rootwall changes who pays.</strong> A member that breaks a rule owes a sum fixed before anything went wrong, to the member it harmed. Once that is true, the company calling you has its own money riding on its own security, and it hardens itself without being asked.</p>
+      <p class="key"><strong>That is the whole change. The company on the other end stops being something you defend against and becomes part of what defends you.</strong></p>
+      <p class="thesis-tail">Nothing is taken off your side of it. You do not defend less &mdash; the other end starts defending too. The two add up; they are not rebalanced.</p>
+    </div>
+
+    <h1>Someone&rsquo;s agent just called your API. What happens to them if it misbehaves?</h1>
+    <p class="standfirst">Rootwall is a membership scheme for the traffic between two named companies. The party calling your API is admitted against a published standard, accepts rules it can read in advance, and carries a consequence fixed before anything goes wrong. Every session is recorded and signed independently by both sides, which is what makes that consequence enforceable rather than promised.</p>
   </header>
 
   <div class="summary">
     <h2>In one minute</h2>
     <ol class="numbered">
-      <li><span class="lede-term">The problem.</span> Two companies let software talk to each other&rsquo;s systems. Something goes wrong. Neither can prove what happened, because each side holds only its own logs and neither has reason to believe the other&rsquo;s.</li>
+      <li><span class="lede-term">The problem.</span> Third parties call your API every day. If one of them misbehaves you can block it &mdash; and nothing else happens to it. No standard it was admitted against, no consequence it agreed to, no warning to the next company it calls.</li>
       <li><span class="lede-term">What you get on an ordinary day.</span> Two independently signed accounts of the same session that agree &mdash; a <strong>matched pair</strong>. Proof the call happened, under a named delegation, inside a declared scope, and that both sides said so at the time.</li>
       <li><span class="lede-term">What you get on the day it goes wrong.</span> The two accounts disagree, both parties are put on notice, and a consequence published in advance attaches to whoever broke a rule &mdash; paid to the company that was harmed, never to Rootwall.</li>
+      <li><span class="lede-term">What the rules look like.</span> Not abstract &mdash; <a href="/scope-class">here is a worked example</a> of a scope class: which operations a caller may attempt, the ceilings, and what each breach costs.</li>
       <li><span class="lede-term">What it costs.</span> $6,000 a year if you own the API. $1,000 if your agents call one. <a href="/fees">The whole schedule is published.</a></li>
     </ol>
   </div>
@@ -294,7 +116,8 @@
     <h2>What it is not</h2>
     <ol class="numbered">
       <li><span class="lede-term">Not identity.</span> Web Bot Auth, MCP-I, SPIFFE and the rest are a crowded field. Rootwall consumes them and builds none of them. The gap is one layer up: accreditation and enforcement.</li>
-      <li><span class="lede-term">Not a gateway or an API security product.</span> You have those. The argument is not that you cannot block a bad agent &mdash; it is that nothing happens to the party that sent it.</li>
+      <li><span class="lede-term">Not a gateway or an API security product.</span> You have those. The argument is not that you cannot block a bad agent &mdash; it is that <span class="key">nothing happens to the party that sent it.</span></li>
+      <li><span class="lede-term">Not a barrier.</span> Admission does not stop a member breaking a rule, and nothing here is sealed. What changes is that the party on the other end has something to lose: the breach is recorded, attributed and costly. It also does not see what your own defences stop below the published ceiling &mdash; a limitation stated in the rulebook rather than left to be found.</li>
       <li><span class="lede-term">Not anomaly detection.</span> Scope is declared in advance, so a deviation is arithmetic, not a judgement about whether behaviour looks unusual. No model, no baseline, no alert nobody trusts.</li>
       <li><span class="lede-term">Not arbitration or insurance.</span> Rootwall rules on whether a rule was broken and takes no position on loss. Recovery stays between the two companies, with the signed records available to both.</li>
     </ol>
@@ -303,7 +126,7 @@
 
   <section>
     <h2>What it costs</h2>
-    <p class="price"><strong>$6,000 a year if you own the API. $1,000 a year if your agents call one.</strong> Plus $1,000 to join, either side, covering entry and exit, and $2,000 for each scope class assessment on the calling side.</p>
+    <p class="price"><strong>$6,000 a year if you own the API. $1,000 a year if your agents call one.</strong> Plus $350 to join, either side, covering entry and exit, and $1,200 for each scope class assessment on the calling side.</p>
     <p><strong>Nothing is ever paid to Rootwall for breaking a rule.</strong> Where a sum is payable it goes to the member that was harmed &mdash; and the rulebook forbids any such sum reaching the scheme, and forbids that clause being amended.</p>
     <p><a href="/fees">The full schedule of fees.</a></p>
   </section>
@@ -315,12 +138,42 @@
   </div>
 
   <footer>
-    <p><a href="/rulebook">The rulebook</a> &middot; <a href="/questions">Common questions</a> &middot; <a href="/fees">Schedule of fees</a> &middot; <a href="/hundred-platforms">The survey</a> &middot; <a href="/history">Version history</a> &middot; <a href="/privacy">Privacy</a></p>
+    <p><a href="/rulebook">The rulebook</a> &middot; <a href="/scope-class">Example class</a> &middot; <a href="/questions">Common questions</a> &middot; <a href="/fees">Schedule of fees</a> &middot; <a href="/hundred-platforms">The survey</a> &middot; <a href="/history">Version history</a> &middot; <a href="/disputes">Disputes</a> &middot; <a href="/privacy">Privacy</a></p>
     <p>Rootwall is a governed overlay on the ordinary public internet. No new cable, no new transport, no new protocol layer.</p>
     <p>Contact: <a href="mailto:info@rootwall.ai">info@rootwall.ai</a></p>
   </footer>
 
 </div>
+<script>
+(function () {
+  var b = document.getElementById('copy-btn'), q = document.getElementById('ask-q');
+  if (!b || !q) return;
+  b.hidden = false;
+  function flash() {
+    var t = b.textContent;
+    b.textContent = 'Copied';
+    b.classList.add('done');
+    setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1600);
+  }
+  b.addEventListener('click', function () {
+    var text = q.textContent.trim();
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(flash, legacy);
+    } else { legacy(); }
+    function legacy() {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'absolute';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); flash(); } catch (e) { }
+      document.body.removeChild(ta);
+    }
+  });
+})();
+</script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "df6516715bb74e70ab48c22f8c1de1ec"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rootwall — schedule of fees, version 1.1 (superseded)</title>
+<meta name="description" content="What it costs to join the Rootwall scheme and to remain in it. Published in full and priced by role, so the number is visible before you ask for it.">
+<style>
+  :root {
+    --ink:        #17171a;
+    --ink-soft:   #4a4a52;
+    --ink-faint:  #74747e;
+    --paper:      #fbfaf8;
+    --panel:      #f2f0ec;
+    --rule:       #dcd9d2;
+    --accent:     #7a2f1e;
+    --measure:    34rem;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink:       #e8e6e1;
+      --ink-soft:  #b2afa8;
+      --ink-faint: #86837c;
+      --paper:     #16161a;
+      --panel:     #1e1e23;
+      --rule:      #33333a;
+      --accent:    #d98b72;
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    font-size: 18px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: var(--measure);
+    margin: 0 auto;
+    padding: 4.5rem 1.5rem 6rem;
+  }
+
+  .masthead { margin-bottom: 3.25rem; }
+
+  .wordmark {
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin: 0 0 1.5rem;
+    color: var(--ink);
+  }
+  .wordmark a { color: inherit; text-decoration: none; }
+
+  h1 {
+    font-size: 1.65rem;
+    line-height: 1.32;
+    font-weight: 600;
+    margin: 0 0 1rem;
+    letter-spacing: -0.008em;
+  }
+
+  .standfirst {
+    font-size: 1.06rem;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  .docmeta {
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+    color: var(--ink-faint);
+    margin: 1.4rem 0 0;
+  }
+
+  section { margin-top: 3.25rem; }
+
+  h2 {
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 0.74rem;
+    font-weight: 650;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 0 0 1.1rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  p { margin: 0 0 1.05rem; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 650; color: var(--ink); }
+
+  ol.numbered {
+    list-style: none;
+    counter-reset: n;
+    padding: 0;
+    margin: 0;
+  }
+  ol.numbered > li {
+    counter-increment: n;
+    position: relative;
+    padding-left: 2.2rem;
+    margin-bottom: 1.15rem;
+  }
+  ol.numbered > li:last-child { margin-bottom: 0; }
+  ol.numbered > li::before {
+    content: counter(n);
+    position: absolute;
+    left: 0;
+    top: 0.16em;
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 0.76rem;
+    font-weight: 650;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+
+  ul.plain { list-style: none; padding: 0; margin: 0; }
+  ul.plain > li {
+    position: relative;
+    padding-left: 2.2rem;
+    margin-bottom: 1.05rem;
+  }
+  ul.plain > li:last-child { margin-bottom: 0; }
+  ul.plain > li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--ink-faint);
+  }
+
+  .lede-term { font-weight: 650; }
+
+  .statement {
+    border-left: 2px solid var(--accent);
+    padding: 0.1rem 0 0.1rem 1.35rem;
+    margin: 1.6rem 0;
+    font-size: 1.08rem;
+    line-height: 1.5;
+  }
+
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    padding: 1.5rem 1.6rem;
+    margin-top: 1.4rem;
+  }
+  .panel p:last-child { margin-bottom: 0; }
+
+  /* ---------- fee table ---------- */
+
+  .tablewrap { overflow-x: auto; margin-top: 1.4rem; }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 0.88rem;
+    line-height: 1.45;
+  }
+
+  th, td {
+    text-align: left;
+    padding: 0.72rem 0.7rem 0.72rem 0;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+
+  thead th {
+    font-size: 0.7rem;
+    font-weight: 650;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    border-bottom: 1px solid var(--ink-faint);
+  }
+
+  td.amount, th.amount {
+    text-align: right;
+    padding-right: 0;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  td.amount { font-weight: 650; }
+
+  .basis {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--ink-faint);
+    font-weight: 400;
+    margin-top: 0.18rem;
+  }
+
+  .nil { color: var(--ink-faint); font-weight: 400; }
+
+  footer {
+    margin-top: 4rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid var(--rule);
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 0.78rem;
+    line-height: 1.7;
+    color: var(--ink-faint);
+  }
+  footer p { margin: 0 0 0.35rem; }
+
+  a { color: var(--accent); }
+
+  @media (max-width: 34rem) {
+    body { font-size: 17px; }
+    .wrap { padding: 3rem 1.25rem 4rem; }
+    h1 { font-size: 1.42rem; }
+    table { font-size: 0.84rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="wordmark"><a href="/">Rootwall</a></p>
+    <h1>Schedule of fees</h1>
+    <p class="standfirst">What it costs to join the scheme and to remain in it. Published in full, for the same reason the rulebook is: a body that sells accreditation and will not show you its price list is asking you to negotiate in the dark.</p>
+    <p class="docmeta">Version 1.1 &middot; 3 September 2026 &middot; Superseded the same day &middot; All amounts in US dollars</p>
+  </header>
+
+  <div class="panel">
+    <p><strong>This version has been superseded.</strong> Version 1.1 was published on 3 September 2026 and superseded by version 1.2 later the same day, before any member existed and before the schedule had been sent to anybody. It stays published because a price that cannot be cited to a fixed version is not a published price, and a version that lasted hours is not exempt from that. The schedule in force is at <a href="/fees">rootwall.ai/fees</a>, and what changed is set out on the <a href="/history">version history</a> page.</p>
+  </div>
+
+  <section>
+    <h2>In plain English</h2>
+    <p>This summary is not part of the schedule. Where the two differ, the schedule below governs.</p>
+    <ol class="numbered">
+      <li><span class="lede-term">Two roles, two prices.</span> The organisation that owns the API pays $6,000 a year. The organisation whose agents call it pays $1,000 a year.</li>
+      <li><span class="lede-term">One joining fee, either side, $1,000.</span> It covers being admitted and it covers leaving. Exit is not charged again later.</li>
+      <li><span class="lede-term">Being assessed costs $2,000 per scope class</span>, and only the agent operator is assessed. Renewal of that admission costs $600.</li>
+      <li><span class="lede-term">Nothing is ever paid to Rootwall for breaking a rule.</span> Where a sum is payable for a breach it is paid to the member that was harmed. The rulebook forbids any such sum reaching the scheme, and forbids that clause being amended.</li>
+      <li><span class="lede-term">Prices can change, and you are never bound to one you did not accept.</span> Any change is published here with its date. Nothing changes mid-term, and a member that will not accept a change may leave rather than be held to it.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>The fees</h2>
+
+    <p>Fees are keyed to <strong>role</strong>, never to party. A member admitted in the Emitting Role pays the Emitting Role fees, whichever company it is. A member holding both roles pays the Receiving Role membership only, plus the assessment fee for each class it is admitted into in the Emitting Role. It does not pay twice for being one company.</p>
+
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Fee</th>
+            <th scope="col" class="amount">Emitting Role</th>
+            <th scope="col" class="amount">Receiving Role</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Membership<span class="basis">Annual, recurring</span></th>
+            <td class="amount">$1,000</td>
+            <td class="amount">$6,000</td>
+          </tr>
+          <tr>
+            <th scope="row">Admission<span class="basis">One-off. Covers onboarding and offboarding</span></th>
+            <td class="amount">$1,000</td>
+            <td class="amount">$1,000</td>
+          </tr>
+          <tr>
+            <th scope="row">Assessment<span class="basis">Per scope class, on first admission to that class</span></th>
+            <td class="amount">$2,000</td>
+            <td class="amount nil">Nil</td>
+          </tr>
+          <tr>
+            <th scope="row">Reassessment<span class="basis">Per scope class, on renewal of an admission</span></th>
+            <td class="amount">$600</td>
+            <td class="amount nil">Nil</td>
+          </tr>
+          <tr>
+            <th scope="row">Conduct<span class="basis">Declared head, currently set at nil</span></th>
+            <td class="amount nil">Nil</td>
+            <td class="amount nil">Nil</td>
+          </tr>
+          <tr>
+            <th scope="row">Retention extension<span class="basis">Declared head, currently set at nil</span></th>
+            <td class="amount nil">Nil</td>
+            <td class="amount nil">Nil</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="docmeta">The Emitting Role is the party whose agents call an interface. The Receiving Role is the party that owns it. A scope class describes operations against a specific interface: permitted method kinds, ceilings, and what must be asserted.</p>
+  </section>
+
+  <section>
+    <h2>Why the two roles are priced differently</h2>
+    <p>Not because one matters more. The reason is practical and is stated here rather than left to be guessed at.</p>
+    <ul class="plain">
+      <li><span class="lede-term">The agent operator usually did not choose to be here.</span> It is joining because an organisation it wants to reach has made admission a condition of production access. A membership fee that an unwilling joiner resents is a fee that gets escalated back to the organisation that required it, and that mandate is how the scheme grows. Keeping it small protects the mechanism.</li>
+      <li><span class="lede-term">The API owner carries the risk and receives the record.</span> The thing being bought, most of the time, is a matched pair: two independent signed accounts of the same session that agree, which is a positive record that nothing went wrong. The party that would otherwise be explaining itself is the one that wants it.</li>
+    </ul>
+    <p>The agent operator still pays for its own assessment. This is not the API owner paying for an audit of its partners.</p>
+  </section>
+
+  <section>
+    <h2>Why the API owner pays no assessment fee</h2>
+    <p>Because there is currently nothing to assess it against. The response section of the scope class schedule is declared and empty, so admission in the Receiving Role is admission plus a declaration of which classes are accepted. It is membership, not an audit, and it is described that way deliberately.</p>
+    <p>If that section is ever written, an assessment fee for the Receiving Role will be published here before it is charged to anyone.</p>
+  </section>
+
+  <section>
+    <h2>What is never charged</h2>
+    <div class="statement">No sum of any kind is payable to Rootwall on breach of a rule, and that cannot be amended.</div>
+    <p>Where the rulebook fixes a liquidated sum for a breach, it is paid by the member that broke the rule to the member affected by it. The scheme takes nothing from it and has no financial interest in the outcome of any determination, in either direction.</p>
+    <p>Two further things are not charged. Release of evidence is a duty, not a product, and is never billed — least of all at the moment a member is in dispute. And no fee is metered per assertion or per session, because charging for emission would give a member a financial reason to stay quiet, which is the one incentive the rulebook is most concerned to remove.</p>
+  </section>
+
+  <section>
+    <h2>Two heads declared at nil, and why they appear at all</h2>
+    <p>The conduct fee and the retention extension fee are listed above at nil. Neither is charged today.</p>
+    <p>They are declared now because introducing an entirely new category of fee later would, under the rulebook's amendment provisions, be an event that entitles every existing member to withdraw. Publishing a figure against a head that has already been declared is not. Declaring them now costs nothing and keeps the option open honestly.</p>
+    <div class="panel">
+      <p><strong>If a conduct fee is ever set, what it will pay for is stated now.</strong> Holding both sides' signed records for the whole retention period, reconciling them, performing the rule comparison, and releasing evidence on request. The admission fee buys one sentence: this operator passed a test in March. A conduct fee buys a different one: this operator did exactly this, last Tuesday, and signed the same record of it.</p>
+      <p>Any such figure will be published on this page before it applies to anybody.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Changes to this schedule</h2>
+    <p>These prices are not promised to stay where they are, and this page does not pretend otherwise. What is promised is that no member is ever held to a price it did not agree to.</p>
+
+    <div class="panel">
+      <p><strong>What changed in version 1.1, published 3 September 2026.</strong> Admission rose from $350 to $1,000 on both sides, and assessment from $1,200 to $2,000 per scope class. Membership, reassessment and the two heads declared at nil are unchanged.</p>
+      <p>The reason is stated rather than left to be guessed at. The one-off fees were set without reference to any comparable scheme, and turned out to be between a quarter and a third of what a comparable published schedule charges a company of the same size for joining and for certification. They were revised to sit within that range rather than far below it. The recurring membership fee was checked against the same source and left where it was. <a href="/fees/1.0/">Version 1.0 remains readable at its own address.</a></p>
+    </div>
+    <ul class="plain">
+      <li><span class="lede-term">Nothing changes mid-term.</span> A change published here applies at a member's next renewal, never inside a period already paid for.</li>
+      <li><span class="lede-term">A member that will not accept a change may leave.</span> The rulebook's amendment provisions require notice and permit withdrawal by a member that does not accept what is being changed. That right is what protects a member which has already built against the scheme, and it does not depend on any promise about price.</li>
+      <li><span class="lede-term">Every version of this page stays readable.</span> Superseded versions remain published, with their dates, on the <a href="/history">version history</a>. Version 1.0 remains readable at <a href="/fees/1.0/">its own address</a>.</li>
+      <li><span class="lede-term">Fees are not rules.</span> They can change on this schedule without amending the rulebook. What cannot change is the rulebook's prohibition on any sum reaching the scheme on breach.</li>
+      <li><span class="lede-term">Amounts are in US dollars and are exclusive of VAT.</span> Rootwall.ai Limited is registered for UK value added tax. VAT is added where it applies, as is any other tax applying in the member's jurisdiction.</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p><a href="/">Front page</a> &middot; <a href="/rulebook">The rulebook</a> &middot; <a href="/questions">Common questions</a> &middot; <a href="/hundred-platforms">The survey</a> &middot; <a href="/history">Version history</a> &middot; <a href="/privacy">Privacy</a></p>
+    <p>Rootwall is a governed overlay on the ordinary public internet. No new cable, no new transport, no new protocol layer.</p>
+    <p>Contact: <a href="mailto:info@rootwall.ai">info@rootwall.ai</a></p>
+  </footer>
+
+</div>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "df6516715bb74e70ab48c22f8c1de1ec"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

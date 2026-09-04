@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rootwall — an example scope class</title>
+<meta name="description" content="A worked, illustrative scope class: which operations a caller may attempt, the ceilings on them, what must be asserted, and the sums attached to breaking each rule. Applies to nobody.">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="wordmark"><a href="/">Rootwall</a></p>
+    <h1>An example scope class</h1>
+    <p class="standfirst">A scope class is the document that says what a caller may attempt against your interface, how often, and what happens when it goes outside. This is a worked one, so you can see the shape before you write yours.</p>
+    <p class="key"><strong>Everything on this page is illustrative. It is not published, it binds nobody, and no member is admitted into it.</strong> The real one for your interface is written with you.</p>
+    <p class="docmeta">Illustrative example &middot; 3 September 2026 &middot; Clause references are to <a href="/rulebook">the rulebook</a>, version 1.2</p>
+  </header>
+
+  <section>
+    <h2>Before the example: what a scope class can and cannot say</h2>
+    <p>This is the part people get wrong first, and it is worth a minute because it explains the shape of everything below.</p>
+    <div class="statement">Rootwall never sees what is inside your traffic. Records carry the names of arguments and a digest of their values &mdash; never the values.</div>
+    <p><strong>So a scope class governs what a caller may attempt, not what its payload contains.</strong></p>
+    <ul class="plain">
+      <li><span class="lede-term">In a scope class:</span> which kinds of operation are permitted, how many, over what window, whether the caller must hold a delegation from a named principal, and what has to be asserted about every session.</li>
+      <li><span class="lede-term">Not in a scope class:</span> anything that would require reading a value. A maximum field length, a permitted date range, a rule about what may appear in a search string. <strong>The scheme could not check these, and the rulebook says no clause may be read as claiming it can.</strong></li>
+    </ul>
+    <p><strong>Those rules still exist &mdash; they live at your own edge.</strong> The rulebook lets a receiving member apply any restriction stricter than the class permits, privately, without notifying the scheme or anybody else. <strong>You may always be stricter. You may never be looser.</strong> A refusal under that right is not a breach by anyone and carries no consequence.</p>
+    <p class="cite">Clauses 12.1 to 12.4, 13.1, 24.1 and 24.2.</p>
+  </section>
+
+  <section>
+    <h2>The example: a read-only class for a REST interface</h2>
+    <p class="docmeta">Reference <code>SC-READ-1</code> &middot; version 1.0 &middot; <strong>ILLUSTRATIVE</strong></p>
+
+    <h3 class="qa" style="border:0;margin-top:2rem;padding:0">What the caller may attempt</h3>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th scope="col">Method kind</th><th scope="col">Permitted</th><th scope="col">Meaning</th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><code>read.record</code></th><td>Yes</td><td>Retrieve one identified record</td></tr>
+          <tr><th scope="row"><code>read.collection</code></th><td>Yes</td><td>Retrieve a list or search result</td></tr>
+          <tr><th scope="row"><code>create</code></th><td class="nil">No</td><td>Bring a new record into existence</td></tr>
+          <tr><th scope="row"><code>update</code></th><td class="nil">No</td><td>Change an existing record</td></tr>
+          <tr><th scope="row"><code>delete</code></th><td class="nil">No</td><td>Remove a record</td></tr>
+          <tr><th scope="row"><code>payment.initiate</code></th><td class="nil">No</td><td>Move money</td></tr>
+          <tr><th scope="row"><code>notify.external</code></th><td class="nil">No</td><td>Cause a message to a third party</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>The class names kinds, not methods, because it cannot know what your interface exposes.</strong> You map each of your own endpoints to a kind and file that mapping with the scheme. <strong>The mapping is of effect, not of signature</strong> &mdash; if one endpoint does several things behind the scenes, it maps to the most consequential of them. Mapping something to a kind that understates its effect is a breach, attributed to you, because only you know what your methods do.</p>
+    <p class="cite">Clauses 13.1 to 13.3.</p>
+
+    <h3 class="qa" style="border:0;margin-top:2.5rem;padding:0">Ceilings</h3>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th scope="col">Limit</th><th scope="col" class="amount">Ceiling</th><th scope="col" class="amount">Window</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">All interactions, per counterparty</th><td class="amount">600</td><td class="amount">1 hour</td></tr>
+          <tr><th scope="row">All interactions, per counterparty</th><td class="amount">5,000</td><td class="amount">24 hours</td></tr>
+          <tr><th scope="row"><code>read.collection</code> only<span class="basis">List and search operations are heavier and are capped separately</span></th><td class="amount">200</td><td class="amount">1 hour</td></tr>
+          <tr><th scope="row">Concurrent open sessions, per counterparty</th><td class="amount">10</td><td class="amount nil">&mdash;</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Ceilings are measured per counterparty and count only interactions the caller initiated.</strong> Windows are stated because a per-session ceiling is evaded by splitting the work across sessions.</p>
+
+    <h3 class="qa" style="border:0;margin-top:2.5rem;padding:0">Delegation</h3>
+    <ul class="plain">
+      <li><span class="lede-term">Required.</span> Every session is opened on the authority of an identified principal &mdash; a named person or organisation on whose behalf the caller is acting.</li>
+      <li><span class="lede-term">Maximum validity: 24 hours</span> from the point the caller obtained it.</li>
+      <li><span class="lede-term">The principal is named in the record</span>, and the caller asserts that it verified the authority. <strong>Recording a verification as performed when it was not is a breach.</strong></li>
+    </ul>
+
+    <h3 class="qa" style="border:0;margin-top:2.5rem;padding:0">What must be asserted</h3>
+    <ul class="plain">
+      <li><span class="lede-term">By both sides, for every session:</span> a session-open record, one record per interaction, and a session-close record.</li>
+      <li><span class="lede-term">On every record:</span> the shared session identifier, the emitter and its role, and for each interaction the method kind, the direction, the names of the arguments and a digest of their values.</li>
+      <li><span class="lede-term">On the calling side:</span> the delegation reference and the identifier of the build that was running.</li>
+      <li><span class="lede-term">Emission deadline:</span> within 15 minutes of session close. Emission is not urgent, is not in the data path, and is never a dependency of your operations.</li>
+      <li><span class="lede-term">Response section:</span> not applicable. This is a plain request-and-response interface, so the receiving side never initiates.</li>
+    </ul>
+    <p class="cite">Clauses 20.1 to 20.7 and 9.6.</p>
+  </section>
+
+  <section>
+    <h2>What it costs to break each rule</h2>
+    <p>Sums are fixed in advance, published before they apply, and identical for every member breaking the same rule in the same role. <strong>They are paid by the member in breach to the member affected, never to Rootwall</strong> &mdash; which cannot receive any sum on breach under a clause that cannot be amended.</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th scope="col">Breach</th><th scope="col">Standing</th><th scope="col" class="amount">Sum</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Attempting a forbidden method kind<span class="basis">An attempt is a breach whether or not it succeeded</span></th><td>Under Review; Suspended on repetition</td><td class="amount">$1,000 per session</td></tr>
+          <tr><th scope="row">Operating without a valid delegation<span class="basis">Or after it expired, or beyond what the principal authorised</span></th><td>Under Review; Suspended on repetition</td><td class="amount">$1,000 per session</td></tr>
+          <tr><th scope="row">Exceeding a ceiling</th><td>Under Review</td><td class="amount">$250 per window</td></tr>
+          <tr><th scope="row">A false or misleading record<span class="basis">Including mislabelling a refusal, or understating a method's effect</span></th><td>Under Review; Suspended on repetition</td><td class="amount">$2,500 per record</td></tr>
+          <tr><th scope="row">Failing to produce a record, or to answer in time<span class="basis">Either role. See the note below</span></th><td>Under Review; Suspended if sustained</td><td class="amount">$2,500 per session</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Aggregate cap: $25,000</strong> per member, per counterparty, per rolling 30 days, across all categories. Consequences to standing are not capped. The cap limits the scheme&rsquo;s consequences and not anybody&rsquo;s liability at law.</p>
+
+    <div class="panel">
+      <p><strong>Why failing to produce a record costs more than most of the breaches it might hide.</strong> The rule is that the sum for evidence failure, per session, may never be lower than the highest per-session sum for an actual breach in the same class. Here that is $1,000, so $2,500 clears it comfortably.</p>
+      <p><strong>A member that has just broken a rule must not find silence cheaper than admitting it.</strong> That single constraint is what makes the rest of the scheme work.</p>
+    </div>
+
+    <div class="panel">
+      <p><strong>Why these numbers look small, and they are meant to.</strong> A sum here is a pre-estimate of what the breach costs <em>the member affected by it</em> to deal with &mdash; an engineer and someone in risk, a few hours for something contained. <strong>It is not damages, it is not a measure of loss, and it is not the scheme&rsquo;s costs.</strong></p>
+      <p><strong>The deterrent in this scheme is standing, not money.</strong> Sums set high enough to frighten would stop being a pre-estimate of anything, and would invite a court to call them a penalty and strike them out. A reader who thinks these are too low has misread what they are for.</p>
+    </div>
+
+    <p class="docmeta"><strong>Assessment fee for a class of this shape: $1,200</strong>, paid once by the calling side on first admission into it, with renewal at $600. A class permitting mutating operations takes more work to assess and carries a higher fee. <a href="/fees">The whole schedule is published.</a></p>
+  </section>
+
+  <section>
+    <h2>The same interface, one step riskier</h2>
+    <p>For contrast, and because the shape of the change is the point. <code>SC-WRITE-1</code> would permit <code>create</code> and <code>update</code> alongside the read kinds, and everything else moves with it:</p>
+    <ul class="plain">
+      <li><span class="lede-term">Tighter ceilings on the mutating kinds</span> than on the read ones, because the consequence of getting them wrong is not symmetrical.</li>
+      <li><span class="lede-term">A shorter delegation validity</span> &mdash; hours rather than a day.</li>
+      <li><span class="lede-term">Higher sums</span>, because a wrongly created or altered record costs the affected member more to unpick than a wrongly read one.</li>
+      <li><span class="lede-term">A higher assessment fee</span>, because there is more to assess.</li>
+    </ul>
+    <p><strong>What does not change: the rules themselves, the evidence standard, the consequences framework, or anything in the rulebook.</strong> A scope class is a permission profile. It never varies a rule &mdash; the scheme cannot vary a rule for anybody.</p>
+  </section>
+
+  <section>
+    <h2>How the real one gets written</h2>
+    <ol class="numbered">
+      <li><span class="lede-term">You list what your interface exposes</span> and map each method to a kind. You are the only party that knows what your own methods actually do.</li>
+      <li><span class="lede-term">We set the ceilings together</span>, against what your ordinary traffic looks like rather than against a number we invented.</li>
+      <li><span class="lede-term">The sums are set with the class</span>, as a pre-estimate of what a breach of each category would cost you to deal with. <strong>You are the party they are paid to, so you are the party who knows.</strong></li>
+      <li><span class="lede-term">It is published, and every company admitted after you is held to it.</span> Once written it is not yours privately &mdash; it is the standard for that shape of interface.</li>
+    </ol>
+    <div class="statement">The first company through does not get a discount. It gets to decide what the rules say.</div>
+    <p><strong>Classes are versioned, and a member is admitted into a specific version.</strong> Where a new version is published, a transition period is stated. Nobody is moved onto new rules overnight.</p>
+    <p class="cite">Clauses 9.1 to 9.7, 14.1 and 14.2, 30.2.</p>
+  </section>
+
+  <footer>
+    <p><a href="/">Front page</a> &middot; <a href="/rulebook">The rulebook</a> &middot; <a href="/questions">Common questions</a> &middot; <a href="/fees">Schedule of fees</a> &middot; <a href="/disputes">Disputes</a> &middot; <a href="/hundred-platforms">The survey</a> &middot; <a href="/history">Version history</a> &middot; <a href="/privacy">Privacy</a></p>
+    <p>Rootwall is a governed overlay on the ordinary public internet. No new cable, no new transport, no new protocol layer.</p>
+    <p>Contact: <a href="mailto:info@rootwall.ai">info@rootwall.ai</a></p>
+  </footer>
+
+</div>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "df6516715bb74e70ab48c22f8c1de1ec"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

@@ -5,198 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rootwall — version history</title>
 <meta name="description" content="Every published version of the Rootwall rulebook, schedule of fees, survey and privacy notice, with its date and what changed. Superseded versions stay readable, because a clause that cannot be cited is not a rule.">
-<style>
-  :root {
-    --ink:        #17171a;
-    --ink-soft:   #4a4a52;
-    --ink-faint:  #74747e;
-    --paper:      #fbfaf8;
-    --panel:      #f2f0ec;
-    --rule:       #dcd9d2;
-    --accent:     #7a2f1e;
-    --measure:    34rem;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --ink:       #e8e6e1;
-      --ink-soft:  #b2afa8;
-      --ink-faint: #86837c;
-      --paper:     #16161a;
-      --panel:     #1e1e23;
-      --rule:      #33333a;
-      --accent:    #d98b72;
-    }
-  }
-
-  *, *::before, *::after { box-sizing: border-box; }
-
-  html { -webkit-text-size-adjust: 100%; }
-
-  body {
-    margin: 0;
-    padding: 0;
-    background: var(--paper);
-    color: var(--ink);
-    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
-    font-size: 18px;
-    line-height: 1.62;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  .wrap {
-    max-width: var(--measure);
-    margin: 0 auto;
-    padding: 4.5rem 1.5rem 6rem;
-  }
-
-  .masthead { margin-bottom: 3.25rem; }
-
-  .wordmark {
-    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-size: 1.05rem;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    margin: 0 0 1.5rem;
-    color: var(--ink);
-  }
-  .wordmark a { color: inherit; text-decoration: none; }
-
-  h1 {
-    font-size: 1.65rem;
-    line-height: 1.32;
-    font-weight: 600;
-    margin: 0 0 1rem;
-    letter-spacing: -0.008em;
-  }
-
-  .standfirst {
-    font-size: 1.06rem;
-    color: var(--ink-soft);
-    margin: 0;
-  }
-
-  .docmeta {
-    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-size: 0.78rem;
-    letter-spacing: 0.02em;
-    color: var(--ink-faint);
-    margin: 1.4rem 0 0;
-  }
-
-  section { margin-top: 3.25rem; }
-
-  h2 {
-    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-size: 0.74rem;
-    font-weight: 650;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-    margin: 0 0 1.1rem;
-    padding-bottom: 0.6rem;
-    border-bottom: 1px solid var(--rule);
-  }
-
-  p { margin: 0 0 1.05rem; }
-  p:last-child { margin-bottom: 0; }
-
-  strong { font-weight: 650; color: var(--ink); }
-
-  ul.plain { list-style: none; padding: 0; margin: 0; }
-  ul.plain > li {
-    position: relative;
-    padding-left: 2.2rem;
-    margin-bottom: 1.05rem;
-  }
-  ul.plain > li:last-child { margin-bottom: 0; }
-  ul.plain > li::before {
-    content: "—";
-    position: absolute;
-    left: 0;
-    top: 0;
-    color: var(--ink-faint);
-  }
-
-  .lede-term { font-weight: 650; }
-
-  .statement {
-    border-left: 2px solid var(--accent);
-    padding: 0.1rem 0 0.1rem 1.35rem;
-    margin: 1.6rem 0;
-    font-size: 1.08rem;
-    line-height: 1.5;
-  }
-
-  .panel {
-    background: var(--panel);
-    border: 1px solid var(--rule);
-    padding: 1.5rem 1.6rem;
-    margin-top: 1.4rem;
-  }
-  .panel p:last-child { margin-bottom: 0; }
-
-  /* ---------- version entries ---------- */
-
-  .entry {
-    padding: 1.15rem 0;
-    border-bottom: 1px solid var(--rule);
-  }
-  .entry:first-of-type { border-top: 1px solid var(--ink-faint); }
-
-  .entry-head {
-    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-size: 0.82rem;
-    font-weight: 650;
-    letter-spacing: 0.02em;
-    margin: 0 0 0.5rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-    align-items: baseline;
-  }
-
-  .ver { color: var(--accent); font-variant-numeric: tabular-nums; }
-
-  .date {
-    font-weight: 400;
-    color: var(--ink-faint);
-    font-variant-numeric: tabular-nums;
-  }
-
-  .tag {
-    font-size: 0.66rem;
-    font-weight: 650;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    border: 1px solid var(--rule);
-    padding: 0.08rem 0.42rem;
-    color: var(--ink-faint);
-  }
-  .tag.current { border-color: var(--accent); color: var(--accent); }
-
-  .entry p { font-size: 0.95rem; margin-bottom: 0.7rem; }
-  .entry p:last-child { margin-bottom: 0; }
-
-  footer {
-    margin-top: 4rem;
-    padding-top: 1.4rem;
-    border-top: 1px solid var(--rule);
-    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-size: 0.78rem;
-    line-height: 1.7;
-    color: var(--ink-faint);
-  }
-  footer p { margin: 0 0 0.35rem; }
-
-  a { color: var(--accent); }
-
-  @media (max-width: 34rem) {
-    body { font-size: 17px; }
-    .wrap { padding: 3rem 1.25rem 4rem; }
-    h1 { font-size: 1.42rem; }
-  }
-</style>
+<link rel="stylesheet" href="/style.css">
 </head>
 <body>
 <div class="wrap">
@@ -204,7 +13,7 @@
   <header class="masthead">
     <p class="wordmark"><a href="/">Rootwall</a></p>
     <h1>Version history</h1>
-    <p class="standfirst">Every published version of the rulebook, the schedule of fees, the survey and the privacy notice, with the date it took effect and what changed in it.</p>
+    <p class="standfirst">Every published version of the rulebook, the schedule of fees, the survey, the disputes page and the privacy notice, with the date it took effect and what changed in it.</p>
     <p class="docmeta">Last updated 3 September 2026</p>
   </header>
 
@@ -257,15 +66,22 @@
     <h2>Schedule of fees</h2>
 
     <div class="entry">
-      <p class="entry-head"><span class="ver">Version 1.1</span> <span class="date">3 September 2026</span> <span class="tag current">Current</span></p>
-      <p><strong>Two one-off fees rose. The recurring fees did not.</strong> Admission moved from $350 to $1,000 on both sides, and assessment from $1,200 to $2,000 per scope class in the Emitting Role. Membership stays at $6,000 a year in the Receiving Role and $1,000 in the Emitting Role, reassessment stays at $600, and the conduct and retention extension heads stay at nil.</p>
-      <p><strong>Why.</strong> The one-off fees in 1.0 were set without reference to any comparable scheme. Read against a published schedule for an equivalent body, they were between a quarter and a third of what a company of the same size pays elsewhere to join and to be certified. They were revised to sit within that range. The recurring membership fee was checked against the same source and was already level with it, so it was left alone.</p>
-      <p>The schedule is also now explicit that amounts are exclusive of VAT. <strong>No member existed on the date of this change</strong>, so no member's price moved: no change to this schedule applies inside a period already paid for, and a member that will not accept a change may withdraw rather than be bound by it.</p>
+      <p class="entry-head"><span class="ver">Version 1.2</span> <span class="date">3 September 2026</span> <span class="tag current">Current</span></p>
+      <p><strong>The one-off fees return to where 1.0 set them.</strong> Admission is $350 on both sides and assessment $1,200 per scope class in the Emitting Role. Membership stays at $6,000 a year in the Receiving Role and $1,000 in the Emitting Role, reassessment stays at $600, and the conduct and retention extension heads stay at nil. <strong>The recurring fees have never moved.</strong></p>
+      <p><strong>Why, and it is a judgement about who pays rather than about the price being wrong.</strong> Version 1.1 raised both one-off fees against a comparable published schedule, and that comparison stands &mdash; a body of this kind charges a company of this size several times more to join and to be certified. <strong>This scheme is knowingly priced below it.</strong></p>
+      <p><strong>What the increase did was fall almost entirely on one side.</strong> An agent operator is usually admitted because an organisation it wants to reach made admission a condition of access, rather than because it went looking. Under 1.1 its first-year total rose by more than half; the API owner's rose by a tenth. <strong>A scheme that grows by one member requiring admission of another should not make that requirement expensive to impose.</strong></p>
+      <p>The schedule is also explicit that amounts are exclusive of VAT. <strong>No member existed on the date of either change</strong>, so no member's price moved.</p>
+    </div>
+
+    <div class="entry">
+      <p class="entry-head"><span class="ver"><a href="/fees/1.1/">Version 1.1</a></span> <span class="date">3 September 2026</span> <span class="tag">Superseded</span></p>
+      <p>In force for part of one day, and <a href="/fees/1.1/">still readable at its own address</a>. Raised admission from $350 to $1,000 on both sides and assessment from $1,200 to $2,000 per scope class, against a comparable published schedule. Superseded by 1.2 the same day.</p>
+      <p><strong>It is listed rather than removed for the same reason every other superseded version is.</strong> A version that lasted hours is still a version that was published, and a schedule that quietly loses the ones it would rather forget is not a version history.</p>
     </div>
 
     <div class="entry">
       <p class="entry-head"><span class="ver"><a href="/fees/1.0/">Version 1.0</a></span> <span class="date">27 August 2026</span> <span class="tag">Superseded</span></p>
-      <p>First publication, in force from 27 August to 3 September 2026, and <a href="/fees/1.0/">still readable at its own address</a>. Membership priced by role at $6,000 a year in the Receiving Role and $1,000 in the Emitting Role, admission at $350 on both sides covering entry and exit, assessment at $1,200 per scope class in the Emitting Role with renewal at $600, and the conduct and retention extension heads declared at nil.</p>
+      <p>First publication, in force from 27 August to 3 September 2026, and <a href="/fees/1.0/">still readable at its own address</a>. <strong>Its figures are the figures in force again from version 1.2.</strong> Membership priced by role at $6,000 a year in the Receiving Role and $1,000 in the Emitting Role, admission at $350 on both sides covering entry and exit, assessment at $1,200 per scope class in the Emitting Role with renewal at $600, and the conduct and retention extension heads declared at nil.</p>
       <p>No change to this schedule applies inside a period already paid for, and a member that will not accept a change may withdraw rather than be bound by it.</p>
     </div>
   </section>
@@ -293,6 +109,26 @@
   </section>
 
   <section>
+    <h2>Example scope class</h2>
+
+    <div class="entry">
+      <p class="entry-head"><span class="ver">Illustrative</span> <span class="date">3 September 2026</span> <span class="tag current">Current</span></p>
+      <p>First publication. <a href="/scope-class">A worked example of a scope class</a> &mdash; permitted method kinds, ceilings and windows, the delegation requirement, what must be asserted, and the sum attached to each breach.</p>
+      <p><strong>It is illustrative and carries no version number for that reason.</strong> It binds nobody, no member is admitted into it, and it will not be superseded &mdash; it will be replaced when a real published class makes it redundant.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>When the records do not match</h2>
+
+    <div class="entry">
+      <p class="entry-head"><span class="ver">Version 1.0</span> <span class="date">3 September 2026</span> <span class="tag current">Current</span></p>
+      <p>First publication. <a href="/disputes">What happens when two members&rsquo; accounts of the same session disagree</a> &mdash; the process and its clocks, what the scheme determines, and what it is forbidden from determining.</p>
+      <p><strong>It exists because the answer was spread across four parts of the rulebook and nowhere as a single chain.</strong> Every clause cited on it is referenced, and the page carries a scope table stating in and out on one screen.</p>
+    </div>
+  </section>
+
+  <section>
     <h2>How a change gets made</h2>
     <p>The rulebook's own amendment provisions govern, and this page does not add to them or soften them. In outline, and without replacing the text of the rules themselves:</p>
     <ul class="plain">
@@ -310,7 +146,7 @@
   </section>
 
   <footer>
-    <p><a href="/">Front page</a> &middot; <a href="/rulebook">The rulebook</a> &middot; <a href="/questions">Common questions</a> &middot; <a href="/fees">Schedule of fees</a> &middot; <a href="/hundred-platforms">The survey</a> &middot; <a href="/privacy">Privacy</a></p>
+    <p><a href="/">Front page</a> &middot; <a href="/rulebook">The rulebook</a> &middot; <a href="/scope-class">Example class</a> &middot; <a href="/questions">Common questions</a> &middot; <a href="/fees">Schedule of fees</a> &middot; <a href="/hundred-platforms">The survey</a> &middot; <a href="/disputes">Disputes</a> &middot; <a href="/privacy">Privacy</a></p>
     <p>Rootwall is a governed overlay on the ordinary public internet. No new cable, no new transport, no new protocol layer.</p>
     <p>Contact: <a href="mailto:info@rootwall.ai">info@rootwall.ai</a></p>
   </footer>

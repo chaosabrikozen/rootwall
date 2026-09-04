@@ -163,7 +163,7 @@ PAGE = """<!DOCTYPE html>
 {body}
 <footer>
   <p>Every clause on this page has its own address. To cite one, use the link beside its number &mdash; for example <code>rootwall.ai/rulebook#22.3</code>. Numbering is stable: clauses removed in a later version are marked <em>[Reserved]</em> and their numbers are never reused.</p>
-  <p>Contact: <a href="mailto:info@rootwall.ai">info@rootwall.ai</a> &middot; <a href="/privacy">Privacy</a></p>
+  <p>Contact: <a href="mailto:info@rootwall.ai">info@rootwall.ai</a> &middot; <a href="/scope-class">Example class</a> &middot; <a href="/disputes">Disputes</a> &middot; <a href="/privacy">Privacy</a></p>
 </footer>
 </div>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "df6516715bb74e70ab48c22f8c1de1ec"}'></script><!-- End Cloudflare Web Analytics -->

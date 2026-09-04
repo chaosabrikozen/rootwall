@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rootwall — when the records do not match</title>
+<meta name="description" content="What happens when two members' accounts of the same session disagree: the process, the clocks, what Rootwall decides, and what it is forbidden from deciding.">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="wordmark"><a href="/">Rootwall</a></p>
+    <h1>When the records do not match</h1>
+    <p class="standfirst">Almost always the two accounts of a session agree and there is nothing to do. This page is about the other day: what happens, who decides what, how long it takes, and where the scheme&rsquo;s job ends.</p>
+    <p class="key"><strong>Rootwall never decides who is telling the truth. It is not permitted to.</strong> What it decides is narrower, mechanical, and stated below in full.</p>
+    <p class="docmeta">Version 1.0 &middot; 3 September 2026 &middot; Clause references are to <a href="/rulebook">the rulebook</a>, version 1.2</p>
+  </header>
+
+  <section>
+    <h2>In plain English</h2>
+    <p>This summary is not the rules. Where it and the rulebook differ, the rulebook governs.</p>
+    <ol class="numbered">
+      <li><span class="lede-term">Almost always, nothing happens.</span> Both sides send their account of a session, the two agree, and a <strong>matched pair</strong> is recorded. Nobody is notified and there is nothing to read.</li>
+      <li><span class="lede-term">Sometimes they do not agree.</span> That is a <strong>divergence</strong> &mdash; and a divergence is a question, not an accusation. Nobody is in breach because two records differ.</li>
+      <li><span class="lede-term">Both companies are asked to explain, and both are marked while that happens.</span> Not one. The scheme does not guess which side is wrong before asking.</li>
+      <li><span class="lede-term">Most end there</span>, because one side goes and looks and finds its own fault: a dropped message, a retry, a clock, a bug.</li>
+      <li><span class="lede-term">The scheme never investigates.</span> It holds no message contents, no logs and no access to anyone&rsquo;s systems &mdash; and where a rule needs both records, it is forbidden from deciding on one side&rsquo;s word.</li>
+      <li><span class="lede-term">What settles it is who can produce their own evidence.</span> A company that cannot may not rely on its own account, and the other side&rsquo;s account then stands unopposed.</li>
+      <li><span class="lede-term">If both can produce and still disagree, that is recorded and the scheme stops.</span> The argument about money is theirs. What they take into it is two signed records made at the time.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>The normal case</h2>
+    <p>Two companies each send their own signed account of the same session. The scheme compares them in a fixed order: <strong>session totals first</strong>, because a disagreement there settles it without further comparison; then the sequence of interactions, the argument digest for each, and the direction each side recorded.</p>
+    <p>Where they reconcile, a <strong>matched pair</strong> is recorded. The rulebook calls it <em>&ldquo;a positive record that nothing happened&rdquo;</em>, and it exists so that the absence of incident is evidenced rather than assumed.</p>
+    <div class="statement">This is what a member is buying, most of the time. Everything below is the machinery that makes the matched pair mean something &mdash; not the part that runs.</div>
+    <p class="cite">Clauses 23.1 to 23.3.</p>
+  </section>
+
+  <section>
+    <h2>What a divergence is, and what it is not</h2>
+    <p>A divergence is recorded when the two accounts do not reconcile: one side asserts an interaction the other does not; totals cannot be reconciled; the argument digests differ for the same interaction; the two sides record different directions; the sequences differ in order or content; or the two sides give different identifiers for the same session.</p>
+    <p>And then the rulebook says what it is not, twice, in two separate clauses.</p>
+    <div class="statement">A divergence is not a breach until determined. A divergence is a question.</div>
+    <p>This is not a technicality. <strong>A member whose records diverge once has done nothing wrong, is published as having done nothing wrong, and owes nobody anything.</strong> A scheme that treated every mismatch as an accusation would be unusable, and no competent risk function would let its company join one.</p>
+    <p class="cite">Clauses 23.4, 23.5 and 28.3.</p>
+  </section>
+
+  <section>
+    <h2>The process, and its clocks</h2>
+    <p>Every period below is fixed in Schedule 4 of the rulebook and has a value. <strong>Two of them bind the scheme rather than the member.</strong></p>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th scope="col">Step</th><th scope="col">Who acts</th><th scope="col" class="amount">Period</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Divergence recorded; <strong>both</strong> members placed Under Review<span class="basis">Under Review is a status, not a suspension</span></th><td>Scheme</td><td class="amount nil">&mdash;</td></tr>
+          <tr><th scope="row">Each member explains</th><td>Member</td><td class="amount">10 business days</td></tr>
+          <tr><th scope="row">Explanation assessed; determination or closure</th><td>Scheme</td><td class="amount nil">&mdash;</td></tr>
+          <tr><th scope="row"><strong>Maximum period a member can be left Under Review</strong><span class="basis">A limit on the scheme, not on the member</span></th><td><strong>Scheme</strong></td><td class="amount">30 business days</td></tr>
+          <tr><th scope="row">Review of a determination may be requested</th><td>Member</td><td class="amount">20 business days</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Where the explanation resolves it.</strong> If the divergence is explained by an emission failure at one member, that is an evidence failure against that member. If it is explained by interactions conducted outside the member&rsquo;s own instrumented path, that is a different breach.</p>
+    <p><strong>Where no explanation arrives.</strong> Failure to respond within the period is itself a breach &mdash; determinable on the face of the record, requiring no investigation of anything.</p>
+    <p class="cite">Clauses 23.5, 23.6, 27.5, 27.6, 32.1; Schedule 4.</p>
+  </section>
+
+  <section>
+    <h2>What the scheme can determine, holding no logs at all</h2>
+    <p>Four things. All arithmetic. <strong>None of them requires anyone to be believed.</strong></p>
+    <ul class="plain">
+      <li><span class="lede-term">Whether each side sent a record at all.</span> Failing to, within the deadline, is a breach in its own right &mdash; whatever the underlying facts were.</li>
+      <li><span class="lede-term">Whether each side answered within the period.</span> The same.</li>
+      <li><span class="lede-term">Whether a record contradicts its own scope class.</span> A caller whose own account shows an operation its class forbids, a ceiling crossed, or a delegation that had expired, has settled the question out of its own document.</li>
+      <li><span class="lede-term">Whether a party disowns a record it signed.</span> That is a breach independent of what happened.</li>
+    </ul>
+    <p>Determination is <em>&ldquo;the comparison of an Assertion against a published Rule. It is arithmetic and it does not involve the Scheme forming a view.&rdquo;</em> Every determination records what it relied on: the rule, the session, the records, and the member it is attributed to.</p>
+    <p class="cite">Clauses 27.2 to 27.6, 29.1 and 29.2.</p>
+  </section>
+
+  <section>
+    <h2>What the scheme cannot determine &mdash; and is forbidden from determining</h2>
+    <div class="statement">Where a rule requires both records, the scheme shall not determine a breach on one member&rsquo;s account alone.</div>
+    <p><strong>That is clause 29.3, and it is the answer to the hardest question anyone asks about this scheme.</strong> If two accounts contradict each other and both are internally valid, Rootwall does not pick a side. It cannot &mdash; and it is not permitted to try.</p>
+    <ul class="plain">
+      <li><span class="lede-term">It never sees what was in the traffic.</span> Records carry the <em>names</em> of arguments and a digest of their values, never the values. No request or response bodies, no argument values, no member&rsquo;s log estate &mdash; and the rulebook adds that nothing in it may be read as claiming otherwise.</li>
+      <li><span class="lede-term">It may not infer.</span> No statistical baseline, no model, no anomaly score, no comparison with a member&rsquo;s own history or with the membership. Observed usage may inform whether a ceiling is set sensibly. It may never produce a consequence for an individual session or member.</li>
+      <li><span class="lede-term">It does not judge conduct it merely dislikes.</span> Conduct inside a scope class that breaks no rule is not a breach. The scheme does not make a member answerable where no rule was broken.</li>
+      <li><span class="lede-term">It takes no position on loss.</span> See the witness function below.</li>
+    </ul>
+    <p class="cite">Clauses 24.1, 24.2, 28.4, 29.3 and 29.4.</p>
+  </section>
+
+  <section>
+    <h2>So how does the truth come out</h2>
+    <p><strong>By burden, not by investigation.</strong></p>
+    <p>Each member holds its own <strong>substantiating material</strong> &mdash; the underlying evidence behind its own records. The scheme never receives it, never requests it, and never holds it. The member keeps it for a fixed period, and failing to keep it is itself a breach.</p>
+    <p>In a dispute, a member <strong>may choose</strong> to produce it.</p>
+    <div class="statement">A member that cannot produce the material behind its own record may not rely on that record &mdash; and the account of a counterparty that can produce its own stands unopposed.</div>
+    <p><strong>In plain English: nobody&rsquo;s evidence is seized. It is made expensive not to have kept it.</strong></p>
+    <p><strong>Why this works on a party that is not being straight.</strong> It has already signed a record it cannot now disown, because disowning it is itself a breach. To prevail it must produce material consistent with what it signed, knowing its counterparty is producing its own. <strong>That is a considerably harder position than exporting a log afterwards and asserting it.</strong></p>
+    <p><strong>Why it usually never gets that far.</strong> Most divergences are a dropped message, a retry, a clock skew or a bug &mdash; and the explanation step surfaces them, because one side goes and looks.</p>
+    <p class="cite">Clauses 21.2, 22.3, 22.3B, 24.4 and 27.9; Schedule 4.</p>
+  </section>
+
+  <section>
+    <h2>If both sides substantiate and still disagree</h2>
+    <p><strong>The scheme records exactly that, and stops.</strong> Both accounts stand. The divergence stands on the record. Any breach that is determinable &mdash; a missing record, a missed deadline, a self-evident scope violation &mdash; is determined and carries its published consequence. <strong>Whatever remains in dispute between the two companies is theirs</strong>, and the rulebook says expressly that nothing in it excludes, restricts or replaces any member&rsquo;s rights against another.</p>
+    <div class="statement">What the two companies take into that argument is two contemporaneous, independently signed records, made at the time by parties who did not yet know there would be a dispute.</div>
+    <p>Not two log exports produced afterwards by each side&rsquo;s own systems, each of which the other has every reason to disbelieve. <strong>That is worth more than a verdict from us, and it is defensible in a way a verdict would not be.</strong></p>
+    <p class="cite">Clauses 29.3 and 32.4.</p>
+  </section>
+
+  <section>
+    <h2>Disagreeing with a determination</h2>
+    <p>A member may seek review within 20 business days. <strong>Review is narrow, and deliberately so.</strong> It is limited to four questions:</p>
+    <ol class="steps">
+      <li>Was the rule relied on in force and applicable?</li>
+      <li>Are the records relied on the ones actually held?</li>
+      <li>Does the determination follow from them?</li>
+      <li>Is the consequence applied the one published?</li>
+    </ol>
+    <p>Review is <em>&ldquo;not a rehearing, is not an arbitration, and does not extend to the merits of the Rule.&rdquo;</em> It is determined on the documents. There is no hearing.</p>
+    <p><strong>A member that disputes a determination beyond those four questions may withdraw and pursue any remedy it has at law.</strong> Said plainly: the review is an arithmetic check on our own working, not a tribunal. If you want a tribunal, that is the courts &mdash; and the rulebook says so rather than pretending otherwise.</p>
+    <p>Where a review succeeds, the determination is set aside and the scheme records why.</p>
+    <p class="cite">Clauses 32.1 to 32.5.</p>
+  </section>
+
+  <section>
+    <h2>The witness function &mdash; when members go to law</h2>
+    <p>Where a member tells the scheme it is in dispute with another member about loss arising from a session, <strong>the scheme releases the records it holds for those sessions.</strong> It does not test whether a dispute exists; a member may obtain the record of any session it was party to, and the notification is a formality rather than a gate.</p>
+    <div class="statement">Records are released to both members, simultaneously, in the same form, whether or not both asked for them.</div>
+    <p><strong>The scheme takes no position.</strong> It does not characterise the records, does not say whether loss occurred or was caused, does not quantify anything, and <strong>does not appear, advocate or opine for either member.</strong></p>
+    <p>Release is not a determination and does not require one. <strong>Determination concerns rules; this concerns loss, and the scheme has no function in respect of loss beyond release.</strong></p>
+    <p>Records are also released to a court, regulator or other authority where legally required, <strong>and the members are told unless we are prohibited from telling them.</strong> A request suspends destruction of the records concerned until the matter concludes.</p>
+    <p class="cite">Clauses 33.1 to 33.6.</p>
+  </section>
+
+  <section>
+    <h2>Scope, in and out, on one page</h2>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th scope="col">Question</th><th scope="col" class="amount">Rootwall</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Did both sides record the session?</th><td class="amount">In scope</td></tr>
+          <tr><th scope="row">Do the two records agree?</th><td class="amount">In scope</td></tr>
+          <tr><th scope="row">Did a record break a published rule on its face?</th><td class="amount">In scope</td></tr>
+          <tr><th scope="row">Is the consequence the published one?</th><td class="amount">In scope</td></tr>
+          <tr><th scope="row">Is the register accurate about who is a member and in good standing?</th><td class="amount">In scope</td></tr>
+          <tr><th scope="row">Will the records be produced to both sides on request?</th><td class="amount">In scope</td></tr>
+          <tr><th scope="row">Which side is telling the truth, where both records are valid<span class="basis">Clause 29.3 forbids it</span></th><td class="amount nil">Out of scope</td></tr>
+          <tr><th scope="row">What was actually in the request or the response<span class="basis">Never held</span></th><td class="amount nil">Out of scope</td></tr>
+          <tr><th scope="row">Whether anybody suffered a loss, and how much</th><td class="amount nil">Out of scope</td></tr>
+          <tr><th scope="row">Who should pay whom, beyond a published liquidated sum</th><td class="amount nil">Out of scope</td></tr>
+          <tr><th scope="row">Whether conduct was unwise, if it broke no rule</th><td class="amount nil">Out of scope</td></tr>
+          <tr><th scope="row">Whether a pattern looks anomalous<span class="basis">Clause 29.4 forbids it</span></th><td class="amount nil">Out of scope</td></tr>
+          <tr><th scope="row">Arbitration, hearings, testimony, advocacy</th><td class="amount nil">Out of scope</td></tr>
+          <tr><th scope="row">Collecting or routing money between members</th><td class="amount nil">Out of scope</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Five worked examples, including two that go badly</h2>
+    <ol class="numbered">
+      <li><span class="lede-term">A dropped record &mdash; the common one.</span> One side records twelve interactions, the other eleven. Both are asked. The caller finds its emitter dropped one on a retry and says so. Determined against it as an evidence failure, with the published consequence. <strong>No question of fact was ever contested. Elapsed: days.</strong></li>
+      <li><span class="lede-term">The self-settling record.</span> A caller&rsquo;s own account shows an operation its scope class does not permit. No conflict of accounts arises &mdash; it said so itself. <strong>The scheme formed no view about anything.</strong></li>
+      <li><span class="lede-term">The denial that cannot be substantiated.</span> One side records a call; the other records nothing and says it never happened. The first produces its substantiating material. The second cannot. <strong>It may not rely on its own account, the first stands unopposed, and its failure to send a record is separately a breach.</strong> The scheme did not decide who was lying. It applied a burden.</li>
+      <li><span class="lede-term">The genuine standoff.</span> Both produce material and the accounts remain irreconcilable. The divergence is recorded and stands; any determinable breach is determined; nothing else is. <strong>The two companies take both signed records into their own dispute, and the scheme&rsquo;s involvement ends.</strong></li>
+      <li><span class="lede-term">The one nobody sees.</span> A well-defended member stops a misbehaving caller <strong>below</strong> the published ceiling. No rule was crossed, so nothing is recorded, no consequence attaches, and the next company that caller approaches learns nothing. <strong>This is a real limitation of the design and it is stated in the rulebook rather than left to be found.</strong></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>The questions this raises</h2>
+
+    <div class="qa">
+      <h3>So you decide who is lying?</h3>
+      <p>No, and the rulebook forbids it. Where a rule needs both records, one member&rsquo;s word cannot establish a breach by the other. <strong>What is decided is who kept their evidence.</strong></p>
+    </div>
+
+    <div class="qa">
+      <h3>Then what use are you in a real fight?</h3>
+      <p>Two independently signed records, made at the time, released to both sides at once, that neither can now disown. <strong>That is a materially better starting position than two log exports &mdash; and it is the thing that does not exist today.</strong></p>
+    </div>
+
+    <div class="qa">
+      <h3>Can I be marked Under Review because my counterparty&rsquo;s software is broken?</h3>
+      <p>Initially yes &mdash; <strong>both</strong> parties are marked while the question is open, because the scheme does not guess first. The consequence attaches to whoever the explanation identifies, and <strong>there is a thirty-business-day cap on how long anyone stays there.</strong></p>
+    </div>
+
+    <div class="qa">
+      <h3>What if my counterparty simply stops sending records?</h3>
+      <p>That is a breach in itself, determinable without investigation, and it escalates on repetition. <strong>Silence is not a way out. The rules are built so that it is the most expensive option available.</strong></p>
+    </div>
+
+    <div class="qa">
+      <h3>Do you charge me when there is a dispute?</h3>
+      <p>No. <strong>No sum of any kind is ever payable to the scheme on a breach, and that clause cannot be amended.</strong> Releasing evidence is a duty, not a product, and is never billed.</p>
+    </div>
+
+    <div class="qa">
+      <h3>Who gets the money, then?</h3>
+      <p>The affected member &mdash; the counterparty to the session. <strong>The scheme does not collect, hold, route or take a share of it.</strong> Where no counterparty can be identified, there is no sum at all, only a consequence to standing.</p>
+    </div>
+
+    <div class="qa">
+      <h3>Can you be forced to hand our records to a court?</h3>
+      <p>Yes, where legally required &mdash; <strong>and you are told, unless we are prohibited from telling you.</strong></p>
+    </div>
+
+    <div class="qa">
+      <h3>Can we settle privately and have the record removed?</h3>
+      <p>You can settle privately; that is entirely yours. <strong>The record stands.</strong> A member owed a liquidated sum may waive it, and waiving it does not affect any consequence to standing.</p>
+    </div>
+
+    <div class="qa">
+      <h3>What stops you leaning on the bigger member?</h3>
+      <p>The consequence is identical for every member breaching the same rule in the same role. No rule may be varied, waived or disapplied for any member. Determination is arithmetic. <strong>Where a range applies, only three things may be taken into account &mdash; self-disclosure, repetition, cooperation &mdash; and no other matter.</strong></p>
+    </div>
+
+    <div class="qa">
+      <h3>What if you are wrong?</h3>
+      <p>Ask for review within twenty business days. It is narrow, and on the documents. <strong>If we were wrong, the determination is set aside and we record why.</strong></p>
+    </div>
+  </section>
+
+  <footer>
+    <p><a href="/">Front page</a> &middot; <a href="/rulebook">The rulebook</a> &middot; <a href="/scope-class">Example class</a> &middot; <a href="/questions">Common questions</a> &middot; <a href="/fees">Schedule of fees</a> &middot; <a href="/hundred-platforms">The survey</a> &middot; <a href="/history">Version history</a> &middot; <a href="/privacy">Privacy</a></p>
+    <p>Rootwall is a governed overlay on the ordinary public internet. No new cable, no new transport, no new protocol layer.</p>
+    <p>Contact: <a href="mailto:info@rootwall.ai">info@rootwall.ai</a></p>
+  </footer>
+
+</div>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "df6516715bb74e70ab48c22f8c1de1ec"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
