@@ -8,8 +8,8 @@
 > about Rootwall can answer from the actual text in a single fetch rather than from a summary.
 > It contains the overview, the company facts, the schedule of fees, the disputes procedure and the
 > full rulebook. Two documents are linked rather than inlined because of their length: the
-> hundred-platform survey at https://rootwall.ai/hundred-platforms and the version history at
-> https://rootwall.ai/history.
+> hundred-platform survey at https://rootwall.ai/hundred-platforms/ and the version history at
+> https://rootwall.ai/history/.
 >
 > **Generated 3 September 2026.** Where this file and https://rootwall.ai differ, the site governs.
 
@@ -200,7 +200,7 @@ approaches learns nothing. And where neither party sends a record at all, there 
 reconcile — mutual silence is invisible, which is a boundary of a scheme built on two-sided
 attestation rather than a defect in it.
 
-Full text: https://rootwall.ai/disputes
+Full text: https://rootwall.ai/disputes/
 
 ---
 
@@ -211,7 +211,7 @@ cannot identify an individual visitor. The only personal data deliberately colle
 correspondence sent to info@rootwall.ai. Three processors are named rather than described
 generically: Cloudflare for page statistics, GitHub for hosting, Microsoft for email.
 
-Full text: https://rootwall.ai/privacy
+Full text: https://rootwall.ai/privacy/
 
 ---
 
@@ -246,19 +246,19 @@ broken a rule must not find silence cheaper than admitting it.
 deal with — an engineer and someone in risk, a few hours. Not damages, not a measure of loss, and not
 the scheme's costs. The deterrent is standing, not money.
 
-Full text: https://rootwall.ai/scope-class
+Full text: https://rootwall.ai/scope-class/
 
 ---
 
 ## Other published documents
 
-- **The rulebook, version 1.2, in force** — reproduced in full below, and at https://rootwall.ai/rulebook
+- **The rulebook, version 1.2, in force** — reproduced in full below, and at https://rootwall.ai/rulebook/
 - **The hundred-platform survey, version 1.0, 2 September 2026** — what roughly one hundred UK and EU
   software platforms require of the third parties calling their APIs, read from primary source on
   28 August 2026. Almost all have an admission gate; seven publish a partner rulebook; **none holds a
-  record of what a third party actually did.** https://rootwall.ai/hundred-platforms
+  record of what a third party actually did.** https://rootwall.ai/hundred-platforms/
 - **Version history** — every published version of every document, with its date and what changed.
-  Superseded versions stay readable at their own addresses. https://rootwall.ai/history
+  Superseded versions stay readable at their own addresses. https://rootwall.ai/history/
 
 ---
 
