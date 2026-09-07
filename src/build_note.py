@@ -53,8 +53,8 @@ PAGE = """<!DOCTYPE html>
 <meta property="og:title" content="What a hundred UK and EU software platforms require of the third parties calling their APIs">
 <meta property="og:description" content="Seven of a hundred platforms publish partner rules. None holds a record of what a third party actually did. Surveyed 28 August 2026, every document archived.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://rootwall.ai/hundred-platforms">
-<link rel="canonical" href="https://rootwall.ai/hundred-platforms">
+<meta property="og:url" content="https://rootwall.ai/hundred-platforms/">
+<link rel="canonical" href="https://rootwall.ai/hundred-platforms/">
 <style>{css}</style>
 </head>
 <body>
@@ -67,7 +67,7 @@ PAGE = """<!DOCTYPE html>
 {body}
 <footer>
   <p>Every numbered point on this page has its own address. To cite one, use the link beside its number &mdash; for example <code>rootwall.ai/hundred-platforms#p63</code>.</p>
-  <p><a href="/">Front page</a> &middot; <a href="/rulebook">The rulebook</a> &middot; <a href="/scope-class">Example class</a> &middot; <a href="/questions">Common questions</a> &middot; <a href="/fees">Schedule of fees</a> &middot; <a href="/history">Version history</a> &middot; <a href="/disputes">Disputes</a> &middot; <a href="/privacy">Privacy</a></p>
+  <p><a href="/">Front page</a> &middot; <a href="/rulebook/">The rulebook</a> &middot; <a href="/scope-class/">Example class</a> &middot; <a href="/questions/">Common questions</a> &middot; <a href="/fees/">Schedule of fees</a> &middot; <a href="/history/">Version history</a> &middot; <a href="/disputes/">Disputes</a> &middot; <a href="/privacy/">Privacy</a></p>
   <p>Corrections, and anything else in this note: <a href="mailto:info@rootwall.ai">info@rootwall.ai</a></p>
 </footer>
 </div>
