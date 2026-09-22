@@ -1,0 +1,17 @@
+# Nothing here is part of the published website.
+
+# Working documents and anything delivered into the repo folder by mistake
+Claude outputs/
+claude-outputs/
+*.bundle
+*.diff
+*.eml
+*.docx
+*.pdf
+
+# Editor and operating system noise
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+.DS_Store
