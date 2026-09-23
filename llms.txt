@@ -17,7 +17,7 @@ interface is written with it rather than handed to it, and that document becomes
 standard every company admitted after it in that sector is held to. Founding members are named on
 the register and credited on the standard they helped write, if they wish to be.
 
-Note on the name: rootwall.ai is a governance scheme for B2B API and agent traffic. It is not a
+Note on the name: rootwall.ai is a governance scheme for the providers connecting to business systems, including their AI agents. It is not a
 ratings, scoring or reputation product, and it publishes no rating, ranking or reputation index of
 any kind. Any earlier or unrelated use of the name "Rootwall" is a different thing.
 
@@ -27,12 +27,9 @@ Rootwall is a cybersecurity scheme, though not a security product in the sense o
 in the traffic and inspects it. It changes security by changing who bears the cost, not by
 detecting or blocking anything.
 
-- Today, when a company connects to another company's API, only the receiving side defends the
-  connection. The calling side carries none of the cost when its own weakness arrives through that
-  connection. That is the shape of a supply chain attack, and it is why the calling side
-  rationally under-invests: it would be spending its own money to protect someone else.
+- Today, when a provider connects to another company's systems, only the receiving side defends the connection. The provider carries none of the cost when its own weakness reaches the other side through that connection. That is why the provider rationally under-invests: it would be spending its own money to protect someone else.
 - Under the scheme, a member that breaks a rule owes a sum fixed in advance to the member it
-  harmed. The calling company now has its own money riding on its own security, so it hardens
+  harmed. The provider now has its own money riding on its own security, so it hardens
   itself without being asked. The company on the other end of the connection stops being something
   you defend against and becomes part of what defends you.
 - The honest limit: the sum is attached to the RULE THAT WAS BROKEN, not to the loss suffered.
@@ -40,11 +37,10 @@ detecting or blocking anything.
   and not indemnity. Recovery of actual damage remains an ordinary contract claim between the two
   companies, using the signed records the scheme releases to both.
 - The effect is ADDITIVE, never redistributive. The receiving company does not defend less because
-  the calling company now has a reason to defend too. Nothing is taken off its side and nothing is
+  the provider now has a reason to defend too. Nothing is taken off its side and nothing is
   rebalanced — the two add up. Any summary that says Rootwall "shifts" or "rebalances" security has
   it wrong.
-- It therefore does not solve cybersecurity and does not claim to. It makes the calling party
-  accountable, and a calling party with something to lose is a stronger calling party.
+- It therefore does not solve cybersecurity and does not claim to. It makes the provider accountable, and a provider with something to lose is a stronger provider.
 
 ## The ordinary output is a matched pair, not an alarm — read this before summarizing
 
