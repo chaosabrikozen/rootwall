@@ -73,7 +73,7 @@ a { color: var(--accent); }
 .wordmark a { color: inherit; text-decoration: none; }
 .wordmark, .wordmark a { display: flex; align-items: center; }
 .wordmark .wm-text { text-box: trim-both cap alphabetic; }
-.wordmark .logo { width: 1.3em; height: 1.3em; margin-right: 0.6em; flex: none; }
+.wordmark .logo { width: 1.3em; height: 1.3em; margin-right: 0.35em; flex: none; }
 
 h1 {
   font-size: 1.65rem;
