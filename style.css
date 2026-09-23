@@ -71,6 +71,9 @@ a { color: var(--accent); }
   color: var(--ink);
 }
 .wordmark a { color: inherit; text-decoration: none; }
+.wordmark { display: flex; align-items: center; }
+.wordmark a { display: inline-flex; align-items: center; }
+.wordmark .logo { width: 2.3em; height: 2.3em; margin-right: 0.6em; flex: none; }
 
 h1 {
   font-size: 1.65rem;
