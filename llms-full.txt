@@ -24,6 +24,26 @@ fixed before anything goes wrong. It is not a network, a gateway or an identity 
 not a security tool that sits in the traffic and inspects it — though its **purpose is security**, by
 the route set out in the next section. **No traffic passes through it.**
 
+## Incentivized Defense
+
+Published at https://rootwall.ai/incentivized-defense/ on 24 September 2026.
+
+Your providers are already inside. Your IT support firm logs in over a VPN. Your data analytics contractor pulls reports through your API. Your outsourcer runs an application on your data. Each of them is a door you opened into your systems.
+
+Today you defend all of those doors alone, even against the providers you let in.
+
+**Incentivized Defense changes the defense model. Each provider defends its own door into your systems, adding to your defense.**
+
+A provider that joins Rootwall signs one published rulebook that says what it may do on your systems. It had better keep to it: a provider that breaks a rule owes you a sum fixed in advance.
+
+So the provider guards its credentials, controls its own people and its own AI, and stops its own mistakes before they reach you. The door you gave it is now also defended from its side.
+
+Payments proved the model. The card industry made each party defend its own part of the payment chain or answer for what came through it, and the chain hardened.
+
+Rootwall brings that model to the providers connecting to your systems.
+
+Are your providers part of your defense, or part of the attacks on you?
+
 ## How it changes security, which is the point
 
 Rootwall is a cybersecurity scheme, though not a security product in the sense of a tool that sits
