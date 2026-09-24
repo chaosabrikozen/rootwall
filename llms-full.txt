@@ -47,8 +47,9 @@ Are your providers part of your defense, or part of the attacks on you?
 ## How it changes security, which is the point
 
 Rootwall is a cybersecurity scheme, though not a security product in the sense of a tool that sits
-in the traffic and inspects it. It changes security by changing who bears the cost, not by
-detecting or blocking anything.
+in the traffic and inspects it. It changes the defense model, not by detecting or blocking
+anything: each provider defends its own door into the systems it connects to, adding to the
+receiving company's defense.
 
 - Today, when a provider connects to another company's systems, only the receiving side defends the connection. The provider carries none of the cost when its own weakness reaches the other side through that connection. That is why the provider rationally under-invests: it would be spending its own money to protect someone else.
 - Under the scheme, a member that breaks a rule owes a sum fixed in advance to the member it
