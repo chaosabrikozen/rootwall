@@ -244,16 +244,16 @@ servers. The collector forwards the company's logs to its security operations pl
 drop the events that would reveal it. This scope class makes that a broken rule, whether or not
 anyone spots the attacker.
 
-**The guardrails: each action is allowed, allowed within a limit, or denied.** These are rules, not
-attack detection: they make sure the provider behaves, or it pays a fixed sum. Allow: open a session
-to a declared server (up to 10 a day); read the application's status and its own logs; restart the
-application (up to 2 a day). **Allow with an approved change:** change the application's
-configuration, update its software, or change access to the servers (accounts, sudo rights, SSH
-settings, trusted keys). The approved change is a reference from the company's own change process
-and binds the named servers, the time window and the kind of change; emergency changes go through
-the company's emergency change process like any other. **Deny:** reaching anything through the
-tunnel other than the declared servers. What the reports cannot see (cloud console settings, onward
-connections, data copied off) stays with the company's own controls.
+**The guardrails: each action is allowed or denied, and an allowed action may carry a limit.** These
+are rules, not attack detection: they make sure the provider behaves, or it pays a fixed sum. Allow:
+open a session to a declared server (up to 10 a day); read the application's status and its own
+logs; restart the application (up to 2 a day). **Allow with an approved change:** change the
+application's configuration, update its software, or change access to the servers (accounts, sudo
+rights, SSH settings, trusted keys). The approved change is a reference from the company's own
+change process and binds the named servers, the time window and the kind of change; emergency
+changes go through the company's emergency change process like any other. **Deny:** reaching
+anything through the tunnel other than the declared servers. What the reports cannot see (cloud
+console settings, onward connections, data copied off) stays with the company's own controls.
 
 **What each side reports.** The provider: a signed report at session open, one for each change,
 update or restart (with the change reference and a fingerprint of the file before and after), and an

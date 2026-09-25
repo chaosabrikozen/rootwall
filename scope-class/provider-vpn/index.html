@@ -24,10 +24,10 @@
     <h2>In one minute</h2>
     <ol class="numbered">
       <li><span class="lede-term">Two parts, never mixed.</span> Part A is the scope class itself: the guardrails. Part B is the evidence: how each side proves what happened. Part B is an example, not a rule.</li>
-      <li><span class="lede-term">The guardrails are short.</span> Each action the provider can take is allowed, allowed within a limit, or denied.</li>
+      <li><span class="lede-term">The guardrails are short.</span> Each action the provider can take is allowed or denied, and an allowed action may carry a limit.</li>
       <li><span class="lede-term">Both sides report.</span> The provider signs a statement for every session and every change. You report what you saw on your own servers. The two are matched.</li>
       <li><span class="lede-term">Every breach is a yes-or-no question.</span> No judgment, no threat hunting, no argument about intent.</li>
-      <li><span class="lede-term">Rootwall does not sell detection here.</span> You could match file changes to approved changes on your own. What changes is that the provider has signed for what it did, must check itself first, and owes a sum fixed in advance when the two sides do not match.</li>
+      <li><span class="lede-term">Rootwall confirms that no guardrail has been broken.</span> The provider has signed for what it did, checks itself first, and owes a sum fixed in advance when a guardrail is broken or the two sides do not match.</li>
     </ol>
   </section>
 
@@ -78,18 +78,18 @@
 
   <section>
     <h2>The guardrails</h2>
-    <p><strong>Each action is allowed, allowed within a limit, or denied.</strong> These are control points based on rules, not on detecting an attack. They make sure the provider behaves, or it pays a fixed sum.</p>
+    <p><strong>Each action is allowed or denied, and an allowed action may carry a limit.</strong> These are control points based on rules, not on detecting an attack. They make sure the provider behaves, or it pays a fixed sum.</p>
     <div class="tablewrap">
       <table>
-        <thead><tr><th scope="col">Action</th><th scope="col">Rule</th></tr></thead>
+        <thead><tr><th scope="col">Action</th><th scope="col">Rule</th><th scope="col">Limit</th></tr></thead>
         <tbody>
-          <tr><th scope="row">Open a session to a declared server</th><td>Allow, up to 10 a day</td></tr>
-          <tr><th scope="row">Read the application's status and its own logs</th><td>Allow</td></tr>
-          <tr><th scope="row">Restart the application</th><td>Allow, up to 2 a day</td></tr>
-          <tr><th scope="row">Change the application's configuration<span class="basis">The action this scenario exists for</span></th><td>Allow, with an approved change</td></tr>
-          <tr><th scope="row">Update the application's software</th><td>Allow, with an approved change</td></tr>
-          <tr><th scope="row">Change access to the servers<span class="basis">Accounts, sudo rights, SSH settings and trusted keys</span></th><td>Allow, with an approved change</td></tr>
-          <tr><th scope="row">Reach anything through the tunnel other than the declared servers<span class="basis">An attempt counts, whether or not it was blocked</span></th><td class="yes">Deny</td></tr>
+          <tr><th scope="row">Open a session to a declared server</th><td>Allow</td><td>Up to 10 a day</td></tr>
+          <tr><th scope="row">Read the application's status and its own logs</th><td>Allow</td><td class="nil">&mdash;</td></tr>
+          <tr><th scope="row">Restart the application</th><td>Allow</td><td>Up to 2 a day</td></tr>
+          <tr><th scope="row">Change the application's configuration<span class="basis">The action this scenario exists for</span></th><td>Allow</td><td>With an approved change</td></tr>
+          <tr><th scope="row">Update the application's software</th><td>Allow</td><td>With an approved change</td></tr>
+          <tr><th scope="row">Change access to the servers<span class="basis">Accounts, sudo rights, SSH settings and trusted keys</span></th><td>Allow</td><td>With an approved change</td></tr>
+          <tr><th scope="row">Reach anything through the tunnel other than the declared servers<span class="basis">An attempt counts, whether or not it was blocked</span></th><td class="yes">Deny</td><td class="nil">&mdash;</td></tr>
         </tbody>
       </table>
     </div>
@@ -187,7 +187,7 @@ Accepted publickey for appadmin from 10.9.0.5 ... ED25519-CERT
 
   <section>
     <h2>Getting used to it</h2>
-    <p><strong>Providers are not used to working like this, so the first 30 days are a warm-up.</strong> Everything is reported and matched, and both sides see the results every week. No fixed sums apply and nobody's standing changes. The warm-up ends on its own.</p>
+    <p><strong>Reporting every session and every change is a new routine, so the first 30 days are a warm-up.</strong> Everything is reported and matched, and both sides see the results every week. No fixed sums apply and nobody's standing changes. The warm-up ends on its own.</p>
     <p class="docmeta">Proposed for the next version of the rulebook, where it would apply to every scope class. Not yet in force.</p>
   </section>
 
