@@ -246,8 +246,12 @@ anyone spots the attacker.
 
 **What the provider may do.** Open a session to a declared server; read the application's status and
 its own logs; restart the application within a ceiling; **change the application's configuration or
-update its software only with the company's approved change reference**, which binds the named
-servers, the time window and the kind of change. Everything else is forbidden by default. Emergency
+update its software, or change access to the servers (accounts, sudo rights, SSH settings, trusted
+keys), only with the company's approved change reference**, which binds the named
+servers, the time window and the kind of change. Forbidden: reaching anything through the tunnel but the
+declared servers, and changing any watched file without an approved change. What the reports cannot
+see (cloud console settings, onward connections, data copied off) stays with the company's own
+controls. Emergency
 changes go through the company's own emergency change process; there is no separate break-glass rule.
 
 **What each side reports.** The provider: a signed report at session open, one for each change,
@@ -256,8 +260,8 @@ hourly count. The company: each session and change it saw on its own servers, th
 reference is approved and covers that change, and the same hourly count, counted the same way.
 
 **Breaches and illustrative fixed sums**, paid by the provider to the company, never to Rootwall:
-B1 a forbidden kind of action, $1,000 per session; **B2 a change or update with no approved change
-behind it, $2,500 per change**; B3 a session or change the company saw with no report from the
+B1 reaching anything through the tunnel but the declared servers, attempt or not, $1,000 per session; **B2 a change to a watched file with no approved
+change behind it, $2,500 per change**; B3 a session or change the company saw with no report from the
 provider, $2,500 per session (never cheaper than B2, so silence does not pay); B4 the two sides do not
 match, $1,000 per session; B5 a late report or a slip such as a mistyped change reference when an
 approved change did exist, $250 per report; B6 a ceiling exceeded, $250 per window. Aggregate cap

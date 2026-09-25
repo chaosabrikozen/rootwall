@@ -24,7 +24,7 @@
     <h2>In one minute</h2>
     <ol class="numbered">
       <li><span class="lede-term">Two parts, never mixed.</span> Part A is the scope class itself: the guardrails. Part B is the evidence: how each side proves what happened. Part B is an example, not a rule.</li>
-      <li><span class="lede-term">The guardrails are short.</span> Five kinds of action are permitted. Two of them need your approved change reference. Everything else is forbidden by default.</li>
+      <li><span class="lede-term">The guardrails are short.</span> Six kinds of action are permitted. Three of them need your approved change reference. Two things are forbidden.</li>
       <li><span class="lede-term">Both sides report.</span> The provider signs a statement for every session and every change. You report what you saw on your own servers. The two are matched.</li>
       <li><span class="lede-term">Every breach is a yes-or-no question.</span> No judgment, no threat hunting, no argument about intent.</li>
       <li><span class="lede-term">Rootwall does not sell detection here.</span> You could match file changes to approved changes on your own. What changes is that the provider has signed for what it did, must check itself first, and owes a sum fixed in advance when the two sides do not match.</li>
@@ -86,12 +86,13 @@
           <tr><th scope="row">Read the application's status and its own logs</th><td class="nil">No</td></tr>
           <tr><th scope="row">Change the application's configuration<span class="basis">The action this scenario exists for</span></th><td class="yes">Yes</td></tr>
           <tr><th scope="row">Update the application's software</th><td class="yes">Yes</td></tr>
+          <tr><th scope="row">Change access to the servers<span class="basis">Accounts, sudo rights, SSH settings and trusted keys</span></th><td class="yes">Yes</td></tr>
           <tr><th scope="row">Restart the application</th><td class="nil">No, within the ceiling</td></tr>
         </tbody>
       </table>
     </div>
-    <div class="statement">Everything else is forbidden by default.</div>
-    <p>Named for clarity: creating or changing accounts or keys; changing network or firewall settings; connecting to any server not declared; opening onward connections from the servers other than to the SIEM; copying data off the servers.</p>
+    <div class="statement">Forbidden: reaching anything but the declared servers, and changing any watched file without an approved change.</div>
+    <p>The watched files are the application's configuration and software, and the servers' access files. <strong>What the reports cannot see stays with your own controls</strong>: settings in your cloud console, onward connections from the servers, data copied off. You may always be stricter than the class.</p>
   </section>
 
   <section>
@@ -111,7 +112,7 @@
           <tr><td>At session open: engineer, server, purpose, session identifier</td><td>Each session seen on your servers</td></tr>
           <tr><td>For each change, update or restart: the change reference and a fingerprint of the file before and after</td><td>Each change seen on your servers, with the same fingerprints</td></tr>
           <tr><td class="nil">&mdash;</td><td>That the change reference exists, is approved, and covers those servers and that window</td></tr>
-          <tr><td>Each hour: tunnel up and down times, count of sessions</td><td>Each hour: the same counts, from your own network records</td></tr>
+          <tr><td>Each hour: tunnel up and down times, count of sessions</td><td>Each hour: the same counts, and any attempt through the tunnel to an address other than the declared servers, from your network flow logs</td></tr>
         </tbody>
       </table>
     </div>
@@ -144,8 +145,8 @@
       <table>
         <thead><tr><th scope="col">#</th><th scope="col">Breach</th><th scope="col" class="amount">Fixed sum</th></tr></thead>
         <tbody>
-          <tr><th scope="row">B1</th><td>An action of a forbidden kind</td><td class="amount">$1,000<span class="basis">per session</span></td></tr>
-          <tr><th scope="row">B2</th><td><strong>A configuration change or update with no approved change behind it</strong><span class="basis">The breach this scenario exists for</span></td><td class="amount">$2,500<span class="basis">per change</span></td></tr>
+          <tr><th scope="row">B1</th><td>Reaching anything through the tunnel but the declared servers<span class="basis">An attempt counts, whether or not it was blocked</span></td><td class="amount">$1,000<span class="basis">per session</span></td></tr>
+          <tr><th scope="row">B2</th><td><strong>A change to a watched file with no approved change behind it</strong><span class="basis">The breach this scenario exists for</span></td><td class="amount">$2,500<span class="basis">per change</span></td></tr>
           <tr><th scope="row">B3</th><td>A session or change you saw, with no report from the provider<span class="basis">Never cheaper than B2: silence must not pay</span></td><td class="amount">$2,500<span class="basis">per session</span></td></tr>
           <tr><th scope="row">B4</th><td>The two sides do not match: fingerprints, times or counts differ</td><td class="amount">$1,000<span class="basis">per session</span></td></tr>
           <tr><th scope="row">B5</th><td>A late report, or a slip: the change reference left out or mistyped when an approved change did exist<span class="basis">The common case: a provider that forgot</span></td><td class="amount">$250<span class="basis">per report</span></td></tr>
@@ -178,9 +179,9 @@ Accepted publickey for appadmin from 10.9.0.5 ... ED25519-CERT
       <table>
         <thead><tr><th scope="col">What must be shown</th><th scope="col">How, in this example</th></tr></thead>
         <tbody>
-          <tr><th scope="row">That a change happened, and what changed</th><td>Both sides fingerprint (hash) the application's configuration and software</td></tr>
+          <tr><th scope="row">That a change happened, and what changed</th><td>Both sides fingerprint (hash) the watched files: the application's configuration and software, and the servers' access files</td></tr>
           <tr><th scope="row">That a change was authorized</th><td>Your change-management record for the quoted reference</td></tr>
-          <tr><th scope="row">Tunnel and session counts</th><td>Provider: its VPN or firewall logs. You: your own network connection records</td></tr>
+          <tr><th scope="row">Tunnel and session counts</th><td>Provider: its VPN or firewall logs. You: your cloud network's flow logs, which also show any attempt to reach another address</td></tr>
         </tbody>
       </table>
     </div>
