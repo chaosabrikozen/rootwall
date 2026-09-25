@@ -24,7 +24,7 @@
     <h2>In one minute</h2>
     <ol class="numbered">
       <li><span class="lede-term">Two parts, never mixed.</span> Part A is the scope class itself: the guardrails. Part B is the evidence: how each side proves what happened. Part B is an example, not a rule.</li>
-      <li><span class="lede-term">The guardrails are short.</span> Six kinds of action are permitted. Three of them need your approved change reference. Two things are forbidden.</li>
+      <li><span class="lede-term">The guardrails are short.</span> Each action the provider can take is allowed, allowed within a limit, or denied.</li>
       <li><span class="lede-term">Both sides report.</span> The provider signs a statement for every session and every change. You report what you saw on your own servers. The two are matched.</li>
       <li><span class="lede-term">Every breach is a yes-or-no question.</span> No judgment, no threat hunting, no argument about intent.</li>
       <li><span class="lede-term">Rootwall does not sell detection here.</span> You could match file changes to approved changes on your own. What changes is that the provider has signed for what it did, must check itself first, and owes a sum fixed in advance when the two sides do not match.</li>
@@ -77,30 +77,25 @@
   <p class="docmeta">Reference <code>SC-ADMIN-1</code> (illustrative) &middot; a session is one SSH session &middot; an interaction is one administrative action</p>
 
   <section>
-    <h2>What the provider may do</h2>
+    <h2>The guardrails</h2>
+    <p><strong>Each action is allowed, allowed within a limit, or denied.</strong> These are control points based on rules, not on detecting an attack. They make sure the provider behaves, or it pays a fixed sum.</p>
     <div class="tablewrap">
       <table>
-        <thead><tr><th scope="col">Kind of action</th><th scope="col">Needs your change reference?</th></tr></thead>
+        <thead><tr><th scope="col">Action</th><th scope="col">Rule</th></tr></thead>
         <tbody>
-          <tr><th scope="row">Open a session to a declared server</th><td class="nil">No</td></tr>
-          <tr><th scope="row">Read the application's status and its own logs</th><td class="nil">No</td></tr>
-          <tr><th scope="row">Change the application's configuration<span class="basis">The action this scenario exists for</span></th><td class="yes">Yes</td></tr>
-          <tr><th scope="row">Update the application's software</th><td class="yes">Yes</td></tr>
-          <tr><th scope="row">Change access to the servers<span class="basis">Accounts, sudo rights, SSH settings and trusted keys</span></th><td class="yes">Yes</td></tr>
-          <tr><th scope="row">Restart the application</th><td class="nil">No, within the ceiling</td></tr>
+          <tr><th scope="row">Open a session to a declared server</th><td>Allow, up to 10 a day</td></tr>
+          <tr><th scope="row">Read the application's status and its own logs</th><td>Allow</td></tr>
+          <tr><th scope="row">Restart the application</th><td>Allow, up to 2 a day</td></tr>
+          <tr><th scope="row">Change the application's configuration<span class="basis">The action this scenario exists for</span></th><td>Allow, with an approved change</td></tr>
+          <tr><th scope="row">Update the application's software</th><td>Allow, with an approved change</td></tr>
+          <tr><th scope="row">Change access to the servers<span class="basis">Accounts, sudo rights, SSH settings and trusted keys</span></th><td>Allow, with an approved change</td></tr>
+          <tr><th scope="row">Reach anything through the tunnel other than the declared servers<span class="basis">An attempt counts, whether or not it was blocked</span></th><td class="yes">Deny</td></tr>
         </tbody>
       </table>
     </div>
-    <div class="statement">Forbidden: reaching anything but the declared servers, and changing any watched file without an approved change.</div>
-    <p>The watched files are the application's configuration and software, and the servers' access files. <strong>What the reports cannot see stays with your own controls</strong>: settings in your cloud console, onward connections from the servers, data copied off. You may always be stricter than the class.</p>
-  </section>
-
-  <section>
-    <h2>Your change reference is the authority</h2>
-    <p><strong>A configuration change or a software update needs an approved change reference from your own change process</strong>, the same one that already approves changes to production today. No new approval step is created.</p>
-    <p>The reference binds three things: <strong>the named servers, the named time window, and the kind of change.</strong> An action outside any one of the three is outside the authority.</p>
-    <p><strong>Emergencies are no exception.</strong> An emergency change goes through your own emergency change process, and its reference counts like any other. There is no separate break-glass rule.</p>
-    <p class="cite">In the rulebook's terms, this is the Delegation: the authority of a named person that an action rests on.</p>
+    <p style="margin-top:1.2rem"><strong>&ldquo;With an approved change&rdquo;</strong> means a reference from your own change process, the one that already approves production changes, covering those servers, that time window and that kind of change. Emergency changes go through your emergency change process like any other.</p>
+    <p>What the reports cannot see stays with your own controls: settings in your cloud console, onward connections from the servers, data copied off. You may always be stricter.</p>
+    <p class="cite">In the rulebook's terms, the approved change is the Delegation: the authority an action rests on.</p>
   </section>
 
   <section>
@@ -117,22 +112,7 @@
       </table>
     </div>
     <p style="margin-top:1.2rem"><strong>Both sides count the same way:</strong> same clock, same window edges, same definition of a session.</p>
-  </section>
-
-  <section>
-    <h2>Ceilings and deadlines</h2>
-    <p class="docmeta" style="margin-top:0">Illustrative values</p>
-    <div class="tablewrap">
-      <table>
-        <thead><tr><th scope="col">Limit</th><th scope="col" class="amount">Ceiling</th><th scope="col" class="amount">Window</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">Sessions</th><td class="amount">10</td><td class="amount">1 day</td></tr>
-          <tr><th scope="row">Restarts</th><td class="amount">2</td><td class="amount">1 day</td></tr>
-          <tr><th scope="row">Configuration changes and updates<span class="basis">Never more than your approved references allow</span></th><td class="amount">as approved</td><td class="amount">1 day</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <ul class="plain" style="margin-top:1.4rem">
+    <ul class="plain" style="margin-top:1.2rem">
       <li><span class="lede-term">Session report:</span> before the first action.</li>
       <li><span class="lede-term">Change, update or restart report:</span> within 5 minutes.</li>
       <li><span class="lede-term">Hourly report:</span> within 1 hour of the window closing.</li>
@@ -145,17 +125,17 @@
       <table>
         <thead><tr><th scope="col">#</th><th scope="col">Breach</th><th scope="col" class="amount">Fixed sum</th></tr></thead>
         <tbody>
-          <tr><th scope="row">B1</th><td>Reaching anything through the tunnel but the declared servers<span class="basis">An attempt counts, whether or not it was blocked</span></td><td class="amount">$1,000<span class="basis">per session</span></td></tr>
-          <tr><th scope="row">B2</th><td><strong>A change to a watched file with no approved change behind it</strong><span class="basis">The breach this scenario exists for</span></td><td class="amount">$2,500<span class="basis">per change</span></td></tr>
-          <tr><th scope="row">B3</th><td>A session or change you saw, with no report from the provider<span class="basis">Never cheaper than B2: silence must not pay</span></td><td class="amount">$2,500<span class="basis">per session</span></td></tr>
-          <tr><th scope="row">B4</th><td>The two sides do not match: fingerprints, times or counts differ</td><td class="amount">$1,000<span class="basis">per session</span></td></tr>
-          <tr><th scope="row">B5</th><td>A late report, or a slip: the change reference left out or mistyped when an approved change did exist<span class="basis">The common case: a provider that forgot</span></td><td class="amount">$250<span class="basis">per report</span></td></tr>
-          <tr><th scope="row">B6</th><td>A ceiling exceeded</td><td class="amount">$250<span class="basis">per window</span></td></tr>
+          <tr><th scope="row">B1</th><td>Reaching anything through the tunnel other than the declared servers<span class="basis">An attempt counts, whether or not it was blocked</span></td><td class="amount">$250<span class="basis">per session</span></td></tr>
+          <tr><th scope="row">B2</th><td><strong>A change to a watched file with no approved change behind it</strong><span class="basis">The breach this scenario exists for</span></td><td class="amount">$500<span class="basis">per change</span></td></tr>
+          <tr><th scope="row">B3</th><td>A session or change you saw, with no report from the provider<span class="basis">Never cheaper than B2: silence must not pay</span></td><td class="amount">$500<span class="basis">per session</span></td></tr>
+          <tr><th scope="row">B4</th><td>The two sides do not match: fingerprints, times or counts differ</td><td class="amount">$250<span class="basis">per session</span></td></tr>
+          <tr><th scope="row">B5</th><td>A late report, or a slip: the change reference left out or mistyped when an approved change did exist<span class="basis">The common case: a provider that forgot</span></td><td class="amount">$50<span class="basis">per report</span></td></tr>
+          <tr><th scope="row">B6</th><td>A limit exceeded<span class="basis">Sessions or restarts above the daily limit</span></td><td class="amount">$100<span class="basis">per day</span></td></tr>
         </tbody>
       </table>
     </div>
     <div class="statement">Forgetting is cheap. An unapproved change is not.</div>
-    <p>Sums are paid by the provider to you, never to Rootwall. <strong>Aggregate cap: $25,000</strong> per provider, per counterparty, per rolling 30 days. Illustrative figures for this example.</p>
+    <p>Sums are paid by the provider to you, never to Rootwall. No single breach costs more than half of a provider&rsquo;s yearly membership. <strong>Aggregate cap: $5,000</strong> per provider, per counterparty, per rolling 30 days. Standing moves too: repeated breaches put a provider under review, and can suspend it. Illustrative figures for this example.</p>
   </section>
 
   <p class="part">Part B</p>

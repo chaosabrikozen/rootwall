@@ -244,28 +244,31 @@ servers. The collector forwards the company's logs to its security operations pl
 drop the events that would reveal it. This scope class makes that a broken rule, whether or not
 anyone spots the attacker.
 
-**What the provider may do.** Open a session to a declared server; read the application's status and
-its own logs; restart the application within a ceiling; **change the application's configuration or
-update its software, or change access to the servers (accounts, sudo rights, SSH settings, trusted
-keys), only with the company's approved change reference**, which binds the named
-servers, the time window and the kind of change. Forbidden: reaching anything through the tunnel but the
-declared servers, and changing any watched file without an approved change. What the reports cannot
-see (cloud console settings, onward connections, data copied off) stays with the company's own
-controls. Emergency
-changes go through the company's own emergency change process; there is no separate break-glass rule.
+**The guardrails: each action is allowed, allowed within a limit, or denied.** These are rules, not
+attack detection: they make sure the provider behaves, or it pays a fixed sum. Allow: open a session
+to a declared server (up to 10 a day); read the application's status and its own logs; restart the
+application (up to 2 a day). **Allow with an approved change:** change the application's
+configuration, update its software, or change access to the servers (accounts, sudo rights, SSH
+settings, trusted keys). The approved change is a reference from the company's own change process
+and binds the named servers, the time window and the kind of change; emergency changes go through
+the company's emergency change process like any other. **Deny:** reaching anything through the
+tunnel other than the declared servers. What the reports cannot see (cloud console settings, onward
+connections, data copied off) stays with the company's own controls.
 
 **What each side reports.** The provider: a signed report at session open, one for each change,
 update or restart (with the change reference and a fingerprint of the file before and after), and an
 hourly count. The company: each session and change it saw on its own servers, that the change
 reference is approved and covers that change, and the same hourly count, counted the same way.
 
-**Breaches and illustrative fixed sums**, paid by the provider to the company, never to Rootwall:
-B1 reaching anything through the tunnel but the declared servers, attempt or not, $1,000 per session; **B2 a change to a watched file with no approved
-change behind it, $2,500 per change**; B3 a session or change the company saw with no report from the
-provider, $2,500 per session (never cheaper than B2, so silence does not pay); B4 the two sides do not
-match, $1,000 per session; B5 a late report or a slip such as a mistyped change reference when an
-approved change did exist, $250 per report; B6 a ceiling exceeded, $250 per window. Aggregate cap
-$25,000 per rolling 30 days. **Forgetting is cheap. An unapproved change is not.**
+**Breaches and illustrative fixed sums**, paid by the provider to the company, never to Rootwall: B1
+reaching anything through the tunnel other than the declared servers, attempt or not, $250 per
+session; **B2 a change to a watched file with no approved change behind it, $500 per change**; B3 a
+session or change the company saw with no report from the provider, $500 per session (never cheaper
+than B2, so silence does not pay); B4 the two sides do not match, $250 per session; B5 a late report
+or a slip such as a mistyped change reference when an approved change did exist, $50 per report; B6
+a daily limit exceeded, $100 per day. No single breach costs more than half a provider's yearly
+membership. Aggregate cap $5,000 per rolling 30 days. **Forgetting is cheap. An unapproved change is
+not.**
 
 **Why the provider's report matters when the company could check alone.** It is signed, so the
 provider cannot later say "not us"; it puts the first check on the provider; and a mismatch is itself
