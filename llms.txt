@@ -117,11 +117,16 @@ enforceability".
 - [Version history](https://rootwall.ai/history/): every published version of the rulebook, the
   fee schedule and the survey, with dates.
 
-- [An example scope class](https://rootwall.ai/scope-class/): a worked, illustrative scope class —
-  permitted method kinds, ceilings and windows, delegation requirement, what must be asserted, and
-  the sums attached to each breach. Marked illustrative throughout; it binds nobody. Also states the
-  boundary that catches people first: a scope class governs what a caller may attempt, never what
-  its payload contains, because the scheme never sees argument values.
+- [Example scope classes](https://rootwall.ai/scope-class/): worked, illustrative scope classes,
+  one per scenario. They bind nobody.
+- [A provider manages your log collector over VPN](https://rootwall.ai/scope-class/provider-vpn/):
+  what the provider may do, which actions need the company's approved change reference, what each
+  side reports, six yes-or-no breaches and the fixed sum for each. Forgetting is cheap; an
+  unapproved change is not.
+- [Read-only access to your API](https://rootwall.ai/scope-class/api-read/): permitted method kinds,
+  ceilings and windows, delegation requirement, what must be asserted, and the sums attached to each
+  breach. Also states the boundary that catches people first: a scope class governs what a provider
+  may attempt, never what its payload contains, because the scheme never sees argument values.
 
 ## Complete text in one file
 

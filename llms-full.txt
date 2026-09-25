@@ -231,7 +231,53 @@ Full text: https://rootwall.ai/privacy/
 
 ---
 
-## An example scope class — illustrative, binds nobody
+## Example scope classes — illustrative, they bind nobody
+
+Worked examples, one per scenario, listed at https://rootwall.ai/scope-class/. Each keeps its own
+address.
+
+### A provider manages your log collector over VPN — illustrative, 25 September 2026
+
+**The scenario.** A provider manages a company's log collector remotely: a VPN, then SSH to the
+servers. The collector forwards the company's logs to its security operations platform (its SIEM).
+**The threat:** an attacker holding the provider's access changes the collector's configuration to
+drop the events that would reveal it. This scope class makes that a broken rule, whether or not
+anyone spots the attacker.
+
+**What the provider may do.** Open a session to a declared server; read the application's status and
+its own logs; restart the application within a ceiling; **change the application's configuration or
+update its software only with the company's approved change reference**, which binds the named
+servers, the time window and the kind of change. Everything else is forbidden by default. Emergency
+changes go through the company's own emergency change process; there is no separate break-glass rule.
+
+**What each side reports.** The provider: a signed report at session open, one for each change,
+update or restart (with the change reference and a fingerprint of the file before and after), and an
+hourly count. The company: each session and change it saw on its own servers, that the change
+reference is approved and covers that change, and the same hourly count, counted the same way.
+
+**Breaches and illustrative fixed sums**, paid by the provider to the company, never to Rootwall:
+B1 a forbidden kind of action, $1,000 per session; **B2 a change or update with no approved change
+behind it, $2,500 per change**; B3 a session or change the company saw with no report from the
+provider, $2,500 per session (never cheaper than B2, so silence does not pay); B4 the two sides do not
+match, $1,000 per session; B5 a late report or a slip such as a mistyped change reference when an
+approved change did exist, $250 per report; B6 a ceiling exceeded, $250 per window. Aggregate cap
+$25,000 per rolling 30 days. **Forgetting is cheap. An unapproved change is not.**
+
+**Why the provider's report matters when the company could check alone.** It is signed, so the
+provider cannot later say "not us"; it puts the first check on the provider; and a mismatch is itself
+a breach.
+
+**Evidence, one way to do it (not a rule).** SSH certificates issued per session carry the session
+identifier in the certificate's key ID, which the company's SSH server writes into its login record,
+so every login points to exactly one signed report. Both sides fingerprint the configuration. The
+change reference is checked against the company's change-management record.
+
+**Warm-up, proposed for the next version of the rulebook and not yet in force:** the first 30 days
+report and match everything, with no fixed sums and no effect on standing.
+
+Full text: https://rootwall.ai/scope-class/provider-vpn/
+
+### Read-only access to your API — illustrative, 3 September 2026
 
 **The boundary that catches people first.** A scope class governs what a caller may *attempt*, never
 what its payload *contains*. Records carry the names of arguments and a digest of their values, never
@@ -262,7 +308,7 @@ broken a rule must not find silence cheaper than admitting it.
 deal with — an engineer and someone in risk, a few hours. Not damages, not a measure of loss, and not
 the scheme's costs. The deterrent is standing, not money.
 
-Full text: https://rootwall.ai/scope-class/
+Full text: https://rootwall.ai/scope-class/api-read/
 
 ---
 
