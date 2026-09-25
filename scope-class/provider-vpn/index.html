@@ -15,7 +15,7 @@
     <p class="wordmark"><a href="/"><svg class="logo" width="20" height="20" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><circle cx="50" cy="50" r="36" fill="none" stroke="#d98b72" stroke-width="4"/><g fill="#d98b72"><circle cx="50.00" cy="14.00" r="6.6"/><circle cx="81.18" cy="32.00" r="6.6"/><circle cx="81.18" cy="68.00" r="6.6"/><circle cx="50.00" cy="86.00" r="6.6"/><circle cx="18.82" cy="68.00" r="6.6"/><circle cx="18.82" cy="32.00" r="6.6"/></g></svg><span class="wm-text">Rootwall</span></a></p>
     <h1>A provider manages your log collector over VPN. What may it do?</h1>
     <p class="standfirst">A worked scope class for one of the most common ways a provider reaches into a company: a VPN, then SSH to the servers it looks after.</p>
-    <p class="key"><strong>The servers collect your logs. A provider, or an attacker using its access, that quietly filters those logs blinds you. This scope class makes that a broken rule, whether or not anyone spots the attacker.</strong></p>
+    <p class="key"><strong>The servers collect your logs, so what the provider does on them matters. This scope class sets what the provider may do there, and every session and every change is reported by both sides.</strong></p>
     <p style="margin-top:1.4rem"><strong>Everything on this page is illustrative. It is not published as a scope class, it binds nobody, and no member is admitted into it.</strong> The real one for your systems is written with you.</p>
     <p class="docmeta"><a href="/scope-class/">All example scope classes</a> &middot; Illustrative example &middot; 25 September 2026 &middot; Clause references are to <a href="/rulebook/">the rulebook</a>, version 1.3</p>
   </header>
@@ -26,7 +26,7 @@
       <li><span class="lede-term">Two parts, never mixed.</span> Part A is the scope class itself: the guardrails. Part B is the evidence: how each side proves what happened. Part B is an example, not a rule.</li>
       <li><span class="lede-term">The guardrails are short.</span> Each action the provider can take is allowed or denied, and an allowed action may carry a limit.</li>
       <li><span class="lede-term">Both sides report.</span> The provider signs a statement for every session and every change. You report what you saw on your own servers. The two are matched.</li>
-      <li><span class="lede-term">Every breach is a yes-or-no question.</span> No judgment, no threat hunting, no argument about intent.</li>
+      <li><span class="lede-term">Every breach is a yes-or-no question.</span> No judgment and no argument about intent.</li>
       <li><span class="lede-term">Rootwall confirms that no guardrail has been broken.</span> The provider has signed for what it did, checks itself first, and owes a sum fixed in advance when a guardrail is broken or the two sides do not match.</li>
     </ol>
   </section>
@@ -36,7 +36,7 @@
     <ul class="plain">
       <li><span class="lede-term">The company</span> (the receiving member) runs a log collector. It receives the organization's logs, process them, and forward them to the company's security operations platform (its SIEM).</li>
       <li><span class="lede-term">The provider</span> (the emitting member) manages the collector remotely: a VPN, then SSH to the servers.</li>
-      <li><span class="lede-term">The threat.</span> An attacker holding the provider's access changes the collector's configuration to drop the events that would reveal it, then moves on.</li>
+      <li><span class="lede-term">Why it matters.</span> A change to the collector&rsquo;s configuration decides which of your logs reach your SIEM, so every change should be one you approved.</li>
     </ul>
 
     <figure class="flow">
@@ -68,7 +68,7 @@
         <path d="M350 100 L350 170"/>
         <text class="small" x="358" y="140" font-size="11">you report what you saw</text>
       </svg>
-      <figcaption>The attack point is the collector: filter it, and your SIEM goes quiet.</figcaption>
+      <figcaption>The collector decides what reaches your SIEM, so changes to it are what this scope class governs most closely.</figcaption>
     </figure>
   </section>
 
@@ -78,7 +78,7 @@
 
   <section>
     <h2>The guardrails</h2>
-    <p><strong>Each action is allowed or denied, and an allowed action may carry a limit.</strong> These are control points based on rules, not on detecting an attack. They make sure the provider behaves, or it pays a fixed sum.</p>
+    <p><strong>Each action is allowed or denied, and an allowed action may carry a limit.</strong> These are control points based on rules. They make sure the provider behaves, or it pays a fixed sum.</p>
     <div class="tablewrap">
       <table>
         <thead><tr><th scope="col">Action</th><th scope="col">Rule</th><th scope="col">Limit</th></tr></thead>
@@ -89,7 +89,7 @@
           <tr><th scope="row">Change the application's configuration<span class="basis">The action this scenario exists for</span></th><td>Allow</td><td>With an approved change</td></tr>
           <tr><th scope="row">Update the application's software</th><td>Allow</td><td>With an approved change</td></tr>
           <tr><th scope="row">Change access to the servers<span class="basis">Accounts, sudo rights, SSH settings and trusted keys</span></th><td>Allow</td><td>With an approved change</td></tr>
-          <tr><th scope="row">Reach anything through the tunnel other than the declared servers<span class="basis">An attempt counts, whether or not it was blocked</span></th><td class="yes">Deny</td><td class="nil">&mdash;</td></tr>
+          <tr><th scope="row">Reach anything through the tunnel other than the declared servers<span class="basis">An attempt counts, whether or not it was blocked</span></th><td>Deny</td><td class="nil">&mdash;</td></tr>
         </tbody>
       </table>
     </div>
@@ -181,7 +181,6 @@ Accepted publickey for appadmin from 10.9.0.5 ... ED25519-CERT
     <h2>Known limits</h2>
     <ul class="plain">
       <li>A report states what the provider declares, not every command typed, unless sessions are recorded. The fingerprints are what prove a change happened.</li>
-      <li>If the provider's certificate authority and jump host are both compromised, an attacker can produce valid-looking reports. <strong>B2 still holds: the attacker cannot forge your approved change.</strong></li>
     </ul>
   </section>
 
