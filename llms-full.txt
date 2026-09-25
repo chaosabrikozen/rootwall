@@ -284,36 +284,38 @@ report and match everything, with no fixed sums and no effect on standing.
 
 Full text: https://rootwall.ai/scope-class/provider-vpn/
 
-### Read-only access to your API — illustrative, 3 September 2026
+### A provider reads records through your API — illustrative, 3 September 2026, revised 25 September 2026
 
-**The boundary that catches people first.** A scope class governs what a caller may *attempt*, never
-what its payload *contains*. Records carry the names of arguments and a digest of their values, never
-the values, so a maximum field length or a rule about what may appear in a search string cannot be in
-a scope class. Those rules live at the receiving member's own edge, where it may apply any restriction
-stricter than the class permits, privately and without notifying anyone. A member may always be
-stricter and never looser, and a refusal under that right is not a breach by anybody.
+**The scenario.** A provider reads records through a company's API on behalf of a named person, such
+as a reporting or planning service. The guardrails are about how much it reads, on whose authority,
+and nothing else.
 
-**Example `SC-READ-1`, illustrative.** Permitted method kinds: `read.record`, `read.collection`.
-Forbidden: `create`, `update`, `delete`, `payment.initiate`, `notify.external`. Ceilings, per
-counterparty: 600 interactions per hour, 5,000 per 24 hours, 200 `read.collection` per hour, 10
-concurrent open sessions. Delegation required, maximum validity 24 hours, principal named in the
-record. Both sides emit a session-open record, one record per interaction and a session-close record,
-within 15 minutes of session close. Response section not applicable for a plain request-and-response
-interface.
+**The guardrails: each action is allowed or denied, and an allowed action may carry a limit.**
+Allow: read one record (`read.record`) and read a list or run a search (`read.collection`), all
+reads together up to 600 an hour and 5,000 a day, lists and searches up to 200 an hour; keep up to
+10 sessions open at once. Deny: create, change or delete a record, move money, send a message to
+someone else. Every read needs a delegation: the authority of a named person, valid for at most 24
+hours, named in the report. Limits count per provider and only the calls it made.
 
-**Illustrative sums for that class**, paid by the member in breach to the member affected, never to
-the scheme: attempting a forbidden method kind, $1,000 per session; operating without valid
-delegation, $1,000 per session; exceeding a ceiling, $250 per window; a false or misleading record,
-$2,500 per record; failing to produce a record or answer in time, $2,500 per session, either role.
-Aggregate cap $25,000 per member per counterparty per rolling 30 days.
+**What a scope class can and cannot say.** Rootwall never sees what is inside the traffic: reports
+carry field names and a fingerprint of their values, never the values. So a scope class says which
+kinds of call are allowed, how many, on whose authority and what each side reports; it cannot
+contain a rule that needs a value to be read (a field length, a date range, what may appear in a
+search). Those rules live at the company's own edge, where it may always be stricter, privately; a
+refusal under that right is not a breach. Endpoints are mapped to kinds by what they actually do.
 
-**Why evidence failure costs more than the breaches it might hide.** Its per-session sum may never be
-lower than the highest per-session sum for an actual breach in the same class. A member that has just
-broken a rule must not find silence cheaper than admitting it.
+**What each side reports.** Both: session open, one report per call, session close, each with the
+session identifier, sender and role, kind of call, who initiated it, and field names with a
+fingerprint of their values. The provider also reports the delegation and the software build.
+Deadline: 15 minutes after the session closes.
 
-**Why the sums look small.** Each is a pre-estimate of what the breach costs *the member affected* to
-deal with — an engineer and someone in risk, a few hours. Not damages, not a measure of loss, and not
-the scheme's costs. The deterrent is standing, not money.
+**Breaches and illustrative fixed sums**, paid by the provider to the company, never to Rootwall: B1
+attempting a denied action, $250 per session; **B2 reading without a valid delegation, $500 per
+session**; B3 a session or call the company saw with no report from the provider, $500 per session
+(never cheaper than B2); B4 a false or misleading report, $500 per report; B5 a late report, $50 per
+report; B6 a limit exceeded, $100 per hour. No single breach costs more than half a provider's
+yearly membership. Aggregate cap $5,000 per rolling 30 days. **Forgetting is cheap. Reading without
+authority is not.**
 
 Full text: https://rootwall.ai/scope-class/api-read/
 
