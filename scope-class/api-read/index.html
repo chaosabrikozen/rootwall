@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rootwall — example scope class: a provider reads records through your API</title>
+<meta name="description" content="A worked, illustrative scope class for a provider that reads records through your API on behalf of a named person: what it may do, the limits, what each side reports, and the fixed sum for each breach. Binds nobody.">
+<link rel="canonical" href="https://rootwall.ai/scope-class/api-read/">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="wrap worked">
+
+  <header class="masthead">
+    <p class="wordmark"><a href="/"><svg class="logo" width="20" height="20" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><circle cx="50" cy="50" r="36" fill="none" stroke="#d98b72" stroke-width="4"/><g fill="#d98b72"><circle cx="50.00" cy="14.00" r="6.6"/><circle cx="81.18" cy="32.00" r="6.6"/><circle cx="81.18" cy="68.00" r="6.6"/><circle cx="50.00" cy="86.00" r="6.6"/><circle cx="18.82" cy="68.00" r="6.6"/><circle cx="18.82" cy="32.00" r="6.6"/></g></svg><span class="wm-text">Rootwall</span></a></p>
+    <h1>A provider reads records through your API. What may it do?</h1>
+    <p class="standfirst">A worked scope class for a provider that reads records through your API on behalf of a named person, such as a reporting or planning service your staff or your customers use.</p>
+    <p class="key"><strong>Reading is the most common thing a provider does through an API, so the guardrails are about how much, on whose authority, and nothing else.</strong></p>
+    <p style="margin-top:1.4rem"><strong>Everything on this page is illustrative. It is not published as a scope class, it binds nobody, and no member is admitted into it.</strong> The real one for your API is written with you.</p>
+    <p class="docmeta"><a href="/scope-class/">All example scope classes</a> &middot; Illustrative example &middot; first published 3 September 2026, revised 25 September 2026 &middot; Read with <a href="/rulebook/">the rulebook</a></p>
+  </header>
+
+  <section>
+    <h2>In one minute</h2>
+    <ol class="numbered">
+      <li><span class="lede-term">The guardrails are short.</span> Reading is allowed, within limits. Everything that changes a record, moves money or contacts someone else is denied.</li>
+      <li><span class="lede-term">Every read rests on a named person&rsquo;s authority.</span> The provider reads on behalf of someone identified, and that authority lasts at most 24 hours.</li>
+      <li><span class="lede-term">Both sides report.</span> The provider and your API each send a short signed report for every session and every call. The two are matched.</li>
+      <li><span class="lede-term">Every breach is a yes-or-no question.</span> No judgment and no argument about intent.</li>
+      <li><span class="lede-term">Rootwall confirms that no guardrail has been broken.</span> The provider has signed for what it did, checks itself first, and owes a sum fixed in advance when a guardrail is broken or the two sides do not match.</li>
+    </ol>
+  </section>
+
+  <p class="part">Part A</p>
+  <p class="part-title">The scope class: the guardrails</p>
+  <p class="docmeta">Reference <code>SC-READ-1</code> (illustrative) &middot; a session is one connection by the provider &middot; an interaction is one call to your API</p>
+
+  <section>
+    <h2>The guardrails</h2>
+    <p><strong>Each action is allowed or denied, and an allowed action may carry a limit.</strong> These are control points based on rules. They make sure the provider behaves, or it pays a fixed sum.</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th scope="col">Action</th><th scope="col">Rule</th><th scope="col">Limit</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Read one record<span class="basis"><code>read.record</code></span></th><td>Allow</td><td>All reads together: up to 600 an hour and 5,000 a day</td></tr>
+          <tr><th scope="row">Read a list or run a search<span class="basis"><code>read.collection</code></span></th><td>Allow</td><td>Up to 200 an hour, within the total above</td></tr>
+          <tr><th scope="row">Keep sessions open</th><td>Allow</td><td>Up to 10 at once</td></tr>
+          <tr><th scope="row">Create a record</th><td>Deny</td><td class="nil">&mdash;</td></tr>
+          <tr><th scope="row">Change a record</th><td>Deny</td><td class="nil">&mdash;</td></tr>
+          <tr><th scope="row">Delete a record</th><td>Deny</td><td class="nil">&mdash;</td></tr>
+          <tr><th scope="row">Move money</th><td>Deny</td><td class="nil">&mdash;</td></tr>
+          <tr><th scope="row">Send a message to someone else</th><td>Deny</td><td class="nil">&mdash;</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:1.2rem"><strong>Every read needs a delegation:</strong> the authority of a named person or organization on whose behalf the provider is reading, valid for at most 24 hours. The person is named in the report, and the provider states that it checked the authority.</p>
+    <p>Limits are counted per provider and count only the calls the provider made. They are set per hour and per day, because a limit per session could be dodged by opening more sessions.</p>
+  </section>
+
+  <section>
+    <h2>What a scope class can and cannot say</h2>
+    <div class="statement">Rootwall never sees what is inside your traffic. Reports carry the names of the fields in a call and a fingerprint of their values, never the values.</div>
+    <ul class="plain">
+      <li><span class="lede-term">In a scope class:</span> which kinds of call are allowed, how many, over what period, on whose authority, and what each side must report.</li>
+      <li><span class="lede-term">Not in a scope class:</span> anything that needs a value to be read, such as a maximum field length, a date range, or what may appear in a search. Rootwall could not check it.</li>
+    </ul>
+    <p><strong>Those rules still exist, at your own edge.</strong> You may always apply a restriction stricter than the class, privately, without telling anyone. A refusal under that right is not a breach by anybody.</p>
+    <p>The class names kinds of call, not your endpoints. You map each of your endpoints to a kind, by what it actually does. An endpoint that reads and quietly writes maps to the write.</p>
+  </section>
+
+  <section>
+    <h2>What each side reports</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th scope="col">Both sides report</th><th scope="col">The provider also reports</th></tr></thead>
+        <tbody>
+          <tr><td>Session open, one report for each call, session close</td><td>The delegation the session rests on</td></tr>
+          <tr><td>On every report: the session identifier, who sent it and in which role, the kind of call, who initiated it, and the field names with a fingerprint of their values</td><td>The build of the software that made the calls</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul class="plain" style="margin-top:1.2rem">
+      <li><span class="lede-term">Deadline:</span> within 15 minutes of the session closing. Reporting is never in the path of your traffic and never a dependency of your service.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>What is a breach, and what it costs</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th scope="col">#</th><th scope="col">Breach</th><th scope="col" class="amount">Fixed sum</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">B1</th><td>Attempting a denied action<span class="basis">An attempt counts, whether or not it succeeded</span></td><td class="amount">$250<span class="basis">per session</span></td></tr>
+          <tr><th scope="row">B2</th><td><strong>Reading without a valid delegation</strong><span class="basis">None, expired, or beyond what the person authorized</span></td><td class="amount">$500<span class="basis">per session</span></td></tr>
+          <tr><th scope="row">B3</th><td>A session or call you saw, with no report from the provider<span class="basis">Never cheaper than B2: silence must not pay</span></td><td class="amount">$500<span class="basis">per session</span></td></tr>
+          <tr><th scope="row">B4</th><td>A false or misleading report<span class="basis">Including a call mapped to a kind that understates what it does</span></td><td class="amount">$500<span class="basis">per report</span></td></tr>
+          <tr><th scope="row">B5</th><td>A late report<span class="basis">The common case: a provider that forgot</span></td><td class="amount">$50<span class="basis">per report</span></td></tr>
+          <tr><th scope="row">B6</th><td>A limit exceeded</td><td class="amount">$100<span class="basis">per hour</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="statement">Forgetting is cheap. Reading without authority is not.</div>
+    <p>Sums are paid by the provider to you, never to Rootwall. No single breach costs more than half of a provider&rsquo;s yearly membership. <strong>Aggregate cap: $5,000</strong> per provider, per counterparty, per rolling 30 days. Standing moves too: repeated breaches put a provider under review, and can suspend it. Illustrative figures for this example.</p>
+  </section>
+
+  <section>
+    <h2>The same API, one step riskier</h2>
+    <p>A class that also allowed creating and changing records would move everything else with it:</p>
+    <ul class="plain">
+      <li><span class="lede-term">Tighter limits on the changes</span> than on the reads, because a wrong change costs more to undo than a wrong read.</li>
+      <li><span class="lede-term">A shorter delegation</span>: hours rather than a day.</li>
+      <li><span class="lede-term">Higher sums</span>, for the same reason.</li>
+    </ul>
+    <p><strong>What does not change: the rules themselves, the reporting standard, or anything in the rulebook.</strong> A scope class sets what a provider may do. It never varies a rule.</p>
+  </section>
+
+  <section>
+    <h2>How the real one gets written</h2>
+    <ol class="numbered">
+      <li><span class="lede-term">You list what your API exposes</span> and map each endpoint to a kind. Only you know what your endpoints actually do.</li>
+      <li><span class="lede-term">We set the limits together</span>, against what your ordinary traffic looks like.</li>
+      <li><span class="lede-term">The sums are set with the class</span>, as a pre-estimate of what each kind of breach would cost you to deal with. You are the party they are paid to.</li>
+      <li><span class="lede-term">It is published, and every provider admitted after you is held to it.</span></li>
+    </ol>
+    <div class="statement">The first company in your industry sets the rules, and puts its name on them.</div>
+  </section>
+
+  <footer>
+    <p><a href="/">Front page</a> &middot; <a href="/incentivized-defense/">Incentivized Defense</a> &middot; <a href="/rulebook/">The rulebook</a> &middot; <a href="/scope-class/">Example scope classes</a> &middot; <a href="/questions/">Common questions</a> &middot; <a href="/fees/">Schedule of fees</a> &middot; <a href="/disputes/">Disputes</a> &middot; <a href="/history/">Version history</a> &middot; <a href="/privacy/">Privacy</a></p>
+    <p>Contact: <a href="mailto:info@rootwall.ai">info@rootwall.ai</a></p>
+  </footer>
+
+</div>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "df6516715bb74e70ab48c22f8c1de1ec"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

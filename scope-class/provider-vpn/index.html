@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rootwall — example scope class: a provider managing your log collector</title>
+<meta name="description" content="A worked, illustrative scope class for a provider that manages a company's log collector over VPN and SSH: what it may do, what needs the company's approved change, what each side reports, and the fixed sum for each breach. Binds nobody.">
+<link rel="canonical" href="https://rootwall.ai/scope-class/provider-vpn/">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="wrap worked">
+
+  <header class="masthead">
+    <p class="wordmark"><a href="/"><svg class="logo" width="20" height="20" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><circle cx="50" cy="50" r="36" fill="none" stroke="#d98b72" stroke-width="4"/><g fill="#d98b72"><circle cx="50.00" cy="14.00" r="6.6"/><circle cx="81.18" cy="32.00" r="6.6"/><circle cx="81.18" cy="68.00" r="6.6"/><circle cx="50.00" cy="86.00" r="6.6"/><circle cx="18.82" cy="68.00" r="6.6"/><circle cx="18.82" cy="32.00" r="6.6"/></g></svg><span class="wm-text">Rootwall</span></a></p>
+    <h1>A provider manages your log collector over VPN. What may it do?</h1>
+    <p class="standfirst">A worked scope class for one of the most common ways a provider reaches into a company: a VPN, then SSH to the servers it looks after.</p>
+    <p class="key"><strong>The servers collect your logs, so what the provider does on them matters. This scope class sets what the provider may do there, and every session and every change is reported by both sides.</strong></p>
+    <p style="margin-top:1.4rem"><strong>Everything on this page is illustrative. It is not published as a scope class, it binds nobody, and no member is admitted into it.</strong> The real one for your systems is written with you.</p>
+    <p class="docmeta"><a href="/scope-class/">All example scope classes</a> &middot; Illustrative example &middot; 25 September 2026 &middot; Read with <a href="/rulebook/">the rulebook</a></p>
+  </header>
+
+  <section>
+    <h2>In one minute</h2>
+    <ol class="numbered">
+      <li><span class="lede-term">Two parts, never mixed.</span> Part A is the scope class itself: the guardrails. Part B is the evidence: how each side proves what happened. Part B is an example, not a rule.</li>
+      <li><span class="lede-term">The guardrails are short.</span> Each action the provider can take is allowed or denied, and an allowed action may carry a limit.</li>
+      <li><span class="lede-term">Both sides report.</span> The provider signs a statement for every session and every change. You report what you saw on your own servers. The two are matched.</li>
+      <li><span class="lede-term">Every breach is a yes-or-no question.</span> No judgment and no argument about intent.</li>
+      <li><span class="lede-term">Rootwall confirms that no guardrail has been broken.</span> The provider has signed for what it did, checks itself first, and owes a sum fixed in advance when a guardrail is broken or the two sides do not match.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>The scenario</h2>
+    <ul class="plain">
+      <li><span class="lede-term">The company</span> (the receiving member) runs a log collector. It receives the organization's logs, process them, and forward them to the company's security operations platform (its SIEM).</li>
+      <li><span class="lede-term">The provider</span> (the emitting member) manages the collector remotely: a VPN, then SSH to the servers.</li>
+      <li><span class="lede-term">Why it matters.</span> A change to the collector&rsquo;s configuration decides which of your logs reach your SIEM, so every change should be one you approved.</li>
+    </ul>
+
+    <figure class="flow">
+      <svg viewBox="0 0 680 250" role="img" aria-label="The provider connects over VPN and SSH to the log collector, which forwards logs to the SIEM. Both sides send reports to Rootwall, which matches them.">
+        <rect class="box" x="10" y="20" width="170" height="80" rx="4"/>
+        <text x="95" y="52" text-anchor="middle" font-size="15" font-weight="600">Provider</text>
+        <text class="small" x="95" y="74" text-anchor="middle" font-size="12">engineers, jump host</text>
+
+        <rect class="box hot" x="255" y="20" width="190" height="80" rx="4"/>
+        <text x="350" y="52" text-anchor="middle" font-size="15" font-weight="600">Log collector</text>
+        <text class="small" x="350" y="74" text-anchor="middle" font-size="12">your servers</text>
+
+        <rect class="box" x="520" y="20" width="150" height="80" rx="4"/>
+        <text x="595" y="52" text-anchor="middle" font-size="15" font-weight="600">Your SIEM</text>
+        <text class="small" x="595" y="74" text-anchor="middle" font-size="12">what you can see</text>
+
+        <line x1="180" y1="60" x2="255" y2="60"/>
+        <text class="acc" x="217" y="52" text-anchor="middle" font-size="11">VPN + SSH</text>
+        <line x1="445" y1="60" x2="520" y2="60"/>
+        <text class="small" x="482" y="52" text-anchor="middle" font-size="11">logs</text>
+
+        <rect class="box hot" x="230" y="170" width="240" height="64" rx="4"/>
+        <text x="350" y="198" text-anchor="middle" font-size="15" font-weight="600">Rootwall matches</text>
+        <text class="small" x="350" y="218" text-anchor="middle" font-size="12">match, or a breach</text>
+
+        <path d="M95 100 L95 202 L230 202"/>
+        <text class="small" x="102" y="150" font-size="11">provider signs</text>
+        <text class="small" x="102" y="164" font-size="11">what it did</text>
+        <path d="M350 100 L350 170"/>
+        <text class="small" x="358" y="140" font-size="11">you report what you saw</text>
+      </svg>
+      <figcaption>The collector decides what reaches your SIEM, so changes to it are what this scope class governs most closely.</figcaption>
+    </figure>
+  </section>
+
+  <p class="part">Part A</p>
+  <p class="part-title">The scope class: the guardrails</p>
+  <p class="docmeta">Reference <code>SC-ADMIN-1</code> (illustrative) &middot; a session is one SSH session &middot; an interaction is one administrative action</p>
+
+  <section>
+    <h2>The guardrails</h2>
+    <p><strong>Each action is allowed or denied, and an allowed action may carry a limit.</strong> These are control points based on rules. They make sure the provider behaves, or it pays a fixed sum.</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th scope="col">Action</th><th scope="col">Rule</th><th scope="col">Limit</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Open a session to a declared server</th><td>Allow</td><td>Up to 10 a day</td></tr>
+          <tr><th scope="row">Read the application's status and its own logs</th><td>Allow</td><td class="nil">&mdash;</td></tr>
+          <tr><th scope="row">Restart the application</th><td>Allow</td><td>Up to 2 a day</td></tr>
+          <tr><th scope="row">Change the application's configuration<span class="basis">The action this scenario exists for</span></th><td>Allow</td><td>With an approved change</td></tr>
+          <tr><th scope="row">Update the application's software</th><td>Allow</td><td>With an approved change</td></tr>
+          <tr><th scope="row">Change access to the servers<span class="basis">Accounts, sudo rights, SSH settings and trusted keys</span></th><td>Allow</td><td>With an approved change</td></tr>
+          <tr><th scope="row">Reach anything through the tunnel other than the declared servers<span class="basis">An attempt counts, whether or not it was blocked</span></th><td>Deny</td><td class="nil">&mdash;</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:1.2rem"><strong>&ldquo;With an approved change&rdquo;</strong> means a reference from your own change process, the one that already approves production changes, covering those servers, that time window and that kind of change. Emergency changes go through your emergency change process like any other.</p>
+    <p>What the reports cannot see stays with your own controls: settings in your cloud console, onward connections from the servers, data copied off. You may always be stricter.</p>
+    <p class="cite">In the rulebook's terms, the approved change is the Delegation: the authority an action rests on.</p>
+  </section>
+
+  <section>
+    <h2>What each side reports</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th scope="col">The provider reports</th><th scope="col">You report</th></tr></thead>
+        <tbody>
+          <tr><td>At session open: engineer, server, purpose, session identifier</td><td>Each session seen on your servers</td></tr>
+          <tr><td>For each change, update or restart: the change reference and a fingerprint of the file before and after</td><td>Each change seen on your servers, with the same fingerprints</td></tr>
+          <tr><td class="nil">&mdash;</td><td>That the change reference exists, is approved, and covers those servers and that window</td></tr>
+          <tr><td>Each hour: tunnel up and down times, count of sessions</td><td>Each hour: the same counts, and any attempt through the tunnel to an address other than the declared servers, from your network flow logs</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:1.2rem"><strong>Both sides count the same way:</strong> same clock, same window edges, same definition of a session.</p>
+    <ul class="plain" style="margin-top:1.2rem">
+      <li><span class="lede-term">Session report:</span> before the first action.</li>
+      <li><span class="lede-term">Change, update or restart report:</span> within 5 minutes.</li>
+      <li><span class="lede-term">Hourly report:</span> within 1 hour of the window closing.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>What is a breach, and what it costs</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th scope="col">#</th><th scope="col">Breach</th><th scope="col" class="amount">Fixed sum</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">B1</th><td>Reaching anything through the tunnel other than the declared servers<span class="basis">An attempt counts, whether or not it was blocked</span></td><td class="amount">$250<span class="basis">per session</span></td></tr>
+          <tr><th scope="row">B2</th><td><strong>A change to a watched file with no approved change behind it</strong><span class="basis">The breach this scenario exists for</span></td><td class="amount">$500<span class="basis">per change</span></td></tr>
+          <tr><th scope="row">B3</th><td>A session or change you saw, with no report from the provider<span class="basis">Never cheaper than B2: silence must not pay</span></td><td class="amount">$500<span class="basis">per session</span></td></tr>
+          <tr><th scope="row">B4</th><td>The two sides do not match: fingerprints, times or counts differ</td><td class="amount">$250<span class="basis">per session</span></td></tr>
+          <tr><th scope="row">B5</th><td>A late report, or a slip: the change reference left out or mistyped when an approved change did exist<span class="basis">The common case: a provider that forgot</span></td><td class="amount">$50<span class="basis">per report</span></td></tr>
+          <tr><th scope="row">B6</th><td>A limit exceeded<span class="basis">Sessions or restarts above the daily limit</span></td><td class="amount">$100<span class="basis">per day</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="statement">Forgetting is cheap. An unapproved change is not.</div>
+    <p>Sums are paid by the provider to you, never to Rootwall. No single breach costs more than half of a provider&rsquo;s yearly membership. <strong>Aggregate cap: $5,000</strong> per provider, per counterparty, per rolling 30 days. Standing moves too: repeated breaches put a provider under review, and can suspend it. Illustrative figures for this example.</p>
+  </section>
+
+  <p class="part">Part B</p>
+  <p class="part-title">The evidence: one way to prove it</p>
+  <p class="docmeta">An example mapping. Each member maps its own systems (clause 13.2). Not a rule.</p>
+
+  <section>
+    <h2>Which session an action belongs to</h2>
+    <p><strong>SSH certificates carrying the session identifier.</strong> Your servers trust the provider's certificate authority rather than individual keys. Before each session, the provider's jump host signs the session report, then issues a certificate valid for about an hour with the session identifier in the certificate's key ID field.</p>
+    <p>Your SSH server writes that key ID into its login record. <strong>Every login on your side points to exactly one signed report on the provider's side.</strong> A login with no identifier, an unknown one, or an expired one is a breach.</p>
+<pre>ssh-keygen -s provider_ca -I RW-PRV01-20260925-0001 \
+  -n appadmin -V +1h -O source-address=10.9.0.5 engineer.pub
+
+Accepted publickey for appadmin from 10.9.0.5 ... ED25519-CERT
+  SHA256:... ID RW-PRV01-20260925-0001 (serial 42) CA ED25519 SHA256:...</pre>
+  </section>
+
+  <section>
+    <h2>The rest of the evidence</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th scope="col">What must be shown</th><th scope="col">How, in this example</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">That a change happened, and what changed</th><td>Both sides fingerprint (hash) the watched files: the application's configuration and software, and the servers' access files</td></tr>
+          <tr><th scope="row">That a change was authorized</th><td>Your change-management record for the quoted reference</td></tr>
+          <tr><th scope="row">Tunnel and session counts</th><td>Provider: its VPN or firewall logs. You: your cloud network's flow logs, which also show any attempt to reach another address</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Why the provider's report matters, when you could check alone</h2>
+    <ol class="numbered">
+      <li><span class="lede-term">It is signed.</span> "I did this, under this change reference." Without it the provider can say "not us", and the fixed sum becomes a dispute.</li>
+      <li><span class="lede-term">It puts the first check on the provider.</span> The provider must stop its own bad conduct before you have to find it.</li>
+      <li><span class="lede-term">A mismatch is itself a breach.</span> A provider cannot quietly report something different from what happened.</li>
+    </ol>
+    <div class="statement">The defense is the product. The payment is the incentive.</div>
+  </section>
+
+  <section>
+    <h2>Known limits</h2>
+    <ul class="plain">
+      <li>A report states what the provider declares, not every command typed, unless sessions are recorded. The fingerprints are what prove a change happened.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Getting used to it</h2>
+    <p><strong>Reporting every session and every change is a new routine, so the first 30 days are a warm-up.</strong> Everything is reported and matched, and both sides see the results every week. No fixed sums apply and nobody's standing changes. The warm-up ends on its own.</p>
+    <p class="docmeta">Proposed for the next version of the rulebook, where it would apply to every scope class. Not yet in force.</p>
+  </section>
+
+  <footer>
+    <p><a href="/">Front page</a> &middot; <a href="/incentivized-defense/">Incentivized Defense</a> &middot; <a href="/rulebook/">The rulebook</a> &middot; <a href="/scope-class/">Example scope classes</a> &middot; <a href="/questions/">Common questions</a> &middot; <a href="/fees/">Schedule of fees</a> &middot; <a href="/disputes/">Disputes</a> &middot; <a href="/history/">Version history</a> &middot; <a href="/privacy/">Privacy</a></p>
+    <p>Contact: <a href="mailto:info@rootwall.ai">info@rootwall.ai</a></p>
+  </footer>
+
+</div>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "df6516715bb74e70ab48c22f8c1de1ec"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

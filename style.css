@@ -567,6 +567,32 @@ ol.steps > li::before {
 .toc a { text-decoration: none; color: var(--ink-soft); }
 .toc a:hover { color: var(--accent); }
 
+/* ---------- worked example pages (scope classes) ---------- */
+
+.part {
+  font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 0.7rem; font-weight: 650; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--accent); margin: 4rem 0 0.4rem;
+}
+.part-title { font-size: 1.35rem; line-height: 1.3; font-weight: 600; margin: 0 0 0.6rem; }
+h3.sub { font-size: 1.02rem; font-weight: 650; margin: 2.2rem 0 0.8rem; }
+.yes { color: var(--accent); font-weight: 650; }
+figure.flow { margin: 1.6rem 0 0; }
+figure.flow svg { width: 100%; height: auto; display: block; }
+figure.flow figcaption { font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 0.78rem; color: var(--ink-faint); margin-top: 0.6rem; }
+.flow .box { fill: var(--panel); stroke: var(--rule); }
+.flow .box.hot { stroke: var(--accent); }
+.flow text { fill: var(--ink); font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+.flow .small { fill: var(--ink-faint); }
+.flow .acc { fill: var(--accent); }
+.flow line, .flow path { stroke: var(--ink-faint); fill: none; }
+.worked pre {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.72rem; line-height: 1.55; background: var(--panel); border: 1px solid var(--rule);
+  padding: 0.9rem 1rem; overflow-x: auto; white-space: pre; margin: 1rem 0 0;
+}
+.worked code { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; font-size: 0.88em; }
+
 /* ---------- colophon ---------- */
 
 footer {
