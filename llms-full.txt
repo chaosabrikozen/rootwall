@@ -148,7 +148,7 @@ admission:
 
 **Other fees:**
 
-| Fee | Provider (Emitting Role) | Company the provider connects to (Receiving Role) |
+| Fee | Provider (Emitting Role) | Client (Receiving Role) — the company whose systems the provider connects to |
 |---|---|---|
 | Admission, one-off, covers entry and exit | $350 | $350 |
 | Assessment, per scope class, first admission | $1,200 | Nil |
@@ -156,12 +156,12 @@ admission:
 | Conduct | Nil, declared | Nil, declared |
 | Retention extension | Nil, declared | Nil, declared |
 
-**Every member pays its own membership, whoever invited whom.** A company can require its providers
-to join; a provider can invite its clients; a company can join on its own. A member holding both
+**Every member pays its own membership, whoever invited whom.** A client can require its providers
+to join; a provider can invite its clients; either can join on its own. A member holding both
 roles pays one membership. A false revenue declaration is a broken rule like any other.
 
-**Why one price for both sides.** Version 1.2 charged the company being connected to six times more
-than the provider, on the assumption that the company always asks and the provider always joins
+**Why one price for both sides.** Version 1.2 charged the client six times more
+than the provider, on the assumption that the client always asks and the provider always joins
 reluctantly. A provider can now be the one that invites its clients, so a price that only made sense
 one way round was replaced. Revenue rather than headcount, because headcount no longer measures the
 size of a business well.
