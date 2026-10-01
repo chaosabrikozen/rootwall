@@ -132,27 +132,39 @@ thing.
 
 ---
 
-## Schedule of fees — version 1.2, 3 September 2026
+## Schedule of fees — version 1.3, 1 October 2026
 
 All amounts in US dollars and **exclusive of VAT**. Rootwall.ai Ltd is registered for UK value added
 tax.
 
-| Fee | Emitting Role (the party whose agents call) | Receiving Role (the party that owns the API) |
+**Membership is the same whatever the member's role**, set by the member's annual revenue, declared at
+admission:
+
+| Annual revenue of the member | Membership, per year |
+|---|---|
+| Small — under $10 million | $1,000 |
+| Medium — $10 million to $100 million | $3,000 |
+| Large — over $100 million | $6,000 |
+
+**Other fees:**
+
+| Fee | Provider (Emitting Role) | Client (Receiving Role) — the company whose systems the provider connects to |
 |---|---|---|
-| Membership, annual, recurring | $1,000 | $6,000 |
 | Admission, one-off, covers entry and exit | $350 | $350 |
 | Assessment, per scope class, first admission | $1,200 | Nil |
 | Reassessment, per scope class, on renewal | $600 | Nil |
 | Conduct | Nil, declared | Nil, declared |
 | Retention extension | Nil, declared | Nil, declared |
 
-A member holding both roles pays the Receiving Role membership only, plus the assessment fee for
-each class it is admitted into in the Emitting Role.
+**Every member pays its own membership, whoever invited whom.** A client can require its providers
+to join; a provider can invite its clients; either can join on its own. A member holding both
+roles pays one membership. A false revenue declaration is a broken rule like any other.
 
-**Why the roles are priced differently.** The agent operator usually did not choose to be here — it
-joins because an organisation it wants to reach made admission a condition of production access. A
-fee an unwilling joiner resents gets escalated back to the organisation that required it. The API
-owner carries the risk and receives the record.
+**Why one price for both sides.** Version 1.2 charged the client six times more
+than the provider, on the assumption that the client always asks and the provider always joins
+reluctantly. A provider can now be the one that invites its clients, so a price that only made sense
+one way round was replaced. Revenue rather than headcount, because headcount no longer measures the
+size of a business well.
 
 **On the two heads declared at nil.** The scheme reconciles every session as a matter of course and
 no separate charge is made for it. They are declared rather than omitted because introducing an
@@ -165,7 +177,8 @@ give it a reason to stay quiet. **And no sum of any kind is ever payable to the 
 rule** — that is fixed in the rulebook and cannot be amended.
 
 **Changes.** Nothing changes mid-term. A change applies at a member's next renewal, never inside a
-period already paid for. Every superseded version stays published at its own address.
+period already paid for. Every superseded version stays published at its own address: 1.0, 1.1 and
+1.2 at https://rootwall.ai/fees/1.0/, https://rootwall.ai/fees/1.1/ and https://rootwall.ai/fees/1.2/.
 
 ---
 
