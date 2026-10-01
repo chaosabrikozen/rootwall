@@ -44,6 +44,40 @@ Rootwall brings that model to the providers connecting to your systems.
 
 Are your providers part of your defense, or part of the attacks on you?
 
+## For providers
+
+Published at https://rootwall.ai/providers/ on 1 October 2026.
+
+Your clients trust you with the keys. Rootwall gives you a way to show them you deserve it.
+
+**What it is.** A record of how you behave inside your clients' systems, confirmed by their own logs,
+not only by yours.
+
+1. You and your client agree a published set of rules for your access: what you may do, what needs
+   an approved change, and the limits.
+2. You report what you did. Your client's own logs report what they saw. Rootwall compares the two.
+3. Each period ends with a shared record: every rule kept, or the one that was broken.
+
+**What you gain.**
+
+- Proof, not paperwork. Certificates and questionnaires show how you are set up. This shows how you
+  behaved.
+- A record a new client can check, instead of starting from zero at every onboarding.
+- An answer your regulated clients already need. Banks and insurers must oversee their critical
+  providers on an ongoing basis. Your record is evidence they can use.
+- If you choose, conduct backed by money. Service credits for conduct: a small sum, fixed in advance
+  and capped, credited to your client if a rule is broken. The same idea as the service credits you
+  already offer when you miss an uptime promise.
+
+If you run security for your clients, as a managed security service or a SOC, they already ask who
+checks the people with the keys. This is the answer.
+
+**What it is not.** Rootwall installs nothing on your clients' systems, sees none of their data, and
+does not sit in your connection. It compares two signed reports against rules agreed in advance.
+
+**How to start.** Join from $1,000 a year and invite one client. Your client joins in its own size
+band, and your first shared record starts with your first period. Contact: info@rootwall.ai.
+
 ## How it changes security, which is the point
 
 Rootwall is a cybersecurity scheme, though not a security product in the sense of a tool that sits
