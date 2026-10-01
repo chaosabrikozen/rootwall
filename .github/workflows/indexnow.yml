@@ -1,0 +1,36 @@
+name: IndexNow
+
+# After GitHub Pages has published a change to main, tell IndexNow
+# (Bing and other participating search engines) which pages changed.
+on:
+  workflow_run:
+    workflows: ["pages build and deployment"]
+    types: [completed]
+  workflow_dispatch:
+
+jobs:
+  ping:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 2
+      - name: Send changed pages to IndexNow
+        env:
+          KEY: 2c9318af13645eb4d55514f1f56733a7
+          HOST: rootwall.ai
+        run: |
+          set -e
+          urls=$(git diff --name-only HEAD^1 HEAD \
+            | grep -E '\.(html|txt|xml)$' \
+            | grep -vE '^\.github/|\.bundle$|^googled|^'"$KEY"'\.txt$' \
+            | sed -E 's#(^|/)index\.html$#\1#' \
+            | sed -E 's#^#https://rootwall.ai/#' || true)
+          if [ -z "$urls" ]; then echo "No published pages changed."; exit 0; fi
+          echo "$urls"
+          list=$(printf '%s\n' $urls | python3 -c 'import json,sys; print(json.dumps([l.strip() for l in sys.stdin if l.strip()]))')
+          body=$(printf '{"host":"%s","key":"%s","keyLocation":"https://%s/%s.txt","urlList":%s}' "$HOST" "$KEY" "$HOST" "$KEY" "$list")
+          curl -sS -o /dev/null -w "IndexNow answered %{http_code}\n" -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" -d "$body"
