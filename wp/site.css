@@ -190,3 +190,8 @@ body{background:var(--rw-bg)!important;color:var(--rw-fg);font-family:var(--rw-b
 .rw-dh{font-family:var(--rw-m);font-size:.64rem!important;letter-spacing:.1em;text-transform:uppercase;color:var(--rw-faint);border-bottom:1px solid var(--rw-rule)!important;padding-block:10px!important}
 .rw-dh span:nth-child(3),.rw-dh span:nth-child(4){text-align:center}
 @media (max-width:600px){.rw-door{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) 56px 56px!important;gap:8px!important}.rw-dh{font-size:.56rem!important;letter-spacing:.04em}}
+
+/* photo tone: pull bright photos into the site's dark, warm palette */
+.rw-photo{position:relative;border-radius:14px;overflow:hidden}
+.rw-photo img{filter:grayscale(.85) brightness(.72) contrast(1.08)}
+.rw-photo:after{content:"";position:absolute;inset:0;border-radius:14px;background:linear-gradient(135deg,rgba(226,112,63,.55),rgba(23,23,26,.2));mix-blend-mode:color;pointer-events:none}
