@@ -182,3 +182,11 @@ body{background:var(--rw-bg)!important;color:var(--rw-fg);font-family:var(--rw-b
 .rw-callout b{color:var(--rw-fg);margin-right:6px}
 .rw-narrow{max-width:40rem}
 @media (max-width:700px){.rw-kpis{grid-template-columns:1fr 1fr}.rw-kpis div:nth-child(2){border-right:0}.rw-kpis div:nth-child(-n+2){border-bottom:1px solid var(--rw-rule)}.rw-rule{grid-template-columns:minmax(0,1fr) 40px 40px 80px;font-size:.8rem}}
+
+/* doors table v2 */
+.rw-door{grid-template-columns:minmax(0,1fr) 118px 78px 78px!important}
+.rw-door .c{text-align:center}
+.rw-door .d{display:inline-block}
+.rw-dh{font-family:var(--rw-m);font-size:.64rem!important;letter-spacing:.1em;text-transform:uppercase;color:var(--rw-faint);border-bottom:1px solid var(--rw-rule)!important;padding-block:10px!important}
+.rw-dh span:nth-child(3),.rw-dh span:nth-child(4){text-align:center}
+@media (max-width:480px){.rw-door{grid-template-columns:minmax(0,1fr) 92px 52px 52px!important}.rw-door .q{grid-column:auto}}
