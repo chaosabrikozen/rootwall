@@ -205,3 +205,14 @@ body{background:var(--rw-bg)!important;color:var(--rw-fg);font-family:var(--rw-b
 
 .rw-legal{min-height:60vh}
 .rw-legal .rw-h2{font-size:clamp(2rem,4vw,2.8rem)!important}
+
+/* FAQ */
+.rw-faq{max-width:46rem;margin-top:28px;border-top:1px solid var(--rw-rule)}
+.rw-q{border-bottom:1px solid var(--rw-rule);padding:0!important;margin:0!important}
+.rw-q summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;font-family:var(--rw-d);font-weight:600;font-size:1.15rem;color:var(--rw-fg)}
+.rw-q summary::-webkit-details-marker{display:none}
+.rw-q summary:after{content:"+";font-family:var(--rw-m);font-size:1.2rem;color:var(--rw-acc);flex:none;transition:transform .2s}
+.rw-q[open] summary:after{transform:rotate(45deg)}
+.rw-q summary:hover{color:var(--rw-acc)}
+.rw-q p{color:var(--rw-soft);margin:0 0 20px!important;max-width:40rem}
+.rw-faq-cta{margin-top:36px!important}
