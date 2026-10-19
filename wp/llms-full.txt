@@ -1,6 +1,6 @@
 # Rootwall
 
-> Provider conduct, on record. Rules agreed in advance with every provider that connects to your systems, a signed account of how each one keeps them, and a record of every time one is broken.
+> Provider conduct, on record. A membership for the providers that connect to your systems. Rules agreed in advance with every provider that connects to your systems, a signed account of how each one keeps them, and a record of every time one is broken.
 
 Website: https://rootwall.ai
 Contact: info@rootwall.ai
@@ -41,7 +41,7 @@ Defenders cannot keep watching every door alone. The companies that hold the key
 ## Common questions
 
 What is Rootwall?
-Rootwall sets rules in advance with each provider that connects to your systems, and keeps a signed record of how each one keeps them.
+Rootwall is a membership for the providers that connect to your systems: rules agreed in advance, and a signed record of how each one keeps them.
 
 Who counts as a provider?
 Any company you let into your systems: IT support, outsourced operations, software vendors, payroll firms and similar.
