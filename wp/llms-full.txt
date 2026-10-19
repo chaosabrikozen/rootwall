@@ -1,6 +1,6 @@
 # Rootwall
 
-> Provider conduct, on record. A membership for the providers that connect to your systems. Rules agreed in advance with every provider that connects to your systems, a signed account of how each one keeps them, and a record of every time one is broken.
+> Provider conduct, on record. A membership for the providers that connect to your systems: rules agreed in advance, a signed account of how each one keeps them, and a record of every time one is broken.
 
 Website: https://rootwall.ai
 Contact: info@rootwall.ai
