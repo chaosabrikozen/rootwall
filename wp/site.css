@@ -70,7 +70,7 @@ body{background:var(--rw-bg)!important;color:var(--rw-fg);font-family:var(--rw-b
 /* problem */
 .rw-split{gap:56px!important;align-items:center!important}
 .rw-photo img{border-radius:14px;display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--rw-rule)}
-.rw-doors{background:var(--rw-panel);border:1px solid var(--rw-rule);border-radius:12px;padding:8px 22px;margin-top:24px}
+.rw-doors{background:var(--rw-panel);border:1px solid var(--rw-rule);border-radius:12px;padding:8px 22px;margin-top:40px}
 .rw-door{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:14px;padding:12px 0;border-bottom:1px dashed var(--rw-rule);font-size:.92rem}
 .rw-door:last-child{border-bottom:0}
 .rw-door .p{color:var(--rw-soft)}.rw-door .d{font-family:var(--rw-m);font-size:.74rem;padding:4px 10px;border:1px solid var(--rw-rule);border-radius:6px;color:var(--rw-fg)}
@@ -184,9 +184,9 @@ body{background:var(--rw-bg)!important;color:var(--rw-fg);font-family:var(--rw-b
 @media (max-width:700px){.rw-kpis{grid-template-columns:1fr 1fr}.rw-kpis div:nth-child(2){border-right:0}.rw-kpis div:nth-child(-n+2){border-bottom:1px solid var(--rw-rule)}.rw-rule{grid-template-columns:minmax(0,1fr) 40px 40px 80px;font-size:.8rem}}
 
 /* doors table v2 */
-.rw-door{grid-template-columns:minmax(0,1fr) 118px 78px 78px!important}
+.rw-door{grid-template-columns:minmax(0,2fr) minmax(0,1fr) 130px 130px!important}
 .rw-door .c{text-align:center}
 .rw-door .d{display:inline-block}
 .rw-dh{font-family:var(--rw-m);font-size:.64rem!important;letter-spacing:.1em;text-transform:uppercase;color:var(--rw-faint);border-bottom:1px solid var(--rw-rule)!important;padding-block:10px!important}
 .rw-dh span:nth-child(3),.rw-dh span:nth-child(4){text-align:center}
-@media (max-width:480px){.rw-door{grid-template-columns:minmax(0,1fr) 92px 52px 52px!important}.rw-door .q{grid-column:auto}}
+@media (max-width:600px){.rw-door{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) 56px 56px!important;gap:8px!important}.rw-dh{font-size:.56rem!important;letter-spacing:.04em}}
