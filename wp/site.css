@@ -5,7 +5,9 @@ body{background:var(--rw-bg)!important;color:var(--rw-fg);font-family:var(--rw-b
 .rw,.rw *{box-sizing:border-box}
 .rw{margin:0!important;max-width:none!important}
 .rw a{color:var(--rw-acc);text-underline-offset:3px}
-.rw h1,.rw h2,.rw h3{font-family:var(--rw-d);color:var(--rw-fg);text-wrap:balance;margin:0}
+.rw h1,.rw h2,.rw h3,.rw h4{text-transform:none!important;font-family:var(--rw-d)!important;color:var(--rw-fg);text-wrap:balance;margin:0}
+.rw p,.rw li,.rw td,.rw a{font-family:inherit}
+.rw{font-family:var(--rw-b)}
 .rw p{margin:0 0 1em;text-wrap:pretty}
 .rw-wrap{max-width:1160px;margin:0 auto!important;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
 .rw-eyebrow{font-family:var(--rw-m);font-size:.74rem!important;letter-spacing:.14em;text-transform:uppercase;color:var(--rw-acc);margin:0 0 12px!important}
@@ -20,12 +22,12 @@ body{background:var(--rw-bg)!important;color:var(--rw-fg);font-family:var(--rw-b
 .rw-brand svg{width:28px;height:28px;flex:none}
 .rw-brand span{font-family:var(--rw-d);font-weight:700;letter-spacing:.16em;font-size:1rem}
 .rw-nav{display:flex;align-items:center;gap:26px}
-.rw-nav a{color:var(--rw-soft)!important;text-decoration:none;font-size:.92rem}
+.rw-nav a{text-transform:none!important;font-family:var(--rw-b)!important;color:var(--rw-soft)!important;text-decoration:none;font-size:.92rem}
 .rw-nav a:hover{color:var(--rw-fg)!important}
 .rw-nav a.rw-pill{background:var(--rw-acc);color:#17171a!important;padding:8px 16px;border-radius:999px;font-weight:600}
 /* buttons */
 .rw .wp-block-buttons{gap:12px}
-.rw .wp-block-button__link{border-radius:999px!important;padding:12px 22px!important;font-family:var(--rw-b);font-weight:600;font-size:.98rem;text-decoration:none;border:1px solid transparent}
+.rw .wp-block-button__link{text-transform:none!important;letter-spacing:0!important;border-radius:999px!important;padding:12px 22px!important;font-family:var(--rw-b);font-weight:600;font-size:.98rem;text-decoration:none;border:1px solid transparent}
 .rw-btn-primary .wp-block-button__link{background:var(--rw-acc)!important;color:#17171a!important}
 .rw-btn-ghost .wp-block-button__link{background:transparent!important;color:var(--rw-fg)!important;border-color:var(--rw-rule)!important}
 .rw-btn-ghost .wp-block-button__link:hover{border-color:var(--rw-faint)!important}
